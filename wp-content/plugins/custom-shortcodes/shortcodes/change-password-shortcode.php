@@ -57,7 +57,7 @@ function custom_change_password_form_shortcode() {
             </div>
 
             <div class="elementor-field-type-submit elementor-field-group">
-                <button type="submit" name="submit_password_change" class="elementor-button elementor-size-sm">
+                <button type="submit" name="submit_password_change" class="elementor-button-custom elementor-size-sm">
                     <span class="elementor-button-content-wrapper">
                         <span class="elementor-button-text">Zapisz</span>
                     </span>

@@ -1,0 +1,36 @@
+.elementor-form {
+    max-width: 100% !important;
+}
+.elementor-field-group {
+    width: 100%;
+}
+.elementor-field-label {
+    font-family: "Roboto", Sans-serif;
+    padding-bottom: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #00131B;
+}
+.elementor-button {
+    color: #ffffff;
+    background-color: #00354A;
+        font-family: "Roboto", Sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 25px 25px 25px 25px;
+    width: 25%;
+    margin-top: 10px;
+}
+.elementor-button:hover {
+    background-color: #00354A;
+}
+.elementor-element .elementor-field-group .elementor-field:not(.elementor-select-wrapper) {
+    background-color: #ffffff;
+    border-color: #9CAFB7;
+    border-radius: 5px 5px 5px 5px;
+}
+.elementor-field-group {
+    padding-right: calc(10px / 2);
+    padding-left: calc(10px / 2);
+    margin-bottom: 10px;
+}

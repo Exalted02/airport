@@ -1,0 +1,293 @@
+/* ---------- Header login logout button ---------- */
+body {
+	/* font-family: "Poppins", Sans-serif !important; */
+	font-family: 'Open Sans', Sans-serif !important;
+}
+p label {
+	margin-bottom: 7px;
+}
+.nsl-button-label-container {
+	font-family: 'Open Sans', Sans-serif !important;
+}
+.top-login-btn, .top-logout-btn {
+    background-color: #429FE1;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: 0.3s;
+    border-radius: 25px;
+	text-transform: uppercase;
+}
+.top-logout-btn:hover {
+    color: #fff;
+}
+.top-login-btn:hover {
+    color: #fff;
+}
+
+/* ---------- Footer link ---------- */
+.elementor-icon-list-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.elementor-icon-list-item {
+    margin-bottom: 6px;
+}
+.elementor-icon-list-item a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+	font-size: 16px;
+}
+.elementor-icon-list-item a:hover {
+    color: #1e73be;
+}
+.elementor-icon-list-items .elementor-icon-list-item:not(:first-child) {
+    margin-block-start: calc(5px / 2);
+}
+.elementor-icon-list-items .elementor-icon-list-item:not(:last-child) {
+    padding-block-end: calc(5px / 2);
+}
+
+/* ---------- Submenu container (no UL dependency) ---------- */
+.my-sidebar-menu .jet-custom-nav__sub {
+    display: block !important;
+    position: initial !important;
+    opacity: 1 !important;
+    min-width: auto !important;
+    box-shadow: none !important;
+}
+body[data-elementor-device-mode=mobile] .my-sidebar-menu  .jet-custom-nav__sub {
+    height: auto !important;
+}
+
+/* ---------- Default / base styles (prevents FOUC) ---------- */
+/* Default look for links inside menu items (submenu + fallback) */
+.my-sidebar-menu .jet-custom-nav__sub .jet-custom-nav__item > a,
+.my-sidebar-menu .jet-custom-nav__sub .jet-custom-nav__item > .jet-custom-nav__item-link,
+.jet-custom-nav__item > a,
+.my-sidebar-menu .jet-custom-nav__item > .jet-custom-nav__item-link {
+    background-color: #E8EEF1 !important;
+    color: #00131B !important;
+    border-bottom: 2px solid #dbe3eb;
+    transition: none !important; /* avoid flicker animations */
+    visibility: visible !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+/* If you want parent (top-level) disabled and only submenu clickable */
+.my-sidebar-menu .jet-custom-nav__item > a {
+    pointer-events: none !important;
+}
+.my-sidebar-menu .jet-custom-nav__sub .jet-custom-nav__item > a {
+    pointer-events: auto !important;
+    border-bottom: 0 !important;
+    padding: 7px 15px;
+    margin-top:5px;
+}
+
+/* ---------- Typography ---------- */
+.my-sidebar-menu .jet-custom-item-label {
+    font-weight: bold !important;
+    color: #00131B !important;
+    font-size: 18px !important;
+}
+.my-sidebar-menu .jet-custom-nav__sub .jet-custom-item-label {
+    color: #00131B !important;
+    font-size: 16px !important;
+    font-weight: normal !important;
+}
+
+/* Hide dropdown arrow if required */
+.my-sidebar-menu .jet-dropdown-arrow { display: none !important; }
+
+/* ---------- Hover & Active / Current states (covers many variants) ---------- */
+/* Hover or active when class is on the LI */
+.my-sidebar-menu .jet-custom-nav__sub .jet-custom-nav__item.current_page_item > .jet-custom-nav__item-link,
+.my-sidebar-menu .jet-custom-nav__sub .jet-custom-nav__item.current-menu-item > .jet-custom-nav__item-link,
+.my-sidebar-menu .jet-custom-nav__sub .jet-custom-nav__item.current_page_parent > .jet-custom-nav__item-link,
+.my-sidebar-menu .jet-custom-nav__sub .jet-custom-nav__item.current_page_ancestor > .jet-custom-nav__item-link,
+.my-sidebar-menu .jet-custom-nav__sub .jet-custom-nav__item.current-menu-ancestor > .jet-custom-nav__item-link,
+.my-sidebar-menu .jet-custom-nav__sub .jet-custom-nav__item > .jet-custom-nav__item-link:hover,
+.my-sidebar-menu .jet-custom-nav__sub .jet-custom-nav__item > a:hover {
+    background: #00354A !important;
+    border-radius: 20px !important;
+    color: #fff !important;
+    transition: none !important;
+}
+
+/* If the 'current' class is applied to the anchor itself */
+.my-sidebar-menu .jet-custom-nav__sub .jet-custom-nav__item > .jet-custom-nav__item-link.current,
+.my-sidebar-menu .jet-custom-nav__sub .jet-custom-nav__item > .jet-custom-nav__item-link.active {
+    background: #00354A !important;
+    color: #fff !important;
+}
+
+/* Make the label text white on hover/active */
+.my-sidebar-menu .jet-custom-nav__sub .jet-custom-nav__item.current_page_item .jet-custom-item-label,
+.my-sidebar-menu .jet-custom-nav__sub .jet-custom-nav__item.current-menu-item .jet-custom-item-label,
+.my-sidebar-menu .jet-custom-nav__sub .jet-custom-nav__item > .jet-custom-nav__item-link:hover .jet-custom-item-label,
+.my-sidebar-menu .jet-custom-nav__sub .jet-custom-nav__item > .jet-custom-nav__item-link.current .jet-custom-item-label,
+.my-sidebar-menu .jet-custom-nav__sub .jet-custom-nav__item > a:hover .jet-custom-item-label {
+    color: #fff !important;
+}
+
+/* Checkout container */
+.pms-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.08);
+}
+
+/* Form labels */
+.pms-form label {
+  display: block;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 5px;
+}
+
+/* Inputs and select boxes */
+.pms-form input[type="text"],
+.pms-form input[type="email"],
+.pms-form input[type="password"],
+.pms-form select {
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+/* Buy / Submit button */
+.pms-submit {
+  background-color: #0f67ff;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s ease;
+}
+.pms-submit:hover {
+  background-color: #084dcc;
+}
+
+/* Success & error messages */
+.pms-message {
+  background-color: #e8f6ea;
+  border-left: 4px solid #22c55e;
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* Group spacing */
+.pms-subscription-plan {
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 1px solid #e5e7eb;
+}
+
+/* For form */
+.elementor-form {
+    max-width: 100% !important;
+}
+.elementor-field-group {
+    width: 100%;
+    margin-bottom: 10px;
+    padding-right: calc(10px / 2);
+    padding-left: calc(10px / 2);
+}
+.elementor-field-label {
+    padding-bottom: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #00131B;
+}
+.elementor-select {
+    background-color: #ffffff;
+    border-color: #9CAFB7;
+    border-radius: 5px 5px 5px 5px;
+    min-height: 33px;
+    padding: 4px 12px;
+}
+.elementor-button-custom {
+    color: #ffffff !important;
+    background-color: #00354A !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+	border: 1px solid #00354A !important;
+    border-radius: 25px 25px 25px 25px !important;
+    width: 25% !important;
+    margin-top: 10px;
+}
+.elementor-button:hover {
+    background-color: #00354A;
+}
+.elementor-element .elementor-field-group .elementor-field:not(.elementor-select-wrapper) {
+    background-color: #ffffff;
+    border-color: #9CAFB7;
+    border-radius: 5px 5px 5px 5px;
+}
+
+/* For Login/Register form */
+.elementor-login-register-button {
+    color: #ffffff !important;
+    background-color: #429FE1 !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+	border: 1px solid #429FE1 !important;
+    border-radius: 25px 25px 25px 25px !important;
+    width: 100% !important;
+    margin-top: 10px;
+}
+.nsl-container-buttons {
+	width: 100%;
+}
+div.nsl-container .nsl-button-default div.nsl-button-label-container {
+	margin: 0 !important;
+}
+
+/* Reset password page */
+#password-lost-form-wrap fieldset {
+	border: 0;
+	padding: 0;
+}
+#password-lost-form-wrap legend {
+	display: none;
+}
+#password-lost-form-wrap input {
+	width: 100%;
+}
+#password-lost-form-wrap form label {
+	margin-bottom: 7px;
+}
+#password-lost-form-wrap .somfrp-password-wrapper {
+	width: 100%;
+}
+#password-lost-form-wrap .lostpassword-submit button {
+	color: #ffffff !important;
+    background-color: #429FE1 !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    border: 1px solid #429FE1 !important;
+    border-radius: 25px 25px 25px 25px !important;
+    width: 100% !important;
+    margin-top: 10px;
+}
+#password-lost-form-wrap .som-password-sent-message {
+    margin-bottom: 25px;
+}

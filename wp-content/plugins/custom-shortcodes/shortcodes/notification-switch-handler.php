@@ -23,6 +23,7 @@ function notification_switch_handler_shortcode() {
     return '';
 }
 add_shortcode('notification_switch_handler', 'notification_switch_handler_shortcode');
+
 // ----------------------------------------------------
 // AJAX: Save notification settings (email/newsletter)
 // ----------------------------------------------------
@@ -74,8 +75,7 @@ function custom_notification_switch_print_script() {
         var notifData = <?php echo $data_json; ?>;
 
         function setSwitcherState($switch, val) {
-			console.log($switch);
-			// alert(val);
+			// console.log($switch);
             if (!$switch.length) return;
             if (val === 'yes') {
                 $switch.removeClass('jet-switcher--disable').addClass('jet-switcher--enable');
@@ -85,7 +85,7 @@ function custom_notification_switch_print_script() {
         }
 
         function applySavedStates() {
-            console.log('[ns-live] Applying saved states…');
+            // console.log('[ns-live] Applying saved states…');
             setSwitcherState($('#email_notifications_switch .jet-switcher'), notifData.email_notifications_switch);
             setSwitcherState($('#newsletter_switch .jet-switcher'), notifData.newsletter_switch);
         }
@@ -94,7 +94,7 @@ function custom_notification_switch_print_script() {
         const observer = new MutationObserver(() => {
             if ($('#email_notifications_switch .jet-switcher').length &&
                 $('#newsletter_switch .jet-switcher').length) {
-                console.log('[ns-live] Switchers found, applying states');
+                // console.log('[ns-live] Switchers found, applying states');
                 applySavedStates();
                 observer.disconnect();
             }
@@ -112,7 +112,7 @@ function custom_notification_switch_print_script() {
 			var id = $switcher.attr('id');
 			var newVal = $jet_switcher.hasClass('jet-switcher--enable') ? 'yes' : 'no';
 
-			console.log('[ns-live] Toggle →', id, newVal);
+			// console.log('[ns-live] Toggle →', id, newVal);
 			// setSwitcherState($jet_switcher, newVal);
 
 			var field = id === 'email_notifications_switch' ? 'email_notifications' :
@@ -127,7 +127,7 @@ function custom_notification_switch_print_script() {
 			}, function(res) {
 				if (res && res.success) {
 					showSavedToast();
-					console.log('[ns-live] Saved ✓');
+					// console.log('[ns-live] Saved ✓');
 				} else {
 					console.warn('[ns-live] Save failed:', res);
 				}
@@ -137,7 +137,7 @@ function custom_notification_switch_print_script() {
         // Small green "Saved ✓" toast
         function showSavedToast() {
             var $toast = $('<div>')
-                .text('Saved ✓')
+                .text('Zapisano ✓')
                 .css({
                     position: 'fixed',
                     bottom: '30px',

@@ -6,6 +6,7 @@ function custom_account_form_shortcode() {
     // Get current user info
     $user_id = get_current_user_id();
     $user_info = get_userdata( $user_id );
+	// echo '<pre>';print_r(get_user_meta(35));exit;
 	// echo '<pre>';print_r(get_user_meta($user_id));exit;
     $first_name = get_user_meta($user_id, 'first_name', true);
     $last_name = get_user_meta($user_id, 'last_name', true);
@@ -19,7 +20,7 @@ function custom_account_form_shortcode() {
     // Success message after redirect
     if ( isset($_GET['updated']) && $_GET['updated'] === 'true' ) {
         echo '<div style="color: green;">
-                Account updated successfully.
+                Konto zostało pomyślnie zaktualizowane.
               </div>';
 			 
 		// Redirect to same page without 'updated' param to prevent repeat
@@ -39,7 +40,7 @@ function custom_account_form_shortcode() {
 				<input size="1" type="text" name="last_name" class="elementor-field elementor-size-xs elementor-field-textual" value="<?php echo esc_attr( $last_name ); ?>">
 			</div>
 			<div class="elementor-field-type-submit elementor-field-group">
-                <button type="submit" name="submit_account" class="elementor-button elementor-size-sm">
+                <button type="submit" name="submit_account" class="elementor-button-custom elementor-size-sm">
                     <span class="elementor-button-content-wrapper">
                         <span class="elementor-button-text">Zapisz</span>
                     </span>

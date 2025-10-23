@@ -8,20 +8,43 @@ function custom_user_login_form() {
         return;
     }
 
-    ob_start(); ?>
+    ob_start(); 
+	
+	// Display error messages based on query param
+    if ( isset($_GET['login_error']) ) {
+        if ( $_GET['login_error'] === 'invalid' ) {
+            echo '<p style="color:red">Nieprawidłowy adres e-mail lub hasło.</p>';
+        } elseif ( $_GET['login_error'] === 'no_role' ) {
+            echo '<p style="color:red">Nie masz uprawnień, aby się tutaj zalogować.</p>';
+        }
+
+        // Remove the query param to prevent repeat on refresh
+        $url = remove_query_arg('login_error');
+        echo '<script>history.replaceState(null, null, "'.$url.'");</script>';
+    }
+	
+	?>
     <form method="post" action="">
         <p>
-            <label>Email</label><br>
+            <label>Adres e-mail*</label><br>
             <input type="email" name="login_email" required>
         </p>
 
         <p>
-            <label>Password</label><br>
+            <label>Hasło*</label><br>
             <input type="password" name="login_password" required>
         </p>
-
+		
+		<p>
+            <a href="<?php echo esc_url(home_url('/reset-password')); ?>">Zapomniałeś hasła?</a>
+        </p>
+		
         <p>
-            <input type="submit" name="custom_login_submit" value="Login">
+            <input type="submit" name="custom_login_submit" value="Zaloguj się" class="elementor-login-register-button">
+        </p>
+		
+		<p>
+            Nie masz konta?<a href="<?php echo esc_url(home_url('/register')); ?>"> Rejestracja</a>
         </p>
 		
     </form>
@@ -51,10 +74,20 @@ function handle_custom_user_login() {
                 wp_redirect(home_url('/subskrypcje')); 
                 exit;
             } else {
-                echo "<p style='color:red'>You are not allowed to login here.</p>";
+				// User exists but has wrong role
+                $redirect_url = wp_get_referer() ? wp_get_referer() : home_url('login/');
+                $redirect_url = remove_query_arg(['login_error'], $redirect_url);
+                $redirect_url = add_query_arg('login_error', 'no_role', $redirect_url);
+                wp_safe_redirect($redirect_url);
+                exit;
             }
         } else {
-            echo "<p style='color:red'>Invalid email or password.</p>";
+			// Wrong email or password
+            $redirect_url = wp_get_referer() ? wp_get_referer() : home_url('login/');
+            $redirect_url = remove_query_arg(['login_error'], $redirect_url);
+            $redirect_url = add_query_arg('login_error', 'invalid', $redirect_url);
+            wp_safe_redirect($redirect_url);
+            exit;
         }
     }
 }
