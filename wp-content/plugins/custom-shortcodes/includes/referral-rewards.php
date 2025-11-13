@@ -137,7 +137,7 @@ add_shortcode('referral_rewards', function() {
     ob_start(); ?>
     <div class="referral-rewards" style="background:#f9f9f9;padding:20px;border-radius:10px;">
         <h3>Twoje nagrody za polecenia</h3>
-        <p>Obecnie masz <strong id="pendingCounter"><?php echo $pending; ?></strong> oczekująca nagroda.</p>
+        <p>Twoje udane polecenia: <strong id="pendingCounter"><?php echo $pending; ?></strong></p>
 
         <?php if ($pending > 0): ?>
             <form id="referralRewardForm">

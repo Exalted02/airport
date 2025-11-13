@@ -222,7 +222,7 @@ function custom_flight_deal_details_shortcode() {
                         <span class="unlock-badge">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                 <path d="M12 17a2 2 0 0 0 2-2v-1H10v1a2 2 0 0 0 2 2zm6-6V9a6 6 0 0 0-12 0h2a4 4 0 0 1 8 0v2H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2z"/>
-                            </svg> PREMIA
+                            </svg> PREMIUM
                         </span>
                     <?php endif; ?>
                 </div>

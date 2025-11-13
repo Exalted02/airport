@@ -3,11 +3,9 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Dynamic login/logout button shortcode
-function custom_login_logout_shortcode() {
+/*function custom_login_logout_shortcode() {
     if ( is_user_logged_in() ) {
         // Logout link
-        /*$logout_url = wp_logout_url( home_url( '/login' ) ); // Redirect to /login after logout
-        return '<a href="' . esc_url( $logout_url ) . '" class="top-logout-btn">Wyloguj się</a>';*/
         $myaccount_url = home_url( '/konto' );
         return '<a href="' . esc_url( $myaccount_url ) . '" class="top-login-btn">Moje konto</a>';
     } else {
@@ -16,7 +14,32 @@ function custom_login_logout_shortcode() {
         return '<a href="' . esc_url( $login_url ) . '" class="top-login-btn">Zaloguj się</a>';
     }
 }
+add_shortcode( 'custom_login_logout', 'custom_login_logout_shortcode' );*/
+function custom_login_logout_shortcode() {
+    if ( is_user_logged_in() ) {
+        $myaccount_url = home_url( '/konto' );
+        return '
+        <a href="' . esc_url( $myaccount_url ) . '" class="top-login-btn">
+            <span class="login-icon"><i class="dashicons dashicons-admin-users"></i></span>
+            <span class="login-text">Moje konto</span>
+        </a>';
+    } else {
+        $login_url = home_url( '/login' );
+        return '
+        <a href="' . esc_url( $login_url ) . '" class="top-login-btn">
+            <span class="login-icon"><i class="dashicons dashicons-lock"></i></span>
+            <span class="login-text">Zaloguj się</span>
+        </a>';
+    }
+}
 add_shortcode( 'custom_login_logout', 'custom_login_logout_shortcode' );
+
+// Make sure dashicons load on the frontend
+add_action( 'wp_enqueue_scripts', function() {
+    wp_enqueue_style( 'dashicons' );
+});
+
+
 
 // Footer Shortcode: [custom_account_links]
 function custom_account_links_shortcode() {

@@ -25,6 +25,10 @@ p label {
 .top-login-btn:hover {
     color: #fff;
 }
+.login-icon i {
+    font-size: 18px;
+    vertical-align: middle;
+}
 
 /* ---------- Footer link ---------- */
 .elementor-icon-list-items {
@@ -34,6 +38,7 @@ p label {
 }
 .elementor-icon-list-item {
     margin-bottom: 6px;
+	font-family: "Poppins", Sans-serif;
 }
 .elementor-icon-list-item a {
     color: #fff;
@@ -46,9 +51,11 @@ p label {
 }
 .elementor-icon-list-items .elementor-icon-list-item:not(:first-child) {
     margin-block-start: calc(5px / 2);
+    padding-block-end: calc(5px / 2);
 }
 .elementor-icon-list-items .elementor-icon-list-item:not(:last-child) {
     padding-block-end: calc(5px / 2);
+	margin-block-start: calc(5px / 2);
 }
 
 /* ---------- Submenu container (no UL dependency) ---------- */
@@ -290,4 +297,23 @@ div.nsl-container .nsl-button-default div.nsl-button-label-container {
 }
 #password-lost-form-wrap .som-password-sent-message {
     margin-bottom: 25px;
+}
+
+@media (min-width: 1025px) {
+    .login-icon {
+        display: none;
+    }
+}
+
+/* Tablet & Mobile: show icon, hide text */
+@media (max-width: 1024px) {
+    .login-text {
+        display: none;
+    }
+	.top-login-btn, .top-logout-btn {
+		padding: 3px 12px;
+	}
+	header .e-con-inner {
+		gap: 0px !important;
+	}
 }

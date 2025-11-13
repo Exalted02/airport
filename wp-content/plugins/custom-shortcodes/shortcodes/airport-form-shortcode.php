@@ -63,7 +63,7 @@ function custom_airport_form_shortcode() {
             <div class="elementor-field-type-submit elementor-field-group">
                 <button type="submit" name="submit_airport" class="elementor-button-custom elementor-size-sm">
                     <span class="elementor-button-content-wrapper">
-                        <span class="elementor-button-text">Dodaj</span>
+                        <span class="elementor-button-text">Aktualizuj</span>
                     </span>
                 </button>
             </div>

@@ -146,7 +146,7 @@ function restrict_pages_for_front_user_role() {
             'konto',
             'flight-deals',
             'deal-details',
-            'pricing',
+            // 'pricing',
             'checkout',
         );
 
@@ -193,3 +193,58 @@ add_filter('locale', function($locale) {
         return 'pl_PL'; // Force frontend to Polish
     }
 });
+
+add_filter('wp_nav_menu_objects', function ($items, $args) {
+	if ($args->menu === 'menu-desktop') {
+	   foreach ($items as $key => $item) {
+			// Find "Strona główna"
+			if ($item->title === 'Strona główna') {
+
+				// If the user is logged in, replace it with "Oferty lotów"
+				if (is_user_logged_in()) {
+					$item->title = 'Oferty lotów';
+					$item->url   = site_url('/flight-deals/');
+
+					// Make it active if on /flight-deals/ page
+					if (is_page('flight-deals') || strpos($_SERVER['REQUEST_URI'], '/flight-deals') !== false) {
+						$item->classes[] = 'current-menu-item';
+					}
+				}
+
+				break; // Stop after modifying the first match
+			}
+		}
+	}
+	if ($args->menu != 'menu-desktop') {
+		// Handle submenu for "Konto"
+		if (is_user_logged_in()) {
+			$konto_id = null;
+
+			// Find the "Konto" menu item
+			foreach ($items as $item) {
+				if ($item->title === 'Konto') {
+					$konto_id = $item->ID;
+					break;
+				}
+			}
+
+			// If Konto menu exists, add Wyloguj się under it
+			if ($konto_id) {
+				$logout_item = (object) [
+					'ID' => 999999,
+					'title' => 'Wyloguj się',
+					'url' => wp_logout_url(home_url( '/login' )),
+					'menu_item_parent' => $konto_id,
+					'classes' => ['menu-item', 'logout-link'],
+					'type' => '',
+					'object' => '',
+					'object_id' => '',
+				];
+
+				$items[] = $logout_item;
+			}
+		}
+	}
+	
+	return $items;
+}, 10, 2);

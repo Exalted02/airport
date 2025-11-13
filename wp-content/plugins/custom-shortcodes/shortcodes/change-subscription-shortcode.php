@@ -61,7 +61,6 @@ function change_subscription_status_shortcode() {
 	.plan-status {
 		font-size: 24px;
 		font-weight: 700;
-		margin-left: 10px;
 	}
 	.subscription-text a {
 		display: inline-block;
@@ -92,7 +91,7 @@ function change_subscription_status_shortcode() {
             <div class="subscription-status">
                 <h3>Uaktualnij swój plan:</h3>
                 <p class="d-flex">
-                    <strong class="plan-status">Bezpłatny</strong>
+                    <strong class="plan-status">Free</strong>
                 </p>
             </div>
             <div class="subscription-text">

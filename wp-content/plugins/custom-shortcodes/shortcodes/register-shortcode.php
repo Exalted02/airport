@@ -46,7 +46,7 @@ function custom_user_register_form() {
         </p>
 
         <p>
-            <label>
+            <label style="line-height: 1.5">
                 <input type="checkbox" name="terms" required>
                 Rejestrując się, akceptuję Regulamin oraz Politykę prywatności serwisu.
             </label>

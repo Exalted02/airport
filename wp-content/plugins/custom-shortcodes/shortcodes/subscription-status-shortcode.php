@@ -32,12 +32,14 @@ function my_subscription_status_shortcode() {
 		color: #00131B;
 	}
 	.subscription-status {
-		width: 31%;
+		width: 57.638%;
 		padding:10px;
 	}
 	.subscription-text {
-		width: 69%;
-		padding:10px;
+		width: 62.223%;
+		padding: 10px;
+		align-self: center;
+		text-align: end;
 	}
 	.subscription-status-card h3 {
 		font-size: 16px;
@@ -59,11 +61,9 @@ function my_subscription_status_shortcode() {
 	.plan-status {
 		font-size: 24px;
 		font-weight: 700;
-		margin-left: 10px;
 	}
 	.subscription-text a {
 		display: inline-block;
-		margin-top: 15px;
 		background-color: #429FE1;
 		font-family: "Roboto", Sans-serif;
 		font-size: 18px;
@@ -91,7 +91,7 @@ function my_subscription_status_shortcode() {
             <div class="subscription-status">
                 <h3>Aktualna subskrypcja:</h3>
                 <p class="d-flex">
-                    <strong class="plan-status">Bezpłatny</strong>
+                    <strong class="plan-status">Free</strong>
                 </p>
             </div>
             <div class="subscription-text">
