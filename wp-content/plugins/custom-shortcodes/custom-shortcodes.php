@@ -26,6 +26,7 @@ require_once plugin_dir_path(__FILE__) . 'shortcodes/account-form-shortcode.php'
 require_once plugin_dir_path(__FILE__) . 'shortcodes/change-password-shortcode.php';
 require_once plugin_dir_path(__FILE__) . 'shortcodes/notification-switch-handler.php';
 require_once plugin_dir_path(__FILE__) . 'shortcodes/flight-deals-shortcode.php';
+require_once plugin_dir_path(__FILE__) . 'shortcodes/home-flight-deals-shortcode.php';
 require_once plugin_dir_path(__FILE__) . 'shortcodes/flight-deal-details-shortcode.php';
 require_once plugin_dir_path(__FILE__) . 'shortcodes/referral-page-shortcode.php';
 require_once plugin_dir_path(__FILE__) . 'shortcodes/subscription-status-shortcode.php';

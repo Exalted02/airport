@@ -39,6 +39,7 @@ if (isset($_POST['add_flight_deal'])) {
         'start_date'   => sanitize_text_field($_POST['start_date']),
         'end_date'     => sanitize_text_field($_POST['end_date']),
         'airport_id'   => intval($_POST['airport_id']),
+		'showing_home_page' => isset($_POST['showing_home_page']) ? 1 : 0,
         'status'       => 1
     ]);
     echo '<div class="notice notice-success"><p>Flight deal added.</p></div>';
@@ -57,6 +58,7 @@ if (isset($_POST['update_flight_deal'])) {
         'start_date'   => sanitize_text_field($_POST['start_date']),
         'end_date'     => sanitize_text_field($_POST['end_date']),
         'airport_id'   => intval($_POST['airport_id']),
+		'showing_home_page' => isset($_POST['showing_home_page']) ? 1 : 0,
     ];
 
     if ($image_url) {
@@ -177,6 +179,16 @@ $deals = $wpdb->get_results("
                 <th scope="row"><label for="end_date">End Date</label></th>
                 <td><input type="date" name="end_date" id="end_date" value="<?= esc_attr($edit->end_date ?? '') ?>" class="regular-text" /></td>
             </tr>
+			<tr>
+				<th scope="row"><label for="showing_home_page">Show on Home Page?</label></th>
+				<td>
+					<label>
+						<input type="checkbox" name="showing_home_page" id="showing_home_page"
+							value="1" <?= isset($edit) && $edit->showing_home_page == 1 ? 'checked' : '' ?>>
+						Yes, show this deal on home page
+					</label>
+				</td>
+			</tr>
         </table>
 
         <p class="submit">
@@ -201,6 +213,7 @@ $deals = $wpdb->get_results("
                 <th>Start</th>
                 <th>End</th>
                 <th>Status</th>
+				<th>Home</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -216,6 +229,7 @@ $deals = $wpdb->get_results("
                 <td><?= esc_html($deal->start_date) ?></td>
                 <td><?= esc_html($deal->end_date) ?></td>
                 <td><?= $deal->status ? 'Active' : 'Archived' ?></td>
+				<td><?= $deal->showing_home_page ? 'Yes' : 'No' ?></td>
                 <td>
                     <a href="?page=flight-deals&edit=<?= $deal->id ?>">Edit</a> | 
                     <a href="?page=flight-deals&delete=<?= $deal->id ?>" onclick="return confirm('Delete this deal?')">Delete</a> | 

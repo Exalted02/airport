@@ -36,6 +36,7 @@ function all_create_tables() {
         end_date date NULL,
         airport_id mediumint(9) NOT NULL,
 		status tinyint(1) NOT NULL DEFAULT 1 COMMENT '1 = Active, 0 = Archived',
+		showing_home_page tinyint(1) NOT NULL DEFAULT 0 COMMENT '0 = Hide, 1 = Show on home page',
 		created_at datetime DEFAULT CURRENT_TIMESTAMP,
 		updated_at datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 		PRIMARY KEY (id)
@@ -54,6 +55,9 @@ add_action('admin_menu', function() {
 	add_submenu_page('jet-saver-club', 'Airports', 'Airports', 'manage_options', 'airports', 'airport_admin_render_airports_page');
 	
 	add_submenu_page('jet-saver-club', 'Flight Deals', 'Flight Deals', 'manage_options', 'flight-deals', 'flight_deals_admin_render_page');
+	
+	add_submenu_page('jet-saver-club', 'Export Data', 'Export Data', 'manage_options', 'export-data', 'custom_export_data_page');
+
 });
 
 // Include external page
@@ -62,6 +66,9 @@ function airport_admin_render_airports_page() {
 }
 function flight_deals_admin_render_page() {
     include plugin_dir_path(__FILE__) . 'admin-flight-deals-page.php';
+}
+function custom_export_data_page() {
+    include plugin_dir_path(__FILE__) . 'admin-export-page.php';
 }
 
 // DB add/edit function
@@ -79,3 +86,187 @@ function wp_add_flight_deals_tables() {
         update_option('wp_flight_deals_tables_created', true);
     }
 }
+/*add_action('admin_init', function() {
+    global $wpdb;
+    $table = $wpdb->prefix . 'flight_deals';
+
+    // Add column only if not exists
+    $exists = $wpdb->get_results("SHOW COLUMNS FROM $table LIKE 'showing_home_page'");
+    if (empty($exists)) {
+        $wpdb->query("ALTER TABLE $table ADD COLUMN showing_home_page tinyint(1) NOT NULL DEFAULT 0 COMMENT '0 = Hide, 1 = Show on home page'");
+    }
+});*/
+/**
+ * ==============================
+ * CSV EXPORT HANDLERS
+ * ==============================
+ */
+
+/**
+ * Export WordPress Users CSV
+ */
+add_action('admin_post_export_users_csv', function () {
+    if (!current_user_can('manage_options')) wp_die('Permission denied');
+
+    $users = get_users([
+        'role' => 'front_user',
+        'orderby' => 'ID',
+        'order' => 'ASC'
+    ]);
+
+    header("Content-Type: text/csv; charset=utf-8");
+    header("Content-Disposition: attachment; filename=users-" . date('Y-m-d') . ".csv");
+
+    $output = fopen('php://output', 'w');
+
+    fputcsv($output, ['ID', 'Email', 'Name', 'First Name', 'Last Name', 'Subscription', 'Registered']);
+
+    foreach ($users as $u) {
+		// ✔ Get PMS subscriptions
+		$subscriptions = pms_get_member_subscriptions( array( 'user_id' => $u->ID ) );
+		// ✔ Determine free/premium
+        $user_type = 'free';
+        if (!empty($subscriptions)) {
+            foreach ($subscriptions as $sub) {
+                if ($sub->status === 'active') {
+                    $user_type = 'premium';
+                    break;
+                }
+            }
+        }
+		
+        fputcsv($output, [
+            $u->ID,
+            $u->user_email,
+            $u->display_name,
+            get_user_meta($u->ID, 'first_name', true),
+            get_user_meta($u->ID, 'last_name', true),
+            //implode(',', $u->roles),
+			$user_type,
+            $u->user_registered,
+            //get_user_meta($u->ID, 'newsletter_subscription', true) ?: 'no'
+        ]);
+    }
+
+    fclose($output);
+    exit;
+});
+
+/**
+ * Export PMS Subscription CSV
+ */
+add_action('admin_post_export_pms_csv', function () {
+    if (!current_user_can('manage_options')) wp_die('Permission denied');
+
+    global $wpdb;
+
+    $table = $wpdb->prefix . 'pms_subscriptions';
+
+    header("Content-Type: text/csv; charset=utf-8");
+    header("Content-Disposition: attachment; filename=pms-" . date('Y-m-d') . ".csv");
+
+    $output = fopen('php://output', 'w');
+
+    if ($wpdb->get_var("SHOW TABLES LIKE '{$table}'") !== $table) {
+        fputcsv($output, ['Table missing']);
+        exit;
+    }
+
+    $rows = $wpdb->get_results("SELECT * FROM $table", ARRAY_A);
+
+    if (!empty($rows)) {
+        fputcsv($output, array_keys($rows[0]));
+        foreach ($rows as $row) {
+            fputcsv($output, $row);
+        }
+    }
+
+    fclose($output);
+    exit;
+});
+
+/**
+ * Export Flight Deals CSV
+ */
+add_action('admin_post_export_flight_deals_csv', function () {
+    if (!current_user_can('manage_options')) wp_die('Permission denied');
+
+    global $wpdb;
+
+    $table_deals   = $wpdb->prefix . 'flight_deals';
+    $table_airport = $wpdb->prefix . 'airport_list';
+
+    header("Content-Type: text/csv; charset=utf-8");
+    header("Content-Disposition: attachment; filename=flight-deals-" . date('Y-m-d') . ".csv");
+
+    $output = fopen('php://output', 'w');
+
+    // Check table
+    if ($wpdb->get_var("SHOW TABLES LIKE '{$table_deals}'") !== $table_deals) {
+        fputcsv($output, ['Table missing']);
+        exit;
+    }
+
+    // Fetch data with airport name
+    $rows = $wpdb->get_results("
+        SELECT 
+            d.id,
+            d.offer_type,
+            d.price,
+            d.purpose,
+            d.booking_link,
+            d.description,
+            d.more_details,
+            d.image,
+            d.start_date,
+            d.end_date,
+            a.name AS airport_name,
+            a.code AS airport_code
+        FROM {$table_deals} d
+        LEFT JOIN {$table_airport} a ON d.airport_id = a.id
+        ORDER BY d.id ASC
+    ", ARRAY_A);
+
+    if (!empty($rows)) {
+
+        // Set header row (no "airport_id", no "status")
+        fputcsv($output, [
+            'ID',
+            'Offer Type',
+            'Price',
+            'Purpose',
+            'Booking Link',
+            'Description',
+            'More Details',
+            'Image',
+            'Start Date',
+            'End Date',
+            'Airport Name'
+        ]);
+
+        foreach ($rows as $row) {
+
+            // Convert offer type
+            $row['offer_type'] = ($row['offer_type'] == 1) ? 'Premium' : 'Non Premium';
+
+            // Prepare row for CSV
+            fputcsv($output, [
+                $row['id'],
+                $row['offer_type'],
+                $row['price'],
+                $row['purpose'],
+                $row['booking_link'],
+                $row['description'],
+                $row['more_details'],
+                $row['image'],
+                $row['start_date'],
+                $row['end_date'],
+                $row['airport_name'].'('.$row['airport_code'].')' // converted
+            ]);
+        }
+    }
+
+    fclose($output);
+    exit;
+});
+

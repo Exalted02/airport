@@ -47,53 +47,37 @@ function save_notification_settings_callback() {
         //if ($field === 'newsletter_subscription') {
 
             // Mailchimp API Credentials
-			$api_key  = '605d6f44dad79810990020da5f6e866f-us3';
+            $api_key  = '605d6f44dad79810990020da5f6e866f-us3';
             $list_id  = '7361ca5e6a';
-			$email    = wp_get_current_user()->user_email;
-			$dc       = substr($api_key, strpos($api_key, '-') + 1);
-			$hash     = md5(strtolower($email));
+            $email    = wp_get_current_user()->user_email;
+            $dc       = substr($api_key, strpos($api_key, '-') + 1); // datacenter
+            $hash     = md5(strtolower($email));
 
-			/**
-			 * STEP 1 – Create or update subscriber (so tags can be added)
-			 */
-			$subscriber_data = [
-				"email_address" => $email,
-				"status_if_new" => "subscribed",
-			];
+            // If ON → subscribe  
+            if ($value === 'yes') {
+                $data = [
+                    'email_address' => $email,
+                    'status'        => 'subscribed',
+                    'tags'          => [$field]
+                ];
+            }
+            // If OFF → un-subscribe  
+            else {
+                $data = [
+                    'status' => 'unsubscribed'
+                ];
+            }
 
-			$ch = curl_init("https://{$dc}.api.mailchimp.com/3.0/lists/{$list_id}/members/{$hash}");
-			curl_setopt($ch, CURLOPT_USERPWD, "user:{$api_key}");
-			curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-			curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($subscriber_data));
-			curl_exec($ch);
-			curl_close($ch);
+            $json = json_encode($data);
 
-			/**
-			 * STEP 2 – Apply tags
-			 */
-			$tag_status = ($value === "yes") ? "active" : "inactive";
-
-			$tag_payload = [
-				"tags" => [
-					[
-						"name"   => $field,
-						"status" => $tag_status
-					]
-				]
-			];
-
-			$ch = curl_init("https://{$dc}.api.mailchimp.com/3.0/lists/{$list_id}/members/{$hash}/tags");
-			curl_setopt($ch, CURLOPT_USERPWD, "user:{$api_key}");
-			curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POST, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($tag_payload));
-			$response = curl_exec($ch);
-			curl_close($ch);
-
-
+            $ch = curl_init("https://{$dc}.api.mailchimp.com/3.0/lists/{$list_id}/members/{$hash}");
+            curl_setopt($ch, CURLOPT_USERPWD, "user:{$api_key}");
+            curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+            $response = curl_exec($ch);
+            curl_close($ch);
         //}
 		
         wp_send_json_success('Saved');

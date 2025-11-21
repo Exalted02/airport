@@ -59,11 +59,13 @@ function custom_flight_deals_shortcode() {
     <style>
     /* ===== CARD STYLES ===== */
     .flight-deals-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-        gap: 20px;
-        margin: 40px auto;
-    }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns for desktop/tablet */
+  gap: 20px;
+  margin: 40px auto;
+  padding: 0 15px;
+}
+
     .flight-deal-card {
         display: flex;
         background: #fff;
@@ -171,10 +173,6 @@ function custom_flight_deals_shortcode() {
         transition: background 0.3s, color 0.3s;
         cursor: pointer;
     }
-    @media (max-width: 600px) {
-        .flight-deal-card { flex-direction: column; }
-        .flight-deal-image { width: 100%; height: 200px; }
-    }
 
     /* ===== PAGINATION ===== */
     .custom-pagination {
@@ -239,6 +237,42 @@ function custom_flight_deals_shortcode() {
         margin-top:10px; padding:10px 20px; border:none;
         background:#0073aa; color:#fff; cursor:pointer; border-radius:500px;
     }
+	/* ===== Responsive Popup Fix for Mobile & Tablet ===== */
+	
+	/* Break to single column on mobile */
+	@media (max-width: 991px) {
+	  .flight-deals-container {
+		grid-template-columns: 1fr; /* 1 column below tablet width */
+	  }
+	}
+
+	@media (max-width: 600px) {		
+        .flight-deal-card { flex-direction: column; }
+        .flight-deal-image { width: 100%; height: 200px; }
+		.premium-popup-content {
+			width: calc(100% - 20px); /* 5px gap on left and right */
+			max-width: none; /* remove 400px limit */
+			left: 50%;
+			transform: translate(-50%, -50%) scale(1);
+			padding: 15px; /* smaller padding for mobile */
+			border-radius: 8px;
+		}
+
+	  .premium-popup-content h2 {
+		font-size: 18px;
+	  }
+
+	  .premium-popup-content p {
+		font-size: 14px;
+		line-height: 1.4;
+	  }
+
+	  #premium-close {
+		width: 100%;
+		padding: 10px;
+	  }
+	}
+
     </style>
 
     <div class="flight-deals-container">
