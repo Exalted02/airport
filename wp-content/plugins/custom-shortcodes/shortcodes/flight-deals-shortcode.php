@@ -51,6 +51,8 @@ function custom_flight_deals_shortcode() {
         LIMIT %d OFFSET %d
     ", array_merge($airport_ids, [$per_page, $offset]));
 	$results = $wpdb->get_results($query);
+	
+	$subscriptions = pms_get_member_subscriptions( array( 'user_id' => $user_id ) );
 
     if (!$results) return '<p>W tej chwili nie ma żadnych ofert lotów.</p>';
 
@@ -302,21 +304,29 @@ function custom_flight_deals_shortcode() {
                 </div>
                 <div>
                     <div class="flight-deal-info">
-                        <span><i class="dashicons dashicons-calendar"></i> 
+                        <!--<span><i class="dashicons dashicons-calendar"></i> 
                             <?php $fmt = new IntlDateFormatter('pl_PL', IntlDateFormatter::LONG, IntlDateFormatter::NONE, null, null, 'd MMM');
 
 									$start = $fmt->format(new DateTime($deal->start_date));
 									$end   = $fmt->format(new DateTime($deal->end_date));
 									echo $start. ' - '.$end;
 							?>
-                        </span>
+                        </span>-->
                         <span class="flight-deal-price"><?php echo $price; ?> zł</span>
                     </div>
-                    <?php if ($deal->offer_type == 1): ?>
-                        <a href="#" class="flight-deal-button premium-deal" data-title="<?php echo esc_attr($title); ?>">Zobacz szczegóły</a>
-                    <?php else: ?>
+					<?php 
+					$is_show = true;
+					if ($deal->offer_type == 1){
+						if ( empty( $subscriptions ) || $subscriptions[0]->billing_amount == 0){
+							$is_show = false;
+						}
+					}
+					?>
+                    <?php if ($is_show){ ?>
                         <a href="<?php echo esc_url(home_url('/deal-details/' . $deal->id)); ?>" class="flight-deal-button">Zobacz szczegóły</a>
-                    <?php endif; ?>
+					<?php }else{ ?>
+						<a href="#" class="flight-deal-button premium-deal" data-title="<?php echo esc_attr($title); ?>">Zobacz szczegóły</a>
+                    <?php } ?>
                 </div>
             </div>
         </div>

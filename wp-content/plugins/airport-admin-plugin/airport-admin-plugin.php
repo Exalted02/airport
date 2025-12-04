@@ -16,7 +16,7 @@ function all_create_tables() {
 	
     $sql = "CREATE TABLE IF NOT EXISTS $table1 (
 		id mediumint(9) NOT NULL AUTO_INCREMENT,
-		code varchar(20) NOT NULL,
+		code varchar(255) NOT NULL,
 		name varchar(255) NOT NULL,
 		PRIMARY KEY (id)
 	) $charset;";
@@ -88,12 +88,12 @@ function wp_add_flight_deals_tables() {
 }
 /*add_action('admin_init', function() {
     global $wpdb;
-    $table = $wpdb->prefix . 'flight_deals';
+    $table = $wpdb->prefix . 'airport_list';
 
     // Add column only if not exists
-    $exists = $wpdb->get_results("SHOW COLUMNS FROM $table LIKE 'showing_home_page'");
-    if (empty($exists)) {
-        $wpdb->query("ALTER TABLE $table ADD COLUMN showing_home_page tinyint(1) NOT NULL DEFAULT 0 COMMENT '0 = Hide, 1 = Show on home page'");
+    $code_exists = $wpdb->get_results("SHOW COLUMNS FROM `$table` LIKE 'code'");
+    if($code_exists) {
+        $wpdb->query("ALTER TABLE `$table` CHANGE `code` `code` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL");
     }
 });*/
 /**

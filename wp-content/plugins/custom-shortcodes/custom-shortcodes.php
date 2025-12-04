@@ -91,8 +91,12 @@ add_action('template_redirect', function() {
         ", $deal_id));
 
         if ($deal && intval($deal->offer_type) === 1) {
-            wp_redirect(home_url('/flight-deals'));
-            exit;
+			$user_id = get_current_user_id();
+			$subscriptions = pms_get_member_subscriptions( array( 'user_id' => $user_id ) );
+			if ( empty( $subscriptions ) || $subscriptions[0]->billing_amount == 0){
+				wp_redirect(home_url('/flight-deals'));
+				exit;
+			}
         }
     }
 });

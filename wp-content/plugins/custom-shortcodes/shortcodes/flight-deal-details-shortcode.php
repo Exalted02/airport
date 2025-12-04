@@ -47,8 +47,11 @@ function custom_flight_deal_details_shortcode() {
 
     // Prevent showing premium-only deals
     if (intval($deal->offer_type) === 1) {
-        wp_redirect(home_url('/flight-deals'));
-        exit;
+		$subscriptions = pms_get_member_subscriptions( array( 'user_id' => $user_id ) );
+		if ( empty( $subscriptions ) || $subscriptions[0]->billing_amount == 0){
+			wp_redirect(home_url('/flight-deals'));
+			exit;
+		}
     }
 
     // Prepare display values
