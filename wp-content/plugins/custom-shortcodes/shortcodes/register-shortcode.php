@@ -123,10 +123,19 @@ function handle_custom_user_registration() {
 
             // Send WordPress default welcome email
             wp_new_user_notification($user_id, null, 'both');
-
+			
+			/*
 			// Redirect to login page after successful registration
             wp_safe_redirect(home_url('/login/')); 
+			exit;*/
+			// After successful registration do login and redirect to another page
+			wp_set_current_user($user_id);
+			wp_set_auth_cookie($user_id);
+
+			// Redirect after login
+			wp_redirect(home_url('/flight-deals')); 
 			exit;
+			
             // echo "<p style='color:green'>Rejestracja pomyślna. Zaloguj się.</p>";
         } else {
             echo "<p style='color:red'>Error: " . $user_id->get_error_message() . "</p>";

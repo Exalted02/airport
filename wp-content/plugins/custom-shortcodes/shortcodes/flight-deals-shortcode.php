@@ -19,14 +19,14 @@ function custom_flight_deals_shortcode() {
     $user_airports = get_user_meta($user_id, 'airport', true);
 
     if (empty($user_airports)) {
-        return '<p>W Twoim profilu nie wybrano żadnego lotniska. Wybierz lotnisko, aby zobaczyć pasujące oferty lotów.</p>';
+        // return '<p>W Twoim profilu nie wybrano żadnego lotniska. Wybierz lotnisko, aby zobaczyć pasujące oferty lotów.</p>';
     }
 
     // Convert comma-separated to array of integers
     $airport_ids = array_filter(array_map('intval', explode(',', $user_airports)));
 
     if (empty($airport_ids)) {
-        return '<p>Nie znaleziono prawidłowych danych dotyczących lotniska.</p>';
+        // return '<p>Nie znaleziono prawidłowych danych dotyczących lotniska.</p>';
     }
 	
     $paged = max( 1, get_query_var('paged') ? get_query_var('paged') : ( get_query_var('page') ? get_query_var('page') : 1 ) );
@@ -54,7 +54,7 @@ function custom_flight_deals_shortcode() {
 	
 	$subscriptions = pms_get_member_subscriptions( array( 'user_id' => $user_id ) );
 
-    if (!$results) return '<p>W tej chwili nie ma żadnych ofert lotów.</p>';
+    // if (!$results) return '<p>W tej chwili nie ma żadnych ofert lotów.</p>';
 
     ob_start();
     ?>
@@ -64,6 +64,10 @@ function custom_flight_deals_shortcode() {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 columns for desktop/tablet */
   gap: 20px;
+  margin: 40px auto;
+  padding: 0 15px;
+}
+    .no-airport-message-container {
   margin: 40px auto;
   padding: 0 15px;
 }
@@ -225,6 +229,15 @@ function custom_flight_deals_shortcode() {
         text-align:center;
         transition: transform 0.3s ease;
     }
+    .no-airport-message-content {
+        background:#fff;
+        padding:30px;
+		border: 1px solid #9CAFB7;
+        border-radius:10px;
+		background: #E8EEF1;
+        text-align:center;
+        transition: transform 0.3s ease;
+    }
     .premium-popup-content h2 {
         font-size: 24px;
 		font-weight: 700;
@@ -235,7 +248,7 @@ function custom_flight_deals_shortcode() {
 		fill: #0073aa;
     }
     #premium-popup.active .premium-popup-content { transform: translate(-50%, -50%) scale(1); }
-    #premium-close {
+    #premium-close, #airport_add-btn {
         margin-top:10px; padding:10px 20px; border:none;
         background:#0073aa; color:#fff; cursor:pointer; border-radius:500px;
     }
@@ -276,76 +289,91 @@ function custom_flight_deals_shortcode() {
 	}
 
     </style>
+	
+	<?php
+	if (count($results) > 0) {
+	?>
+		<div class="flight-deals-container">
+			<?php foreach ($results as $deal):
+				$image = !empty($deal->image) ? esc_url($deal->image) : esc_url(content_url('uploads/2025/10/noimage.png'));
+				$title = esc_html($deal->purpose);
+				$desc = esc_html(wp_trim_words($deal->description, 15));
+				$price = esc_html(number_format($deal->price, 0));
+				$airport_code = esc_html($deal->airport_code);
+			?>
+			<div class="flight-deal-card">
+				<img src="<?php echo $image; ?>" alt="Deal Image" class="flight-deal-image" />
+				<div class="flight-deal-content">
+					<div class="flight-top">
+						<span class="route-badge"><?php echo $airport_code; ?></span>
+						<?php if ($deal->offer_type == 1): ?>
+							<span class="unlock-badge">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+									<path d="M12 17a2 2 0 0 0 2-2v-1H10v1a2 2 0 0 0 2 2zm6-6V9a6 6 0 0 0-12 0h2a4 4 0 0 1 8 0v2H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2z"/>
+								</svg> PREMIUM
+							</span>
+						<?php endif; ?>
+					</div>
+					<div>
+						<div class="flight-deal-title"><?php echo $title; ?></div>
+						<div class="flight-deal-desc"><?php echo $desc; ?></div>
+					</div>
+					<div>
+						<div class="flight-deal-info">
+							<!--<span><i class="dashicons dashicons-calendar"></i> 
+								<?php $fmt = new IntlDateFormatter('pl_PL', IntlDateFormatter::LONG, IntlDateFormatter::NONE, null, null, 'd MMM');
 
-    <div class="flight-deals-container">
-        <?php foreach ($results as $deal):
-            $image = !empty($deal->image) ? esc_url($deal->image) : esc_url(content_url('uploads/2025/10/noimage.png'));
-            $title = esc_html($deal->purpose);
-            $desc = esc_html(wp_trim_words($deal->description, 15));
-            $price = esc_html(number_format($deal->price, 0));
-            $airport_code = esc_html($deal->airport_code);
-        ?>
-        <div class="flight-deal-card">
-            <img src="<?php echo $image; ?>" alt="Deal Image" class="flight-deal-image" />
-            <div class="flight-deal-content">
-                <div class="flight-top">
-                    <span class="route-badge"><?php echo $airport_code; ?></span>
-                    <?php if ($deal->offer_type == 1): ?>
-                        <span class="unlock-badge">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 17a2 2 0 0 0 2-2v-1H10v1a2 2 0 0 0 2 2zm6-6V9a6 6 0 0 0-12 0h2a4 4 0 0 1 8 0v2H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2z"/>
-                            </svg> PREMIUM
-                        </span>
-                    <?php endif; ?>
-                </div>
-                <div>
-                    <div class="flight-deal-title"><?php echo $title; ?></div>
-                    <div class="flight-deal-desc"><?php echo $desc; ?></div>
-                </div>
-                <div>
-                    <div class="flight-deal-info">
-                        <!--<span><i class="dashicons dashicons-calendar"></i> 
-                            <?php $fmt = new IntlDateFormatter('pl_PL', IntlDateFormatter::LONG, IntlDateFormatter::NONE, null, null, 'd MMM');
-
-									$start = $fmt->format(new DateTime($deal->start_date));
-									$end   = $fmt->format(new DateTime($deal->end_date));
-									echo $start. ' - '.$end;
-							?>
-                        </span>-->
-                        <span class="flight-deal-price"><?php echo $price; ?> zł</span>
-                    </div>
-					<?php 
-					$is_show = true;
-					if ($deal->offer_type == 1){
-						if ( empty( $subscriptions ) || $subscriptions[0]->billing_amount == 0){
-							$is_show = false;
+										$start = $fmt->format(new DateTime($deal->start_date));
+										$end   = $fmt->format(new DateTime($deal->end_date));
+										echo $start. ' - '.$end;
+								?>
+							</span>-->
+							<span class="flight-deal-price"><?php echo $price; ?> zł</span>
+						</div>
+						<?php 
+						$is_show = true;
+						if ($deal->offer_type == 1){
+							if ( empty( $subscriptions ) || $subscriptions[0]->billing_amount == 0){
+								$is_show = false;
+							}
 						}
-					}
-					?>
-                    <?php if ($is_show){ ?>
-                        <a href="<?php echo esc_url(home_url('/deal-details/' . $deal->id)); ?>" class="flight-deal-button">Zobacz szczegóły</a>
-					<?php }else{ ?>
-						<a href="#" class="flight-deal-button premium-deal" data-title="<?php echo esc_attr($title); ?>">Zobacz szczegóły</a>
-                    <?php } ?>
-                </div>
-            </div>
-        </div>
-        <?php endforeach; ?>
-    </div>
+						?>
+						<?php if ($is_show){ ?>
+							<a href="<?php echo esc_url(home_url('/deal-details/' . $deal->id)); ?>" class="flight-deal-button">Zobacz szczegóły</a>
+						<?php }else{ ?>
+							<a href="#" class="flight-deal-button premium-deal" data-title="<?php echo esc_attr($title); ?>">Zobacz szczegóły</a>
+						<?php } ?>
+					</div>
+				</div>
+			</div>
+			<?php endforeach; ?>
+		</div>
 
-    <!-- PREMIUM POPUP -->
-    <div id="premium-popup">
-        <div class="premium-popup-overlay"></div>
-        <div class="premium-popup-content">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="#0073aa" style="vertical-align: middle; margin-right: 4px;">
-				<path d="M12 17a2 2 0 0 0 2-2v-2a2 2 0 0 0-4 0v2a2 2 0 0 0 2 2zm6-7h-1V9a5 5 0 0 0-10 0v1H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2zm-6-4a3 3 0 0 1 3 3v1H9V9a3 3 0 0 1 3-3z"/>
-			</svg>
-            <h2>Pełny dostęp do oferty tylko dla użytkowników Premium</h2>
-            <p>Dostęp do pełnego opisu ofert lotów jest możliwy tylko z pakietem Premium – odkryj wszystkie szczegóły i korzyści, które dla Ciebie przygotowaliśmy</p>
-			<a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>" id="premium-close">Uaktualnij swój plan</a>
-        </div>
-    </div>
-
+		<!-- PREMIUM POPUP -->
+		<div id="premium-popup">
+			<div class="premium-popup-overlay"></div>
+			<div class="premium-popup-content">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="#0073aa" style="vertical-align: middle; margin-right: 4px;">
+					<path d="M12 17a2 2 0 0 0 2-2v-2a2 2 0 0 0-4 0v2a2 2 0 0 0 2 2zm6-7h-1V9a5 5 0 0 0-10 0v1H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2zm-6-4a3 3 0 0 1 3 3v1H9V9a3 3 0 0 1 3-3z"/>
+				</svg>
+				<h2>Pełny dostęp do oferty tylko dla użytkowników Premium</h2>
+				<p>Dostęp do pełnego opisu ofert lotów jest możliwy tylko z pakietem Premium – odkryj wszystkie szczegóły i korzyści, które dla Ciebie przygotowaliśmy</p>
+				<a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>" id="premium-close">Uaktualnij swój plan</a>
+			</div>
+		</div>
+	<?php	
+	}else{
+	?>
+		<div class="no-airport-message-container">
+		<div class="no-airport-message-content">
+			<h2>Nie wybrałeś jeszcze żadnych lotnisk</h2>
+			<p>Nie masz jeszcze wybranych lotnisk. Dodaj je tutaj aby otrzymywać dopasowane oferty.</p>
+			<a href="<?php echo esc_url( home_url( '/zmiana-lotniska' ) ); ?>" id="airport_add-btn">Dodaj</a>
+		</div>
+		</div>
+	<?php
+	}
+	?>
     <?php
     // Pagination
     $total_pages = ceil($total / $per_page);

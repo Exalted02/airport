@@ -4,270 +4,271 @@ if (!defined('ABSPATH')) exit;
 
 /**
  * ==========================================================
- * REFERRAL REWARDS SYSTEM
+ * REFERRAL REWARDS SYSTEM (AJAX version)
  * ==========================================================
  *
  * Logic:
- *  - When a referred user (User B) completes a subscription via PMS,
- *    their referrer (User A) receives ONE pending reward credit.
- *  - User A can later activate each reward manually on the
- *    referral page using the [referral_rewards] shortcode.
- *  - Activation gives +1 month of Premium.
+ *  - When a referred user (User B) subscribes to Premium via PMS,
+ *    their referrer (User A) gets ONE pending reward.
+ *  - User A can activate each reward manually using the shortcode:
+ *      [referral_rewards]
+ *  - Activation grants +1 month Premium.
+ *  - Counter updates instantly via AJAX (no reload).
  */
 
 // ------------------------
-// Define your Premium plan ID as a constant
+// Define your Premium plan ID
 // ------------------------
 if (!defined('PREMIUM_PLAN_ID')) {
     define('PREMIUM_PLAN_ID', 1350);
 }
 
 // ----------------------------------------------------------
-// 1️⃣ Grant reward after successful PMS subscription
+// 1️⃣ Reward when new Premium subscription inserted
 // ----------------------------------------------------------
 add_action('pms_member_subscription_insert', function($subscription_id, $data) {
 
-    // Ensure subscription plan ID exists
     $plan_id = $data['subscription_plan_id'] ?? 0;
 
-    // Only grant reward if Premium plan
     if ($plan_id != PREMIUM_PLAN_ID) {
-        error_log("Subscription #{$subscription_id} is plan #{$plan_id}. No referral reward granted.");
+        error_log("Subscription #{$subscription_id} (plan {$plan_id}) - no referral reward.");
         return;
     }
 
-    error_log("Referral reward hook triggered for subscription #{$subscription_id}");
-
-    // Get user ID of the referred user
     $referred_user_id = $data['user_id'] ?? 0;
-    if (empty($referred_user_id)) {
-        error_log("Referred user ID not found for subscription #{$subscription_id}");
-        return;
-    }
+    if (!$referred_user_id) return;
 
-    // Find referrer (User A)
     $referrer_id = get_user_meta($referred_user_id, 'referred_by', true);
-    if (empty($referrer_id)) {
-        error_log("No referrer found for user #{$referred_user_id}");
-        return;
-    }
+    if (!$referrer_id) return;
 
-    // Allow only ONE reward per referred user
-    if (get_user_meta($referred_user_id, 'referral_reward_recorded', true)) {
-        error_log("Reward already recorded for referred user #{$referred_user_id}");
-        return;
-    }
+    if (get_user_meta($referred_user_id, 'referral_reward_recorded', true)) return;
 
-    // Add pending reward credit
-    $pending_count = (int) get_user_meta($referrer_id, 'pending_referral_rewards', true);
-    update_user_meta($referrer_id, 'pending_referral_rewards', $pending_count + 1);
+    // Add +1 pending reward
+    $pending = (int) get_user_meta($referrer_id, 'pending_referral_rewards', true);
+    update_user_meta($referrer_id, 'pending_referral_rewards', $pending + 1);
 
-    // Store details for audit
+    // Log details
     $details = get_user_meta($referrer_id, 'pending_referral_rewards_details', true);
     if (!is_array($details)) $details = [];
     $details[] = [
-        'id'                     => uniqid('reward_', true),
-        'from_user_id'           => $referred_user_id,
+        'id' => uniqid('reward_', true),
+        'from_user_id' => $referred_user_id,
         'source_subscription_id' => $subscription_id,
-        'date'                   => current_time('mysql'),
-        'note'                   => sprintf('Reward earned from user #%d', $referred_user_id),
+        'date' => current_time('mysql'),
+        'note' => "Reward earned from user #{$referred_user_id}",
     ];
     update_user_meta($referrer_id, 'pending_referral_rewards_details', $details);
 
-    // Mark referred user so they can’t trigger again
     update_user_meta($referred_user_id, 'referral_reward_recorded', 1);
 
-    // Optional email notice
-    $ref_user = get_userdata($referrer_id);
-    if ($ref_user && !empty($ref_user->user_email)) {
+    // Optional email
+    $user = get_userdata($referrer_id);
+    if ($user && !empty($user->user_email)) {
         wp_mail(
-            $ref_user->user_email,
+            $user->user_email,
             'You earned a referral reward!',
             "Your referral just purchased a Premium plan! You now have 1 pending Premium reward.\nVisit your Rewards page to activate it."
         );
     }
 
-    // Debug log
-    error_log("Referral reward granted to user #{$referrer_id} from referred #{$referred_user_id}");
-
+    error_log("✅ Referral reward granted to user #{$referrer_id} from referred #{$referred_user_id}");
 }, 10, 2);
+
+
 // ----------------------------------------------------------
-// 3️⃣ Grant reward when subscription is updated to Premium
+// 2️⃣ Reward when existing subscription upgraded to Premium
 // ----------------------------------------------------------
 add_action('pms_member_subscription_update', function($subscription_id, $new_data, $old_data) {
 
-    $new_plan_id = $new_data['subscription_plan_id'] ?? 0;
-    $old_plan_id = $old_data['subscription_plan_id'] ?? 0;
+    $new_plan = $new_data['subscription_plan_id'] ?? 0;
+    $old_plan = $old_data['subscription_plan_id'] ?? 0;
 
-    // Only grant reward if updated to Premium and wasn't Premium before
-    if ($new_plan_id != PREMIUM_PLAN_ID || $old_plan_id == PREMIUM_PLAN_ID) {
-        error_log("Subscription #{$subscription_id} updated. No referral reward granted. New plan: {$new_plan_id}, Old plan: {$old_plan_id}");
-        return;
-    }
+    if ($new_plan != PREMIUM_PLAN_ID || $old_plan == PREMIUM_PLAN_ID) return;
 
-    error_log("Referral reward hook triggered for updated subscription #{$subscription_id} (now Premium)");
-
-    // Get user ID of the referred user
     $referred_user_id = $new_data['user_id'] ?? 0;
-    if (empty($referred_user_id)) {
-        error_log("Referred user ID not found for updated subscription #{$subscription_id}");
-        return;
-    }
+    if (!$referred_user_id) return;
 
-    // Find referrer (User A)
     $referrer_id = get_user_meta($referred_user_id, 'referred_by', true);
-    if (empty($referrer_id)) {
-        error_log("No referrer found for user #{$referred_user_id}");
-        return;
-    }
+    if (!$referrer_id) return;
 
-    // Allow only ONE reward per referred user
-    if (get_user_meta($referred_user_id, 'referral_reward_recorded', true)) {
-        error_log("Reward already recorded for referred user #{$referred_user_id}");
-        return;
-    }
+    if (get_user_meta($referred_user_id, 'referral_reward_recorded', true)) return;
 
-    // Add pending reward credit
-    $pending_count = (int) get_user_meta($referrer_id, 'pending_referral_rewards', true);
-    update_user_meta($referrer_id, 'pending_referral_rewards', $pending_count + 1);
+    $pending = (int) get_user_meta($referrer_id, 'pending_referral_rewards', true);
+    update_user_meta($referrer_id, 'pending_referral_rewards', $pending + 1);
 
-    // Store details for audit
     $details = get_user_meta($referrer_id, 'pending_referral_rewards_details', true);
     if (!is_array($details)) $details = [];
     $details[] = [
-        'id'                     => uniqid('reward_', true),
-        'from_user_id'           => $referred_user_id,
+        'id' => uniqid('reward_', true),
+        'from_user_id' => $referred_user_id,
         'source_subscription_id' => $subscription_id,
-        'date'                   => current_time('mysql'),
-        'note'                   => sprintf('Reward earned from user #%d (subscription upgraded to Premium)', $referred_user_id),
+        'date' => current_time('mysql'),
+        'note' => "Reward earned from user #{$referred_user_id} (upgrade)",
     ];
     update_user_meta($referrer_id, 'pending_referral_rewards_details', $details);
 
-    // Mark referred user so they can’t trigger again
     update_user_meta($referred_user_id, 'referral_reward_recorded', 1);
 
-    // Optional email notice
-    $ref_user = get_userdata($referrer_id);
-    if ($ref_user && !empty($ref_user->user_email)) {
+    $user = get_userdata($referrer_id);
+    if ($user && !empty($user->user_email)) {
         wp_mail(
-            $ref_user->user_email,
+            $user->user_email,
             'You earned a referral reward!',
-            "Your referral just upgraded to a Premium plan! You now have 1 pending Premium reward.\nVisit your Rewards page to activate it."
+            "Your referral just upgraded to Premium! You now have 1 pending Premium reward.\nVisit your Rewards page to activate it."
         );
     }
 
-    // Debug log
-    error_log("Referral reward granted to user #{$referrer_id} from referred #{$referred_user_id} (updated subscription)");
-
+    error_log("✅ Referral reward granted (upgrade) to user #{$referrer_id}");
 }, 10, 3);
 
 
 // ----------------------------------------------------------
-// 2️⃣ Shortcode: [referral_rewards]
+// 3️⃣ Shortcode: [referral_rewards]
 // ----------------------------------------------------------
 add_shortcode('referral_rewards', function() {
 
     if (!is_user_logged_in()) {
-        return '<p>Please log in to view your rewards.</p>';
+        return '<p>Musisz być zalogowany, aby zobaczyć swoje nagrody.</p>';
     }
 
     $user_id = get_current_user_id();
     $pending = (int) get_user_meta($user_id, 'pending_referral_rewards', true);
 
-    ob_start();
-    ?>
+    ob_start(); ?>
     <div class="referral-rewards" style="background:#f9f9f9;padding:20px;border-radius:10px;">
         <h3>Twoje nagrody za polecenia</h3>
-        <p>Obecnie masz <strong><?php echo $pending; ?></strong> oczekująca nagroda.</p>
-        <?php
-        if ($pending > 0):
+        <p>Twoje udane polecenia: <strong id="pendingCounter"><?php echo $pending; ?></strong></p>
 
-            if (isset($_POST['activate_reward']) && check_admin_referer('activate_referral_reward')) {
-
-                // Get current subscriptions
-                $subs = pms_get_member_subscriptions( array( 'user_id' => $user_id ) );
-				// echo '<pre>';print_r($user_id);exit;
-				// echo '<pre>';print_r($subs);exit;
-                $active_sub = null;
-                if ($subs && is_array($subs)) {
-                    foreach ($subs as $sub) {
-                        if ($sub->status === 'active') {
-                            $active_sub = $sub;
-                            break;
-                        }
-                    }
-                }
-				
-				$plan_id_to_use = PREMIUM_PLAN_ID; // pick first as default
-                $plan = pms_get_subscription_plan($plan_id_to_use);
-				
-				if ($plan){
-					if ($active_sub && !empty($active_sub->expiration_date)) {
-						// Extend existing plan
-						$new_exp = date('Y-m-d H:i:s', strtotime($active_sub->expiration_date . ' +1 month'));
-						$active_sub->update(['expiration_date' => $new_exp]);
-						$msg = 'Twój plan Premium został przedłużony o 1 miesiąc!';
-					} else {
-						global $wpdb;
-
-						// Ensure PMS member exists
-						$member = pms_get_member($user_id);
-						if (!$member) {
-							$member = new PMS_Member(array('user_id' => $user_id));
-							$member->save();
-						}
-
-						$table_name = $wpdb->prefix . 'pms_member_subscriptions';
-
-						// Prepare new subscription data
-						$subscription_data = array(
-							'user_id'              => $user_id,
-							'subscription_plan_id' => $plan->id,
-							'status'               => 'active',
-							'start_date'           => current_time('mysql'),
-							'expiration_date'      => date('Y-m-d H:i:s', strtotime('+1 month')),
-						);
-
-						// Insert manually into the database
-						$inserted = $wpdb->insert($table_name, $subscription_data);
-
-						if ($inserted) {
-							$new_id = $wpdb->insert_id;
-							$msg = 'Twoja 1-miesięczna nagroda Premium została aktywowana!';
-						} else {
-							$msg = 'Błąd: nie udało się aktywować nagrody.';
-						}
-					}
-
-					// Decrease pending counter
-					$new_pending = max(0, $pending - 1);
-                    update_user_meta($user_id, 'pending_referral_rewards', $new_pending);
-                    $pending = $new_pending;
-					
-					// Optional: remove one reward record (if tracking details)
-                    $details = get_user_meta($user_id, 'pending_referral_rewards_details', true);
-                    if (is_array($details) && count($details) > 0) {
-                        array_shift($details);
-                        update_user_meta($user_id, 'pending_referral_rewards_details', $details);
-                    }
-
-					echo '<div style="color:green;margin-top:10px;">' . esc_html($msg) . '</div>';
-				} else {
-                    echo '<div style="color:red;margin-top:10px;">Nie znaleziono planu Premium!</div>';
-                }
-            }
-            ?>
-            <form method="post">
+        <?php if ($pending > 0): ?>
+            <form id="referralRewardForm">
                 <?php wp_nonce_field('activate_referral_reward'); ?>
-                <button type="submit" name="activate_reward"
-                        style="padding:10px 20px;background:#429FE1;color:#fff;border:none;border-radius:25px;cursor:pointer;">
+                <button type="submit"
+                    style="padding:10px 20px;background:#429FE1;color:#fff;border:none;border-radius:25px;cursor:pointer;">
                     Aktywuj 1-miesięczną nagrodę Premium
                 </button>
             </form>
-        <?php
-        endif;
-        ?>
+            <div id="rewardMessage" style="margin-top:10px;"></div>
+
+            <script>
+            jQuery(document).ready(function($){
+                $('#referralRewardForm').on('submit', function(e){
+                    e.preventDefault();
+                    var $btn = $(this).find('button');
+                    $btn.prop('disabled', true).text('Przetwarzanie...');
+
+                    $.post('<?php echo admin_url('admin-ajax.php'); ?>', {
+                        action: 'activate_referral_reward',
+                        _ajax_nonce: $('input[name="_wpnonce"]').val()
+                    }, function(response){
+                        $btn.prop('disabled', false).text('Aktywuj 1-miesięczną nagrodę Premium');
+                        if(response.success){
+							$('#rewardMessage').html('<span style="color:green;">' + response.data.message + '</span>');
+							
+							// Animate counter and update UI
+							$('#pendingCounter').fadeOut(200, function(){
+								$(this).text(response.data.new_pending).fadeIn(200, function(){
+									if (parseInt(response.data.new_pending) === 0) {
+										// Hide form & show message when no rewards left
+										$('#referralRewardForm').fadeOut(300, function(){
+											$('#rewardMessage').html('<span style="color:green;">' + response.data.message + '</span>');
+											$('<p>Brak oczekujących nagród do aktywacji.</p>').hide().appendTo('.referral-rewards').fadeIn(300);
+										});
+									}
+								});
+							});
+						} else {
+							$('#rewardMessage').html('<span style="color:red;">' + response.data + '</span>');
+						}
+
+                    });
+                });
+            });
+            </script>
+        <?php else: ?>
+            <p>Brak oczekujących nagród do aktywacji.</p>
+        <?php endif; ?>
     </div>
     <?php
     return ob_get_clean();
+});
+
+
+// ----------------------------------------------------------
+// 4️⃣ AJAX Handler for instant reward activation
+// ----------------------------------------------------------
+add_action('wp_ajax_activate_referral_reward', function() {
+    check_ajax_referer('activate_referral_reward');
+
+    $user_id = get_current_user_id();
+    if (!$user_id) {
+        wp_send_json_error('Musisz być zalogowany.');
+    }
+
+    $pending = (int) get_user_meta($user_id, 'pending_referral_rewards', true);
+    if ($pending <= 0) {
+        wp_send_json_error('Brak oczekujących nagród.');
+    }
+
+    global $wpdb;
+    $subs = pms_get_member_subscriptions(['user_id' => $user_id]);
+    $active_sub = null;
+    if ($subs && is_array($subs)) {
+        foreach ($subs as $sub) {
+            if ($sub->status === 'active') {
+                $active_sub = $sub;
+                break;
+            }
+        }
+    }
+
+    $plan_id_to_use = PREMIUM_PLAN_ID;
+    $plan = pms_get_subscription_plan($plan_id_to_use);
+
+    if (!$plan) {
+        wp_send_json_error('Nie znaleziono planu Premium.');
+    }
+
+    if ($active_sub && !empty($active_sub->expiration_date)) {
+        $new_exp = date('Y-m-d H:i:s', strtotime($active_sub->expiration_date . ' +1 month'));
+        $active_sub->update(['expiration_date' => $new_exp]);
+        $msg = 'Twój plan Premium został przedłużony o 1 miesiąc!';
+    } else {
+        // Ensure PMS member exists
+        $member = pms_get_member($user_id);
+        if (!$member) {
+            $member = new PMS_Member(['user_id' => $user_id]);
+            $member->save();
+        }
+
+        $table_name = $wpdb->prefix . 'pms_member_subscriptions';
+        $subscription_data = [
+            'user_id'              => $user_id,
+            'subscription_plan_id' => $plan->id,
+            'status'               => 'active',
+            'start_date'           => current_time('mysql'),
+            'expiration_date'      => date('Y-m-d H:i:s', strtotime('+1 month')),
+        ];
+
+        $inserted = $wpdb->insert($table_name, $subscription_data);
+        if (!$inserted) {
+            wp_send_json_error('Błąd: nie udało się aktywować nagrody.');
+        }
+
+        $msg = 'Twoja 1-miesięczna nagroda Premium została aktywowana!';
+    }
+
+    // Decrease pending counter
+    $new_pending = max(0, $pending - 1);
+    update_user_meta($user_id, 'pending_referral_rewards', $new_pending);
+
+    $details = get_user_meta($user_id, 'pending_referral_rewards_details', true);
+    if (is_array($details) && count($details) > 0) {
+        array_shift($details);
+        update_user_meta($user_id, 'pending_referral_rewards_details', $details);
+    }
+
+    wp_send_json_success([
+        'message' => $msg,
+        'new_pending' => $new_pending,
+    ]);
 });

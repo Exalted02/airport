@@ -71,7 +71,7 @@ function handle_custom_user_login() {
                 wp_set_auth_cookie($user->ID);
 
                 // Redirect after login
-                wp_redirect(home_url('/subskrypcje')); 
+                wp_redirect(home_url('/flight-deals')); 
                 exit;
             } else {
 				// User exists but has wrong role

@@ -22,6 +22,12 @@ if (!defined('ABSPATH')) exit;
 if (!defined('PREMIUM_PLAN_ID')) {
     define('PREMIUM_PLAN_ID', 1350);
 }
+// ------------------------
+// Define all Premium plan ID
+// ------------------------
+if (!defined('ALL_PREMIUM_PLAN_ID')) {
+    define('ALL_PREMIUM_PLAN_ID', [1350, 2340, 2342]);
+}
 
 // ----------------------------------------------------------
 // 1️⃣ Reward when new Premium subscription inserted
@@ -30,7 +36,7 @@ add_action('pms_member_subscription_insert', function($subscription_id, $data) {
 
     $plan_id = $data['subscription_plan_id'] ?? 0;
 
-    if ($plan_id != PREMIUM_PLAN_ID) {
+    if (!in_array($plan_id, ALL_PREMIUM_PLAN_ID)) {
         error_log("Subscription #{$subscription_id} (plan {$plan_id}) - no referral reward.");
         return;
     }
@@ -82,8 +88,9 @@ add_action('pms_member_subscription_update', function($subscription_id, $new_dat
 
     $new_plan = $new_data['subscription_plan_id'] ?? 0;
     $old_plan = $old_data['subscription_plan_id'] ?? 0;
-
-    if ($new_plan != PREMIUM_PLAN_ID || $old_plan == PREMIUM_PLAN_ID) return;
+	
+	if (!in_array($new_plan, ALL_PREMIUM_PLAN_ID) || in_array($old_plan, ALL_PREMIUM_PLAN_ID)) return;
+    // if ($new_plan != PREMIUM_PLAN_ID || $old_plan == PREMIUM_PLAN_ID) return;
 
     $referred_user_id = $new_data['user_id'] ?? 0;
     if (!$referred_user_id) return;

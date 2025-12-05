@@ -56,7 +56,7 @@ register_activation_hook(__FILE__, 'my_custom_shortcodes_add_role');
 
 function restrict_front_user_admin_access() {
     if ( is_admin() && ! defined('DOING_AJAX') && current_user_can('front_user') ) {
-        wp_redirect(home_url('/subskrypcje'));
+        wp_redirect(home_url('/flight-deals'));
         exit;
     }
 }
@@ -184,7 +184,7 @@ function redirect_logged_in_users_from_login_page() {
     }
 
     if ( is_user_logged_in() && ( is_page('login') || is_page('register') ) ) {
-        wp_safe_redirect( home_url('/subskrypcje') );
+        wp_safe_redirect( home_url('/flight-deals') );
         exit;
     }
 }

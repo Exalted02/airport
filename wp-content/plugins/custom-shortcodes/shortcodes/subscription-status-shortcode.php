@@ -102,7 +102,7 @@ function my_subscription_status_shortcode() {
         <?php
         return ob_get_clean();
     }
-
+	
     foreach ( $subscriptions as $sub ) {
         $plan_id = $sub->subscription_plan_id;
         $status = ucfirst( $sub->status );
@@ -122,7 +122,7 @@ function my_subscription_status_shortcode() {
                     <strong class="plan-status"><?php echo esc_html( $plan_name ); ?></strong>
                 </p>
                 <p>Status: <strong><?php echo esc_html( $status ); ?></strong></p>
-                <p>Wygasa dnia: <strong><?php echo esc_html( $expiration ); ?></strong></p>
+                <!--<p>Wygasa dnia: <strong><?php echo esc_html( $expiration ); ?></strong></p>-->
             </div>
             <div class="subscription-text">
                 <p>Jako członek planu darmowego otrzymasz bezpłatnie powiadomienia o promocjach w ograniczonej formie.</p>
