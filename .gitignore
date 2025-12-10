@@ -4,3 +4,4 @@
 #     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
 
 
+wp-content\plugins\custom-shortcodes\shortcodes\notification-switch-handler.php
