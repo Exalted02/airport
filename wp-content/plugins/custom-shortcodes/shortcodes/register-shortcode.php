@@ -48,7 +48,7 @@ function custom_user_register_form() {
         <p>
             <label style="line-height: 1.5">
                 <input type="checkbox" name="terms" required>
-                Rejestrując się, akceptuję Regulamin oraz Politykę prywatności serwisu.
+                Akceptuję <a target="_blank" href="<?php echo esc_url(home_url('/regulamin-serwisu')); ?>">Regulamin</a> i <a target="_blank" href="<?php echo esc_url(home_url('/polityka-prywatnosci')); ?>">Politykę Prywatności</a>.
             </label>
         </p>
 

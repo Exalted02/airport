@@ -31,8 +31,10 @@ require_once plugin_dir_path(__FILE__) . 'shortcodes/flight-deal-details-shortco
 require_once plugin_dir_path(__FILE__) . 'shortcodes/referral-page-shortcode.php';
 require_once plugin_dir_path(__FILE__) . 'shortcodes/subscription-status-shortcode.php';
 require_once plugin_dir_path(__FILE__) . 'shortcodes/change-subscription-shortcode.php';
+require_once plugin_dir_path(__FILE__) . 'shortcodes/pms_mailchimp_connect.php';
 
 require_once plugin_dir_path(__FILE__) . 'includes/referral-rewards.php';
+require_once plugin_dir_path(__FILE__) . 'includes/delete-account.php';
 
 // ----------------------------------------------------
 // Enqueue jQuery for frontend
