@@ -4,26 +4,41 @@ $table = $wpdb->prefix . 'airport_list';
 
 // Handle Add
 if (isset($_POST['add_airport'])) {
-    $wpdb->insert($table, [
+    $result = $wpdb->insert($table, [
         'code' => sanitize_text_field($_POST['code']),
         'name' => sanitize_text_field($_POST['name'])
     ]);
-    echo '<div class="notice notice-success"><p>Airport added.</p></div>';
+    
+	if ($result === false) {
+        echo '<div class="notice notice-error"><p>Failed to add airport: ' . esc_html($wpdb->last_error) . '</p></div>';
+    } else {
+        echo '<div class="notice notice-success"><p>Airport added.</p></div>';
+    }
 }
 
 // Handle Update
 if (isset($_POST['update_airport'])) {
-    $wpdb->update($table, [
+    $result = $wpdb->update($table, [
         'code' => sanitize_text_field($_POST['code']),
         'name' => sanitize_text_field($_POST['name']),
     ], ['id' => intval($_POST['airport_id'])]);
-    echo '<div class="notice notice-success"><p>Airport updated.</p></div>';
+	if ($result === false) {
+        echo '<div class="notice notice-error"><p>Failed to update airport: ' . esc_html($wpdb->last_error) . '</p></div>';
+    } else {
+		echo '<div class="notice notice-success"><p>Airport updated.</p></div>';
+    }
 }
 
 // Handle Single Delete
 if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
-    $wpdb->delete($table, ['id' => intval($_GET['delete'])]);
-    echo '<div class="notice notice-success"><p>Airport deleted.</p></div>';
+    $result = $wpdb->delete($table, ['id' => intval($_GET['delete'])]);
+	if ($result === false) {
+        echo '<div class="notice notice-error"><p>Delete failed: ' . esc_html($wpdb->last_error) . '</p></div>';
+    } elseif ($result === 0) {
+        echo '<div class="notice notice-warning"><p>No record found or already deleted.</p></div>';
+    } else {
+		echo '<div class="notice notice-success"><p>Airport deleted.</p></div>';
+    }
 }
 
 // Handle Bulk Actions

@@ -309,9 +309,6 @@ form.pms-form h3{
 }
 #pms-stripe-payment-elements {
 	max-width:100% !important;
-}	
-.pms-account-subscription-action-link__abandon {
-	display: none;
 }
 form a {
     color: #00354A !important;

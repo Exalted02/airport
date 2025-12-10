@@ -28,7 +28,7 @@ function upload_flight_deal_image($file_field) {
 if (isset($_POST['add_flight_deal'])) {
     $image_url = upload_flight_deal_image('image');
 
-    $wpdb->insert($table, [
+    $result = $wpdb->insert($table, [
         'offer_type'   => intval($_POST['offer_type']),
         'price'        => floatval($_POST['price']),
         'purpose'      => sanitize_text_field($_POST['purpose']),
@@ -42,7 +42,11 @@ if (isset($_POST['add_flight_deal'])) {
 		'showing_home_page' => isset($_POST['showing_home_page']) ? 1 : 0,
         'status'       => 1
     ]);
-    echo '<div class="notice notice-success"><p>Flight deal added.</p></div>';
+	if ($result === false) {
+        echo '<div class="notice notice-error"><p>Failed to add flight deal. DB Error: '. esc_html($wpdb->last_error) .'</p></div>';
+    } else {
+        echo '<div class="notice notice-success"><p>Flight deal added.</p></div>';
+    }		
 }
 
 // Handle Update
@@ -65,24 +69,42 @@ if (isset($_POST['update_flight_deal'])) {
         $update_data['image'] = $image_url;
     }
 
-    $wpdb->update($table, $update_data, ['id' => intval($_POST['deal_id'])]);
-    echo '<div class="notice notice-success"><p>Flight deal updated.</p></div>';
+    $result = $wpdb->update($table, $update_data, ['id' => intval($_POST['deal_id'])]);
+	if ($result === false) {
+        echo '<div class="notice notice-error"><p>Update failed: ' . esc_html($wpdb->last_error) . '</p></div>';
+    } else {
+        echo '<div class="notice notice-success"><p>Flight deal updated.</p></div>';
+    }
 }
 
 // Handle Delete
 if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
-    $wpdb->delete($table, ['id' => intval($_GET['delete'])]);
-    echo '<div class="notice notice-success"><p>Flight deal deleted.</p></div>';
+    $result = $wpdb->delete($table, ['id' => intval($_GET['delete'])]);
+	if ($result === false) {
+        echo '<div class="notice notice-error"><p>Delete failed: ' . esc_html($wpdb->last_error) . '</p></div>';
+    } elseif ($result === 0) {
+        echo '<div class="notice notice-warning"><p>No record found or already deleted.</p></div>';
+    } else {
+        echo '<div class="notice notice-success"><p>Flight deal deleted.</p></div>';
+    }
 }
 
 // Handle Archive/Unarchive
 if (isset($_GET['archive']) && is_numeric($_GET['archive'])) {
-    $wpdb->update($table, ['status' => 0], ['id' => intval($_GET['archive'])]);
-    echo '<div class="notice notice-success"><p>Flight deal archived.</p></div>';
+    $result = $wpdb->update($table, ['status' => 0], ['id' => intval($_GET['archive'])]);
+    if ($result === false) {
+        echo '<div class="notice notice-error"><p>Archive failed: ' . esc_html($wpdb->last_error) . '</p></div>';
+    } else {
+        echo '<div class="notice notice-success"><p>Flight deal archived.</p></div>';
+    }
 }
 if (isset($_GET['unarchive']) && is_numeric($_GET['unarchive'])) {
-    $wpdb->update($table, ['status' => 1], ['id' => intval($_GET['unarchive'])]);
-    echo '<div class="notice notice-success"><p>Flight deal restored.</p></div>';
+    $result = $wpdb->update($table, ['status' => 1], ['id' => intval($_GET['unarchive'])]);
+    if ($result === false) {
+        echo '<div class="notice notice-error"><p>Restore failed: ' . esc_html($wpdb->last_error) . '</p></div>';
+    } else {
+        echo '<div class="notice notice-success"><p>Flight deal restored.</p></div>';
+    }
 }
 
 // Edit Form

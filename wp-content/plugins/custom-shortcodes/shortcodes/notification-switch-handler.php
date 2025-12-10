@@ -47,7 +47,7 @@ function save_notification_settings_callback() {
         //if ($field === 'newsletter_subscription') {
 
             // Mailchimp API Credentials
-			$api_key  = '605d6f44dad79810990020da5f6e866f-us3';
+			$api_key  = '7b28d612073701d453fd1550cb0fc026-us3';
             $list_id  = '7361ca5e6a';
 			$email    = wp_get_current_user()->user_email;
 			$dc       = substr($api_key, strpos($api_key, '-') + 1);
