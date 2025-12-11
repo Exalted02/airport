@@ -18,7 +18,6 @@ if ( is_array($settings) ) {
     $api_key = '';
     $list_id = '';
 }
-
 define('PMS_MC_API_KEY', $api_key);
 define('PMS_MC_LIST_ID', $list_id);
 

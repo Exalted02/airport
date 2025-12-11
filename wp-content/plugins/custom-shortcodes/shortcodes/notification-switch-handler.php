@@ -56,6 +56,7 @@ function save_notification_settings_callback() {
 				$api_key = '';
 				$list_id = '';
 			}
+			
 			$email    = wp_get_current_user()->user_email;
 			$dc       = substr($api_key, strpos($api_key, '-') + 1);
 			$hash     = md5(strtolower($email));
