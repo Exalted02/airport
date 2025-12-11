@@ -47,14 +47,14 @@ function save_notification_settings_callback() {
         //if ($field === 'newsletter_subscription') {
 
             // Mailchimp API Credentials
-			$settings = get_option('pms_email_marketing_mailchimp_settings');
+			$settings = get_option('pms_email_marketing_settings');
+			if ( is_array($settings) 
+				 && isset($settings['platforms']['mailchimp']) ) {
 
-			if ( is_array($settings) ) {
-				$api_key = $settings['api_key'] ?? '';
-				$list_id = $settings['list_id'] ?? '';
-			} else {
-				$api_key = '';
-				$list_id = '';
+				$api_key = $settings['platforms']['mailchimp']['api_key'] ?? '';
+				$list_id = $settings['platforms']['mailchimp']['list_id'] ?? '';
+			}else{
+				return;
 			}
 			
 			$email    = wp_get_current_user()->user_email;

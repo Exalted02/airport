@@ -9,14 +9,14 @@ if (! defined( 'ABSPATH' )) exit;
  */
 
 /* -------- CONFIG (replace these) -------- */
-$settings = get_option('pms_email_marketing_mailchimp_settings');
+$settings = get_option('pms_email_marketing_settings');
+if ( is_array($settings) 
+	 && isset($settings['platforms']['mailchimp']) ) {
 
-if ( is_array($settings) ) {
-    $api_key = $settings['api_key'] ?? '';
-    $list_id = $settings['list_id'] ?? '';
-} else {
-    $api_key = '';
-    $list_id = '';
+	$api_key = $settings['platforms']['mailchimp']['api_key'] ?? '';
+	$list_id = $settings['platforms']['mailchimp']['list_id'] ?? '';
+}else{
+	return;
 }
 define('PMS_MC_API_KEY', $api_key);
 define('PMS_MC_LIST_ID', $list_id);
