@@ -29,6 +29,37 @@ if (!defined('ALL_PREMIUM_PLAN_ID')) {
     define('ALL_PREMIUM_PLAN_ID', [1350, 2340, 2342]);
 }
 
+/* ------------------------------------------------
+ * Helper: Queue FREE month AFTER buyer's active plan
+ * ------------------------------------------------ */
+function reward_free_month_for_recurring_buyer($user_id) {
+
+    $subs = pms_get_member_subscriptions(['user_id' => $user_id]);
+    if (!$subs) return;
+
+    foreach ($subs as $sub) {
+        if ($sub->status === 'active' && in_array($sub->subscription_plan_id, ALL_PREMIUM_PLAN_ID)) {
+
+            // Push next billing date by 1 month
+            if (!empty($sub->billing_next_payment)) {
+                $new_date = date(
+                    'Y-m-d H:i:s',
+                    strtotime($sub->billing_next_payment . ' +1 month')
+                );
+
+                $sub->update([
+                    'billing_next_payment' => $new_date,
+                ]);
+
+                error_log("✅ Free month applied to recurring subscription for user {$user_id}");
+            }
+
+            return;
+        }
+    }
+}
+
+
 // ----------------------------------------------------------
 // 1️⃣ Reward when new Premium subscription inserted
 // ----------------------------------------------------------
@@ -43,7 +74,7 @@ add_action('pms_member_subscription_insert', function($subscription_id, $data) {
 
     $referred_user_id = $data['user_id'] ?? 0;
     if (!$referred_user_id) return;
-
+	
     $referrer_id = get_user_meta($referred_user_id, 'referred_by', true);
     if (!$referrer_id) return;
 
@@ -52,6 +83,9 @@ add_action('pms_member_subscription_insert', function($subscription_id, $data) {
     // Add +1 pending reward
     $pending = (int) get_user_meta($referrer_id, 'pending_referral_rewards', true);
     update_user_meta($referrer_id, 'pending_referral_rewards', $pending + 1);
+
+	// Buyer gets queued FREE month
+    reward_free_month_for_recurring_buyer($referred_user_id);
 
     // Log details
     $details = get_user_meta($referrer_id, 'pending_referral_rewards_details', true);
@@ -94,7 +128,7 @@ add_action('pms_member_subscription_update', function($subscription_id, $new_dat
 
     $referred_user_id = $new_data['user_id'] ?? 0;
     if (!$referred_user_id) return;
-
+	
     $referrer_id = get_user_meta($referred_user_id, 'referred_by', true);
     if (!$referrer_id) return;
 
@@ -102,6 +136,9 @@ add_action('pms_member_subscription_update', function($subscription_id, $new_dat
 
     $pending = (int) get_user_meta($referrer_id, 'pending_referral_rewards', true);
     update_user_meta($referrer_id, 'pending_referral_rewards', $pending + 1);
+
+	// Buyer gets queued FREE month
+    reward_free_month_for_recurring_buyer($referred_user_id);
 
     $details = get_user_meta($referrer_id, 'pending_referral_rewards_details', true);
     if (!is_array($details)) $details = [];

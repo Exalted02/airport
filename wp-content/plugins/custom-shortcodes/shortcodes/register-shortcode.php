@@ -131,10 +131,44 @@ function handle_custom_user_registration() {
 			// After successful registration do login and redirect to another page
 			wp_set_current_user($user_id);
 			wp_set_auth_cookie($user_id);
+			
+			// =======================
+			// CREATE FREE PMS SUBSCRIPTION (VERSION SAFE)
+			// =======================
+			if ( function_exists( 'pms_get_member_subscriptions' ) &&
+				 class_exists( 'PMS_Member_Subscription' ) ) {
+
+				$existing = pms_get_member_subscriptions( array(
+					'user_id' => $user_id,
+				) );
+
+				if ( empty( $existing ) ) {
+
+					$subscription = new PMS_Member_Subscription();
+
+					$subscription_id = $subscription->insert( array(
+						'user_id'              => $user_id,
+						'subscription_plan_id' => 2345, // FREE PLAN ID
+						'status'               => 'active',
+						'start_date'           => current_time( 'mysql' ),
+						'expiration_date'      => date( 'Y-m-d H:i:s', strtotime( '+1 month' ) ),
+					) );
+
+					if ( $subscription_id ) {
+						error_log( "PMS subscription INSERTED (ID: {$subscription_id}) for user {$user_id}" );
+					} else {
+						error_log( "PMS subscription insert FAILED for user {$user_id}" );
+					}
+				}
+
+			} else {
+				error_log( 'PMS subscription API not available' );
+			}
+
 
 			// Redirect after login
-			wp_redirect(home_url('/flight-deals')); 
-			exit;
+			// wp_redirect(home_url('/flight-deals')); 
+			// exit;
 			
             // echo "<p style='color:green'>Rejestracja pomyślna. Zaloguj się.</p>";
         } else {

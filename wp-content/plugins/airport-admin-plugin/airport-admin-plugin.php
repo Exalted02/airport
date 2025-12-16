@@ -28,7 +28,7 @@ function all_create_tables() {
 		offer_type tinyint(1) NOT NULL DEFAULT 0 COMMENT '0 = Non Premium, 1 = Premium',
 		price decimal(10,2) NOT NULL,
 		purpose varchar(255) NOT NULL,
-		booking_link varchar(255) NOT NULL,
+		booking_link text NOT NULL,
 		description text NOT NULL,
 		more_details text NULL,
 		image varchar(255) NULL,
@@ -88,12 +88,12 @@ function wp_add_flight_deals_tables() {
 }
 /*add_action('admin_init', function() {
     global $wpdb;
-    $table = $wpdb->prefix . 'airport_list';
+    $table = $wpdb->prefix . 'flight_deals';
 
     // Add column only if not exists
-    $code_exists = $wpdb->get_results("SHOW COLUMNS FROM `$table` LIKE 'code'");
+    $code_exists = $wpdb->get_results("SHOW COLUMNS FROM `$table` LIKE 'booking_link'");
     if($code_exists) {
-        $wpdb->query("ALTER TABLE `$table` CHANGE `code` `code` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL");
+        $wpdb->query("ALTER TABLE `$table` CHANGE `booking_link` `booking_link` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL");
     }
 });*/
 /**
