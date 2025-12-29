@@ -39,8 +39,51 @@ function handle_referral_on_registration($new_user_id) {
             $count = (int) get_user_meta($referrer_id, 'referral_count', true);
             update_user_meta($referrer_id, 'referral_count', $count + 1);
         }
-
+		
+		// Save referral code
+        update_user_meta($new_user_id, 'wrc_ref_code', $new_user_id . generate_unique_code());
+		
+		// Schedule PMS subscription creation
+		wp_schedule_single_event(time() + 5, 'create_free_pms_subscription', [$new_user_id]);
+	
+	
         unset($_SESSION['referral_code']);
+    }
+}
+add_action('create_free_pms_subscription', 'create_free_pms_subscription_callback');
+
+function create_free_pms_subscription_callback($user_id) {
+
+    if (
+        !function_exists('pms_get_member_subscriptions') ||
+        !class_exists('PMS_Member_Subscription')
+    ) {
+        error_log('PMS still not available for user ' . $user_id);
+        return;
+    }
+
+    $existing = pms_get_member_subscriptions([
+        'user_id' => $user_id,
+    ]);
+
+    if (!empty($existing)) {
+        return;
+    }
+
+    $subscription = new PMS_Member_Subscription();
+
+    $subscription_id = $subscription->insert([
+        'user_id'              => $user_id,
+        'subscription_plan_id' => 2345, // FREE PLAN
+        'status'               => 'active',
+        'start_date'           => current_time('mysql'),
+        'expiration_date'      => date('Y-m-d H:i:s', strtotime('+1 month')),
+    ]);
+
+    if ($subscription_id) {
+        error_log("PMS subscription created for user {$user_id}");
+    } else {
+        error_log("PMS subscription FAILED for user {$user_id}");
     }
 }
 

@@ -9,7 +9,8 @@ function get_referral_link_with_button() {
     if (is_user_logged_in()) {
         $user_id = get_current_user_id();
         $referral_code = get_user_meta($user_id, 'wrc_ref_code', true);
-
+		// $plans = pms_get_subscription_plans();
+		// echo '<pre>'; print_r($plans); echo '</pre>';
         if (!empty($referral_code)) {
             $register_page_url = home_url('/register');
             $referral_link = add_query_arg('ref', $referral_code, $register_page_url);
