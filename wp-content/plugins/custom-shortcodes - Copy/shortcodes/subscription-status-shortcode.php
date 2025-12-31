@@ -103,15 +103,15 @@ function my_subscription_status_shortcode() {
         return ob_get_clean();
     }
 	
-	// echo '<pre>'; print_r($subscriptions);exit;
     foreach ( $subscriptions as $sub ) {
-		// $a = pms_get_subscription_plan( $sub->subscription_plan_id );
+		// echo '<pre>'; print_r($sub);exit;
+		$a = pms_get_subscription_plan( $sub->subscription_plan_id );
+		echo '<pre>'; print_r($a);exit;
         $plan_id = $sub->subscription_plan_id;
         $status = ucfirst( $sub->status );
         $expiration = $sub->expiration_date ? date( 'd.m.Y', strtotime( $sub->expiration_date ) ) : 'Nigdy';
 
         $plan = get_post( $plan_id );
-		// echo '<pre>'; print_r($plan);exit;
         $plan_name = $plan ? $plan->post_title : 'Nieznany plan';
 
         ?>
@@ -129,7 +129,7 @@ function my_subscription_status_shortcode() {
             </div>
             <div class="subscription-text">
 				<?php
-				if($plan->post_name != 'premium'){
+				if($sub->billing_amount == 0){
 				?>
 					<p>Jako członek planu darmowego otrzymasz bezpłatnie powiadomienia o promocjach w ograniczonej formie.</p>
 				<?php } ?>

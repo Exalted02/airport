@@ -121,7 +121,11 @@ function change_subscription_status_shortcode() {
                     </span>
                     <strong class="plan-status"><?php echo esc_html( $plan_name ); ?></strong>
                 </p>
+				<?php
+				if($plan->post_name == 'premium'){
+				?>
                 <p>Pakiet daje nielimitowany dostęp do lotów w ramach wybranej sieci połączeń, pełną elastyczność zmian dat i tras</p>
+				<?php } ?>
             </div>
             <div class="subscription-text">
                 <a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>" class="upgrade-button">Uaktualnij swój plan</a>

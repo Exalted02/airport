@@ -52,23 +52,6 @@ function custom_user_login_form() {
     return ob_get_clean();
 }
 add_shortcode('custom_login', 'custom_user_login_form');
-function custom_user_login_terms() {
-    ob_start(); 
-	?>
-    <p class="register-terms-text">
-		Aby się zarejestrować, zapoznaj się z 
-		<a href="/regulamin" target="_blank" rel="noopener noreferrer">
-			Regulaminem
-		</a> 
-		i 
-		<a href="/polityka-prywatnosci" target="_blank" rel="noopener noreferrer">
-			Polityką Prywatności
-		</a>.
-	</p>
-    <?php
-    return ob_get_clean();
-}
-add_shortcode('custom_login_terms', 'custom_user_login_terms');
 
 
 // =======================

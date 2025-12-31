@@ -1,7 +1,7 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-function my_subscription_status_shortcode() {
+function change_subscription_status_shortcode() {
     if ( ! is_user_logged_in() ) {
         return '<div class="subscription-status-box">
             <p>Proszę zalogować się, aby zobaczyć szczegóły swojej subskrypcji.</p>
@@ -26,10 +26,10 @@ function my_subscription_status_shortcode() {
 	.subscription-status-card {
 		display: flex;
 		font-family: "Roboto", Sans-serif;
-		background:#EBF6EE;
+		background:#00354A;
 		padding:10px;
 		border-radius:10px;
-		color: #00131B;
+		color: #FFFFFF;
 	}
 	.subscription-status {
 		width: 57.638%;
@@ -37,7 +37,7 @@ function my_subscription_status_shortcode() {
 	}
 	.subscription-text {
 		width: 62.223%;
-		padding: 10px;
+		padding:10px;
 		align-self: center;
 		text-align: end;
 	}
@@ -53,7 +53,7 @@ function my_subscription_status_shortcode() {
 		align-items: center;
 	}
 	.elementor-icon-list-icon svg {
-		fill: #34A853;
+		fill: #429FE1;
 		transition: fill 0.3s;
 		height: 27px !important;
 		width: 27px !important;
@@ -77,7 +77,7 @@ function my_subscription_status_shortcode() {
 	@media (max-width: 1050px) {
 		.subscription-status-card {
 			display: block;
-		}
+		}		
 		.subscription-status, .subscription-text {
 			width: 100%;
 		}
@@ -89,7 +89,7 @@ function my_subscription_status_shortcode() {
         ?>
         <div class="subscription-status-card">
             <div class="subscription-status">
-                <h3>Aktualna subskrypcja:</h3>
+                <h3>Uaktualnij swój plan:</h3>
                 <p class="d-flex">
                     <strong class="plan-status">Free</strong>
                 </p>
@@ -102,37 +102,32 @@ function my_subscription_status_shortcode() {
         <?php
         return ob_get_clean();
     }
-	
-	// echo '<pre>'; print_r($subscriptions);exit;
+
     foreach ( $subscriptions as $sub ) {
-		// $a = pms_get_subscription_plan( $sub->subscription_plan_id );
         $plan_id = $sub->subscription_plan_id;
         $status = ucfirst( $sub->status );
         $expiration = $sub->expiration_date ? date( 'd.m.Y', strtotime( $sub->expiration_date ) ) : 'Nigdy';
 
         $plan = get_post( $plan_id );
-		// echo '<pre>'; print_r($plan);exit;
         $plan_name = $plan ? $plan->post_title : 'Nieznany plan';
 
         ?>
         <div class="subscription-status-card">
             <div class="subscription-status">
-                <h3>Aktualna subskrypcja:</h3>
+                <h3>Uaktualnij swój plan:</h3>
                 <p class="d-flex">
                     <span class="elementor-icon-list-icon">
-                        <svg aria-hidden="true" class="e-font-icon-svg e-fas-check" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>                        
+                        <svg aria-hidden="true" class="e-font-icon-svg e-fas-crosshairs" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M500 224h-30.364C455.724 130.325 381.675 56.276 288 42.364V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v30.364C130.325 56.276 56.276 130.325 42.364 224H12c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h30.364C56.276 381.675 130.325 455.724 224 469.636V500c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12v-30.364C381.675 455.724 455.724 381.675 469.636 288H500c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12zM288 404.634V364c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40.634C165.826 392.232 119.783 346.243 107.366 288H148c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12h-40.634C119.768 165.826 165.757 119.783 224 107.366V148c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12v-40.634C346.174 119.768 392.217 165.757 404.634 224H364c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40.634C392.232 346.174 346.243 392.217 288 404.634zM288 256c0 17.673-14.327 32-32 32s-32-14.327-32-32c0-17.673 14.327-32 32-32s32 14.327 32 32z"></path></svg>                    
                     </span>
                     <strong class="plan-status"><?php echo esc_html( $plan_name ); ?></strong>
                 </p>
-                <p>Status: <strong><?php echo esc_html( $status ); ?></strong></p>
-                <!--<p>Wygasa dnia: <strong><?php echo esc_html( $expiration ); ?></strong></p>-->
+				<?php
+				if($sub->billing_amount > 0){
+				?>
+                <p>Pakiet daje nielimitowany dostęp do lotów w ramach wybranej sieci połączeń, pełną elastyczność zmian dat i tras</p>
+				<?php } ?>
             </div>
             <div class="subscription-text">
-				<?php
-				if($plan->post_name != 'premium'){
-				?>
-					<p>Jako członek planu darmowego otrzymasz bezpłatnie powiadomienia o promocjach w ograniczonej formie.</p>
-				<?php } ?>
                 <a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>" class="upgrade-button">Uaktualnij swój plan</a>
             </div>
         </div>
@@ -141,4 +136,4 @@ function my_subscription_status_shortcode() {
 
     return ob_get_clean();
 }
-add_shortcode( 'subscription_status', 'my_subscription_status_shortcode' );
+add_shortcode( 'change_subscription', 'change_subscription_status_shortcode' );

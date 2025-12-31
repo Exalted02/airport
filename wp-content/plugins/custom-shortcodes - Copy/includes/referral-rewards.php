@@ -3,89 +3,30 @@
 if (!defined('ABSPATH')) exit;
 
 /**
- * Define dynamic Premium plan constants
- * AFTER Paid Member Subscriptions is loaded
- */
-add_action('plugins_loaded', function () {
-
-    if (!function_exists('pms_get_subscription_plans')) {
-        error_log('❌ PMS not active – Premium plan detection skipped');
-        return;
-    }
-
-    if (!defined('PREMIUM_PLAN_ID')) {
-        define('PREMIUM_PLAN_ID', rr_get_monthly_paid_premium_plan_id());
-    }
-
-    if (!defined('ALL_PREMIUM_PLAN_ID')) {
-        define('ALL_PREMIUM_PLAN_ID', rr_get_all_paid_premium_plan_ids());
-    }
-
-}, 20);
-
-
-/**
  * ==========================================================
- * Dynamic Premium Plan Detection (PMS)
+ * REFERRAL REWARDS SYSTEM (AJAX version)
  * ==========================================================
+ *
+ * Logic:
+ *  - When a referred user (User B) subscribes to Premium via PMS,
+ *    their referrer (User A) gets ONE pending reward.
+ *  - User A can activate each reward manually using the shortcode:
+ *      [referral_rewards]
+ *  - Activation grants +1 month Premium.
+ *  - Counter updates instantly via AJAX (no reload).
  */
 
-/**
- * Get ALL paid Premium plan IDs (price > 0)
- */
-function rr_get_all_paid_premium_plan_ids() {
-
-    static $plans = null;
-    if ($plans !== null) return $plans;
-
-    $plans = [];
-
-    $subscription_plans = pms_get_subscription_plans();
-    if (!$subscription_plans) return [];
-
-    foreach ($subscription_plans as $plan) {
-
-        // Price must be > 0
-        if ((float) $plan->price <= 0) {
-            continue;
-        }
-
-        $plans[] = (int) $plan->id;
-    }
-
-    return $plans;
+// ------------------------
+// Define your Premium plan ID
+// ------------------------
+if (!defined('PREMIUM_PLAN_ID')) {
+    define('PREMIUM_PLAN_ID', 1350);
 }
-
-/**
- * Get MONTHLY paid Premium plan ID
- * (≈ 1 month / 30–31 days / price > 0)
- */
-function rr_get_monthly_paid_premium_plan_id() {
-
-    static $monthly_id = null;
-    if ($monthly_id !== null) return $monthly_id;
-
-    $subscription_plans = pms_get_subscription_plans();
-    if (!$subscription_plans) return null;
-
-    foreach ($subscription_plans as $plan) {
-
-        // Must be paid
-        if ((float) $plan->price <= 0) {
-            continue;
-        }
-
-        // PMS duration logic
-        if (
-            $plan->duration == 1 &&
-            $plan->duration_unit === 'month'
-        ) {
-            $monthly_id = (int) $plan->id;
-            return $monthly_id;
-        }
-    }
-
-    return null;
+// ------------------------
+// Define all Premium plan ID
+// ------------------------
+if (!defined('ALL_PREMIUM_PLAN_ID')) {
+    define('ALL_PREMIUM_PLAN_ID', [1350, 2340, 2342]);
 }
 
 /* ------------------------------------------------
@@ -332,42 +273,10 @@ add_action('wp_ajax_activate_referral_reward', function() {
     }
 
     if ($active_sub && !empty($active_sub->expiration_date)) {
-
-		// PAID plan → extend
-		if ((float) $active_sub->billing_amount > 0) {
-
-			$new_exp = date(
-				'Y-m-d H:i:s',
-				strtotime($active_sub->expiration_date . ' +1 month')
-			);
-
-			$active_sub->update([
-				'expiration_date' => $new_exp,
-			]);
-
-			$msg = 'Twój plan Premium został przedłużony o 1 miesiąc!';
-
-		}
-		// FREE plan → delete & replace
-		else {
-
-			// Proper PMS delete
-			if (method_exists($active_sub, 'delete')) {
-				$active_sub->delete();
-			} else {
-				global $wpdb;
-				$wpdb->delete(
-					$wpdb->prefix . 'pms_member_subscriptions',
-					['id' => $active_sub->id],
-					['%d']
-				);
-			}
-
-			$active_sub = null; // force new subscription
-		}
-	}
-
-	if (!$active_sub) {
+        $new_exp = date('Y-m-d H:i:s', strtotime($active_sub->expiration_date . ' +1 month'));
+        $active_sub->update(['expiration_date' => $new_exp]);
+        $msg = 'Twój plan Premium został przedłużony o 1 miesiąc!';
+    } else {
         // Ensure PMS member exists
         $member = pms_get_member($user_id);
         if (!$member) {

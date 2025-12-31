@@ -5,28 +5,6 @@ if (!defined('ABSPATH')) exit;
 /**
  * Referral System Integration (Normal + Nextend Social Login)
  */
-function rr_get_free_plan_id() {
-
-    static $free_plan_id = null;
-    if ($free_plan_id !== null) return $free_plan_id;
-
-    if (!function_exists('pms_get_subscription_plans')) {
-        return null;
-    }
-
-    $plans = pms_get_subscription_plans();
-    if (!$plans) return null;
-
-    foreach ($plans as $plan) {
-
-        if ((float) $plan->price === 0.0) {
-            $free_plan_id = (int) $plan->id;
-            return $free_plan_id;
-        }
-    }
-
-    return null;
-}
 
 // Save referral code from URL (?ref=CODE)
 add_action('init', function() {
@@ -102,18 +80,12 @@ function create_free_pms_subscription_callback($user_id) {
     if (!empty($existing)) {
         return;
     }
-	
-	$free_plan_id = rr_get_free_plan_id();
-	if (!$free_plan_id) {
-		error_log('No FREE PMS plan found (price = 0)');
-		return;
-	}
 
     $subscription = new PMS_Member_Subscription();
 
     $subscription_id = $subscription->insert([
         'user_id'              => $user_id,
-        'subscription_plan_id' => $free_plan_id, // FREE PLAN
+        'subscription_plan_id' => 2345, // FREE PLAN
         'status'               => 'active',
         'start_date'           => current_time('mysql'),
         'expiration_date'      => date('Y-m-d H:i:s', strtotime('+1 month')),
