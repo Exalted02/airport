@@ -358,7 +358,7 @@ function custom_flight_deals_shortcode() {
 				</svg>
 				<h2>Pełny dostęp do oferty tylko dla użytkowników Premium</h2>
 				<p>Dostęp do pełnego opisu ofert lotów jest możliwy tylko z pakietem Premium – odkryj wszystkie szczegóły i korzyści, które dla Ciebie przygotowaliśmy</p>
-				<a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>" id="premium-close">Uaktualnij swój plan</a>
+				<a href="<?php echo esc_url( home_url( '/checkout' ) ); ?>" id="premium-close">Uaktualnij swój plan</a>
 			</div>
 		</div>
 	<?php	
@@ -385,8 +385,8 @@ function custom_flight_deals_shortcode() {
                 'format' => 'page/%#%/',
                 'current' => $paged,
                 'total' => $total_pages,
-                'prev_text' => '« Prev',
-                'next_text' => 'Next »',
+                'prev_text' => '« Poprzedni',
+                'next_text' => 'Następny »',
             ));
             ?>
         </div>

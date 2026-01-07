@@ -96,7 +96,7 @@ function change_subscription_status_shortcode() {
             </div>
             <div class="subscription-text">
                 <p>Jako członek planu darmowego otrzymasz bezpłatnie powiadomienia o promocjach w ograniczonej formie.</p>
-                <a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>" class="upgrade-button">Uaktualnij swój plan</a>
+                <a href="<?php echo esc_url( home_url( '/checkout' ) ); ?>" class="upgrade-button">Uaktualnij swój plan</a>
             </div>
         </div>
         <?php
@@ -128,7 +128,7 @@ function change_subscription_status_shortcode() {
 				<?php } ?>
             </div>
             <div class="subscription-text">
-                <a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>" class="upgrade-button">Uaktualnij swój plan</a>
+                <a href="<?php echo esc_url( home_url( '/checkout' ) ); ?>" class="upgrade-button">Uaktualnij swój plan</a>
             </div>
         </div>
         <?php

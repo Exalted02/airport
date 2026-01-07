@@ -6,10 +6,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 "
+"&& (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
 "X-Generator: GlotPress/4.0.1\n"
 "Language: pl\n"
-"Project-Id-Version: Plugins - Paid Membership Subscriptions &#8211; Effortless Memberships, Recurring Payments &amp; Content Restriction - Stable (latest release)\n"
+"Project-Id-Version: Plugins - Paid Membership Subscriptions &#8211; "
+"Effortless Memberships, Recurring Payments &amp; Content Restriction - "
+"Stable (latest release)\n"
 
 #: translations/paid-member-subscriptions.catalog.php:1279
 msgid "Edit menu item"
@@ -994,8 +997,12 @@ msgid "Group Name"
 msgstr "Nazwa grupy"
 
 #: translations/paid-member-subscriptions.catalog.php:2416
-msgid "You have a pending payment of %s for the %s subscription. Authentication is required for this transaction."
-msgstr "Masz niedokończoną płatność w wysokości %s za subskrypcję %s. Uwierzytelnienie jest wymagane dla tej transakcji."
+msgid ""
+"You have a pending payment of %s for the %s subscription. Authentication is "
+"required for this transaction."
+msgstr ""
+"Masz niedokończoną płatność w wysokości %s za subskrypcję %s. "
+"Uwierzytelnienie jest wymagane dla tej transakcji."
 
 #: translations/paid-member-subscriptions.catalog.php:2357
 msgid "The logo will appear in the top-right corner of the Invoice."
@@ -1026,8 +1033,18 @@ msgid "Payment authenticated successfully."
 msgstr "Uwierzytelnienie płatności udane."
 
 #: translations/paid-member-subscriptions.catalog.php:1553
-msgid "<p>Hello {{display_name}},</p> <p>Payment Authentication is required in order to confirm the payment of <strong>{{subscription_price}}</strong> for the <strong>{{subscription_name}}</strong> subscription on <strong>{{site_name}}</strong>.</p> <p>Click on the following link in order to authenticate the payment: {{stripe_auth_link}}</p>"
-msgstr "<p>Witaj {{display_name}},</p> <p>Uwierzytelnienie płatności jest wymagane celem potwierdzenia płatności w wysokości <strong>{{payment_amount}}</strong> za <strong>{{subscription_name}}</strong> na stronie <strong>{{site_name}}</strong>.</p> <p>Kliknij poniższy link aby uwierzytelnić płatność: {{stripe_auth_link}}</p>"
+msgid ""
+"<p>Hello {{display_name}},</p> <p>Payment Authentication is required in "
+"order to confirm the payment of <strong>{{subscription_price}}</strong> for "
+"the <strong>{{subscription_name}}</strong> subscription on <strong>"
+"{{site_name}}</strong>.</p> <p>Click on the following link in order to "
+"authenticate the payment: {{stripe_auth_link}}</p>"
+msgstr ""
+"<p>Witaj {{display_name}},</p> <p>Uwierzytelnienie płatności jest wymagane "
+"celem potwierdzenia płatności w wysokości <strong>{{payment_amount}}</strong>"
+" za <strong>{{subscription_name}}</strong> na stronie <strong>{{site_name}}"
+"</strong>.</p> <p>Kliknij poniższy link aby uwierzytelnić płatność: "
+"{{stripe_auth_link}}</p>"
 
 #: translations/paid-member-subscriptions.catalog.php:2356
 msgid "Upload Image"
@@ -1126,8 +1143,12 @@ msgstr "Dowiedz się więcej"
 #: includes/admin/views/view-page-settings-misc.php:51
 #: includes/functions-form-extra-fields.php:191
 #: translations/paid-member-subscriptions.catalog.php:607
-msgid "I allow the website to collect and store the data I submit through this form. *"
-msgstr "Zezwalam niniejszej stronie na przetwarzanie danych, które prześlę za pomocą tego formularza. *"
+msgid ""
+"I allow the website to collect and store the data I submit through this form."
+" *"
+msgstr ""
+"Zezwalam niniejszej stronie na przetwarzanie danych, które prześlę za pomocą "
+"tego formularza. *"
 
 #: includes/admin/views/view-page-settings-misc.php:198
 #: includes/gateways/paypal_connect/admin/functions-admin-filters.php:163
@@ -1197,8 +1218,12 @@ msgstr "Płatność nie mogła zostać przetworzona."
 
 #: extend/elementor/class-elementor-elements-restriction.php:154
 #: translations/paid-member-subscriptions.catalog.php:705
-msgid "Replace hidden content with the default messages from PMS -> Settings -> Content Restriction, a custom message or an Elementor Template."
-msgstr "Zastąp ukrytą treść domyślnymi wiadomościami z PMS -> Ustawienia -> Ograniczenie treści wiadomością lub szablonem."
+msgid ""
+"Replace hidden content with the default messages from PMS -> Settings -> "
+"Content Restriction, a custom message or an Elementor Template."
+msgstr ""
+"Zastąp ukrytą treść domyślnymi wiadomościami z PMS -> Ustawienia -> "
+"Ograniczenie treści wiadomością lub szablonem."
 
 #: extend/elementor/class-elementor-elements-restriction.php:80
 #: translations/paid-member-subscriptions.catalog.php:699
@@ -1232,8 +1257,12 @@ msgstr "Użyto numeru karty testowej Stripe"
 
 #: includes/gateways/stripe/functions-filters.php:288
 #: translations/paid-member-subscriptions.catalog.php:2187
-msgid "A transaction with identical amount and credit card information was submitted very recently."
-msgstr "Taka transakcja z identycznymi danymi do karty kredytowej została niedawno złożona."
+msgid ""
+"A transaction with identical amount and credit card information was "
+"submitted very recently."
+msgstr ""
+"Taka transakcja z identycznymi danymi do karty kredytowej została niedawno "
+"złożona."
 
 #: includes/gateways/stripe/functions-filters.php:308
 #: translations/paid-member-subscriptions.catalog.php:2203
@@ -1241,12 +1270,17 @@ msgid "An error occurred while processing the card."
 msgstr "Wystąpił błąd podczas przetwarzania karty."
 
 #: translations/paid-member-subscriptions.catalog.php:1531
-msgid "Attempting to charge user based on the <strong>PayPal Checkout</strong>."
-msgstr "Próba obciążenia użytkownika przy użyciu <strong>PayPal Checkout</strong>."
+msgid ""
+"Attempting to charge user based on the <strong>PayPal Checkout</strong>."
+msgstr ""
+"Próba obciążenia użytkownika przy użyciu <strong>PayPal Checkout</strong>."
 
 #: translations/paid-member-subscriptions.catalog.php:1525
-msgid "Couldn't receive checkout details from PayPal. <strong>Error %s</strong>: %s"
-msgstr "Nie można otrzymać szczegółów płatności  PayPal. <strong>Error %s</strong>: %s"
+msgid ""
+"Couldn't receive checkout details from PayPal. <strong>Error %s</strong>: %s"
+msgstr ""
+"Nie można otrzymać szczegółów płatności  PayPal. <strong>Error %s</strong>: "
+"%s"
 
 #: includes/gateways/stripe/functions-filters.php:365
 #: translations/paid-member-subscriptions.catalog.php:1535
@@ -1306,8 +1340,12 @@ msgstr "Kod pocztowy jest nieprawidłowy."
 
 #: includes/gateways/stripe/functions-filters.php:310
 #: translations/paid-member-subscriptions.catalog.php:2205
-msgid "The card cannot be used to make this payment (it is possible it has been reported lost or stolen)."
-msgstr "Karta nie może zostać użyta do dokonania tej płatności (możliwe, że została zgłoszona utrata lub kradzież)."
+msgid ""
+"The card cannot be used to make this payment (it is possible it has been "
+"reported lost or stolen)."
+msgstr ""
+"Karta nie może zostać użyta do dokonania tej płatności (możliwe, że została "
+"zgłoszona utrata lub kradzież)."
 
 #: includes/gateways/stripe/functions-filters.php:287
 #: translations/paid-member-subscriptions.catalog.php:2186
@@ -1332,8 +1370,10 @@ msgstr "Karta nie ma wystarczających środków na dokończenie zakupu."
 
 #: includes/gateways/stripe/functions-filters.php:304
 #: translations/paid-member-subscriptions.catalog.php:2199
-msgid "The card issuer could not be reached, so the payment could not be authorized."
-msgstr "Nie można uzyskać wystawcy karty, więc nie można autoryzować płatności."
+msgid ""
+"The card issuer could not be reached, so the payment could not be authorized."
+msgstr ""
+"Nie można uzyskać wystawcy karty, więc nie można autoryzować płatności."
 
 #: includes/gateways/stripe/functions-filters.php:293
 #: includes/gateways/stripe/functions-filters.php:302
@@ -1348,12 +1388,16 @@ msgstr "Karta lub konto, do którego karta jest podłączona, jest nieprawidłow
 
 #: includes/gateways/stripe/functions-filters.php:286
 #: translations/paid-member-subscriptions.catalog.php:2185
-msgid "The customer has exceeded the balance or credit limit available on their card."
+msgid ""
+"The customer has exceeded the balance or credit limit available on their "
+"card."
 msgstr "Klient przekroczył limit salda lub kredytu dostępny na karcie."
 
 #: includes/gateways/stripe/functions-filters.php:313
 #: translations/paid-member-subscriptions.catalog.php:2208
-msgid "The customer has exceeded the balance or credit limit available on their card. "
+msgid ""
+"The customer has exceeded the balance or credit limit available on their "
+"card. "
 msgstr "Klient przekroczył limit salda lub kredytu dostępny na karcie."
 
 #: includes/gateways/stripe/functions-filters.php:301
@@ -1369,17 +1413,24 @@ msgstr "Kwota płatności jest nieważna lub przekracza dozwoloną kwotę."
 #: includes/gateways/stripe/functions-filters.php:309
 #: translations/paid-member-subscriptions.catalog.php:2204
 msgid "The payment could not be processed by the issuer for an unknown reason."
-msgstr "Płatność nie mogła zostać przetworzona przez emitenta z nieznanej przyczyny."
+msgstr ""
+"Płatność nie mogła zostać przetworzona przez emitenta z nieznanej przyczyny."
 
 #: includes/gateways/stripe/functions-filters.php:290
 #: translations/paid-member-subscriptions.catalog.php:2189
 msgid "The payment has been declined as Stripe suspects it is fraudulent."
-msgstr "Płatność została odrzucona, ponieważ Stripe podejrzewa, że jest zdefraudowana."
+msgstr ""
+"Płatność została odrzucona, ponieważ Stripe podejrzewa, że jest "
+"zdefraudowana."
 
 #: includes/gateways/stripe/functions-filters.php:306
 #: translations/paid-member-subscriptions.catalog.php:2201
-msgid "The payment has been declined because it matches a value on the Stripe user's blocklist."
-msgstr "Płatność została odrzucona, ponieważ odpowiada wartości na liście zablokowanych użytkowników Stripe."
+msgid ""
+"The payment has been declined because it matches a value on the Stripe "
+"user's blocklist."
+msgstr ""
+"Płatność została odrzucona, ponieważ odpowiada wartości na liście "
+"zablokowanych użytkowników Stripe."
 
 #: includes/gateways/stripe/functions-filters.php:305
 #: translations/paid-member-subscriptions.catalog.php:2200
@@ -1397,16 +1448,30 @@ msgid "The payment is not permitted."
 msgstr "Płatność nie jest dozwolona."
 
 #: translations/paid-member-subscriptions.catalog.php:1566
-msgid "The selected gateway is not configured correctly: <strong>API credentials are missing</strong>. Contact the system administrator."
-msgstr "Wybrana brama nie jest poprawnie skonfigurowana: brakuje <strong> poświadczeń interfejsu API </strong>. Skontaktuj się z administratorem systemu."
+msgid ""
+"The selected gateway is not configured correctly: <strong>API credentials "
+"are missing</strong>. Contact the system administrator."
+msgstr ""
+"Wybrana brama nie jest poprawnie skonfigurowana: brakuje <strong> "
+"poświadczeń interfejsu API </strong>. Skontaktuj się z administratorem "
+"systemu."
 
 #: translations/paid-member-subscriptions.catalog.php:1493
-msgid "The selected gateway is not configured correctly: <strong>PayPal API credentials are missing</strong>. Contact the system administrator."
-msgstr "Wybrana brama nie jest poprawnie skonfigurowana: brakuje <strong> danych uwierzytelniających API PayPal </strong>. Skontaktuj się z administratorem systemu."
+msgid ""
+"The selected gateway is not configured correctly: <strong>PayPal API "
+"credentials are missing</strong>. Contact the system administrator."
+msgstr ""
+"Wybrana brama nie jest poprawnie skonfigurowana: brakuje <strong> danych "
+"uwierzytelniających API PayPal </strong>. Skontaktuj się z administratorem "
+"systemu."
 
 #: translations/paid-member-subscriptions.catalog.php:1530
-msgid "User did not accept the <strong>Billing Agreement</strong> on the <strong>PayPal Checkout</strong>."
-msgstr "Użytkownik nie zaakceptował <strong> Umowy rozliczeniowej </strong> w <strong> PayPal Checkout </strong>."
+msgid ""
+"User did not accept the <strong>Billing Agreement</strong> on the <strong>"
+"PayPal Checkout</strong>."
+msgstr ""
+"Użytkownik nie zaakceptował <strong> Umowy rozliczeniowej </strong> w "
+"<strong> PayPal Checkout </strong>."
 
 #: translations/paid-member-subscriptions.catalog.php:1522
 msgid "User returned back to website from <strong>PayPal</strong>."
@@ -1414,8 +1479,12 @@ msgstr "Użytkownik powrócił do witryny z <strong> PayPal </strong>."
 
 #: includes/gateways/paypal_standard/functions-paypal-standard.php:282
 #: translations/paid-member-subscriptions.catalog.php:2168
-msgid "Your <strong>PayPal API credentials</strong> are missing. In order to make payments you will need to add your API credentials %1$s here %2$s."
-msgstr "Brakuje <strong> Twoich danych uwierzytelniających API PayPal </strong>. Aby dokonać płatności, musisz dodać swoje poświadczenia API %1$s tutaj %2$s."
+msgid ""
+"Your <strong>PayPal API credentials</strong> are missing. In order to make "
+"payments you will need to add your API credentials %1$s here %2$s."
+msgstr ""
+"Brakuje <strong> Twoich danych uwierzytelniających API PayPal </strong>. Aby "
+"dokonać płatności, musisz dodać swoje poświadczenia API %1$s tutaj %2$s."
 
 #: includes/gateways/stripe/functions-filters.php:289
 #: translations/paid-member-subscriptions.catalog.php:2188
@@ -1455,12 +1524,15 @@ msgstr "Zmienione dane"
 #: includes/gateways/paypal_standard/functions-paypal-standard.php:181
 #: translations/paid-member-subscriptions.catalog.php:2166
 msgid "Instant Payment Notification (IPN) not received from PayPal."
-msgstr "Natychmiastowe powiadomienie o płatnościach (IPN) nie otrzymanych przez PayPal."
+msgstr ""
+"Natychmiastowe powiadomienie o płatnościach (IPN) nie otrzymanych przez "
+"PayPal."
 
 #: includes/gateways/paypal_standard/functions-paypal-standard.php:178
 #: translations/paid-member-subscriptions.catalog.php:2165
 msgid "Instant Payment Notification (IPN) received from PayPal."
-msgstr "Natychmiastowe powiadomienie o płatnościach (IPN) otrzymanych przez PayPal."
+msgstr ""
+"Natychmiastowe powiadomienie o płatnościach (IPN) otrzymanych przez PayPal."
 
 #: includes/admin/class-admin-payments-log-list-table.php:53
 #: translations/paid-member-subscriptions.catalog.php:926
@@ -1490,22 +1562,35 @@ msgstr "Ups... Coś poszło nie tak podczas próby przetworzenia płatności."
 
 #: includes/gateways/paypal_standard/class-payment-gateway-paypal-standard.php:319
 #: translations/paid-member-subscriptions.catalog.php:1492
-msgid "The selected gateway is not configured correctly: <strong>PayPal Address is missing</strong>. Contact the system administrator."
-msgstr "Wybrana brama nie jest poprawnie skonfigurowana: brak adresu <strong> PayPal </strong>. Skontaktuj się z administratorem systemu."
+msgid ""
+"The selected gateway is not configured correctly: <strong>PayPal Address is "
+"missing</strong>. Contact the system administrator."
+msgstr ""
+"Wybrana brama nie jest poprawnie skonfigurowana: brak adresu <strong> PayPal "
+"</strong>. Skontaktuj się z administratorem systemu."
 
 #: includes/gateways/paypal_standard/functions-paypal-standard.php:172
 #: translations/paid-member-subscriptions.catalog.php:2163
-msgid "User sent to <strong>PayPal Checkout</strong> to continue the payment process."
-msgstr "Użytkownik wysłał do <strong> PayPal Checkout </strong>, by kontynuować proces płatności."
+msgid ""
+"User sent to <strong>PayPal Checkout</strong> to continue the payment "
+"process."
+msgstr ""
+"Użytkownik wysłał do <strong> PayPal Checkout </strong>, by kontynuować "
+"proces płatności."
 
 #: includes/gateways/paypal_standard/functions-paypal-standard.php:175
 #: translations/paid-member-subscriptions.catalog.php:2164
-msgid "Waiting to receive Instant Payment Notification (IPN) from <strong>PayPal</strong>."
-msgstr "Oczekiwanie na natychmiastowe powiadomienie o płatności (IPN) z <strong> PayPal </strong>."
+msgid ""
+"Waiting to receive Instant Payment Notification (IPN) from <strong>"
+"PayPal</strong>."
+msgstr ""
+"Oczekiwanie na natychmiastowe powiadomienie o płatności (IPN) z <strong> "
+"PayPal </strong>."
 
 #: includes/functions-content-filtering.php:310
 #: translations/paid-member-subscriptions.catalog.php:179
-msgid "Your account has been created, so please %slog in%s and retry the payment."
+msgid ""
+"Your account has been created, so please %slog in%s and retry the payment."
 msgstr "Twoje konto zostało utworzone, więc %szaloguj się%s i ponów płatność."
 
 #: includes/admin/views/view-page-export.php:212
@@ -1542,8 +1627,13 @@ msgstr "%s on %s"
 #: includes/gateways/paypal_standard/functions-paypal-standard.php:96
 #: includes/gateways/paypal_standard/functions-paypal-standard.php:124
 #: translations/paid-member-subscriptions.catalog.php:2162
-msgid "Your <strong>PayPal Email Address</strong> is missing. In order to make payments you will need to add the Email Address of your PayPal account %1$s here %2$s."
-msgstr "Brakuje <strong> adresu e-mail PayPal </strong>. Aby dokonać płatności, musisz dodać adres e-mail swojego konta PayPal %1$s tutaj %2$s."
+msgid ""
+"Your <strong>PayPal Email Address</strong> is missing. In order to make "
+"payments you will need to add the Email Address of your PayPal account %1$s "
+"here %2$s."
+msgstr ""
+"Brakuje <strong> adresu e-mail PayPal </strong>. Aby dokonać płatności, "
+"musisz dodać adres e-mail swojego konta PayPal %1$s tutaj %2$s."
 
 #: extend/elementor/widgets/class-widget-login.php:60
 #: translations/paid-member-subscriptions.catalog.php:1613
@@ -1600,7 +1690,8 @@ msgstr "%sKliknij tu %s aby nie czekać."
 #: extend/wpbakery/class-wpbakery.php:101
 #: translations/paid-member-subscriptions.catalog.php:780
 msgid "Add a password recovery form using [pms-recover-password]"
-msgstr "Dodaj formularz odzyskiwania hasła za pomocą kodu [pms-recovery-password]"
+msgstr ""
+"Dodaj formularz odzyskiwania hasła za pomocą kodu [pms-recovery-password]"
 
 #: extend/wpbakery/class-wpbakery.php:55
 #: translations/paid-member-subscriptions.catalog.php:771
@@ -1733,7 +1824,8 @@ msgstr "Zablokuj możliwość komentowania, jeśli taka możliwość jest włąc
 #: includes/admin/views/view-page-settings-content_restriction.php:153
 #: translations/paid-member-subscriptions.catalog.php:1945
 msgid "Restrict replying, but allow users to view comments"
-msgstr "Zablokuj możliwość komentowania, ale pozwól użytkownikom czytać komentarze"
+msgstr ""
+"Zablokuj możliwość komentowania, ale pozwól użytkownikom czytać komentarze"
 
 #: extend/beaver-builder/modules/pms-account/pms-account.php:35
 #: extend/wpbakery/class-wpbakery.php:63
@@ -1819,7 +1911,8 @@ msgstr "Strony członkowskie"
 
 #: includes/admin/views/view-page-settings-general.php:191
 #: translations/paid-member-subscriptions.catalog.php:1985
-msgid "Select the page containing the <strong>[pms-account]</strong> shortcode."
+msgid ""
+"Select the page containing the <strong>[pms-account]</strong> shortcode."
 msgstr "Wybierz stronę zawierającą kod <strong>[pms-account]</strong>."
 
 #: includes/admin/views/view-page-settings-general.php:163
@@ -1829,12 +1922,16 @@ msgstr "Wybierz stronę zawierającą kod <strong>[pms-login]</strong>."
 
 #: includes/admin/views/view-page-settings-general.php:221
 #: translations/paid-member-subscriptions.catalog.php:1987
-msgid "Select the page containing the <strong>[pms-recover-password]</strong> shortcode."
-msgstr "Wybierz stronę zawierającą kod <strong>[pms-recover-password]</strong>."
+msgid ""
+"Select the page containing the <strong>[pms-recover-password]</strong> "
+"shortcode."
+msgstr ""
+"Wybierz stronę zawierającą kod <strong>[pms-recover-password]</strong>."
 
 #: includes/admin/views/view-page-settings-general.php:124
 #: translations/paid-member-subscriptions.catalog.php:1983
-msgid "Select the page containing the <strong>[pms-register]</strong> shortcode."
+msgid ""
+"Select the page containing the <strong>[pms-register]</strong> shortcode."
 msgstr "Wybierz stronę zawierającą kod <strong> [pms-register] </strong>."
 
 #: includes/admin/class-admin-subscription-plans.php:1185
@@ -1844,8 +1941,12 @@ msgstr "Plan subskrypcji przywrócony do wersji z %s"
 
 #: includes/admin/views/view-page-settings-general.php:98
 #: translations/paid-member-subscriptions.catalog.php:1980
-msgid "These pages need to be set so that Paid Member Subscriptions knows where to send users."
-msgstr "Te strony muszą być ustawione tak, aby Paid Member Subscriptions wiedziała, gdzie przekierowywać użytkowników."
+msgid ""
+"These pages need to be set so that Paid Member Subscriptions knows where to "
+"send users."
+msgstr ""
+"Te strony muszą być ustawione tak, aby Paid Member Subscriptions wiedziała, "
+"gdzie przekierowywać użytkowników."
 
 #: includes/admin/views/view-page-settings-emails.php:262
 #: translations/paid-member-subscriptions.catalog.php:1962
@@ -1892,8 +1993,12 @@ msgid "API Username for Test/Sandbox site"
 msgstr "Nazwa użytkownika API dla witryny Test / Sandbox"
 
 #: translations/paid-member-subscriptions.catalog.php:2382
-msgid "Check if your PayPal account has Reference Transactions enabled. %1$sLearn how to enable reference transactions.%2$s"
-msgstr "Zaznacz, jeśli na twoim koncie PayPal są aktywne transakcje referencyjne. %1$sLearn how to enable reference transactions.%2$s"
+msgid ""
+"Check if your PayPal account has Reference Transactions enabled. %1$sLearn "
+"how to enable reference transactions.%2$s"
+msgstr ""
+"Zaznacz, jeśli na twoim koncie PayPal są aktywne transakcje referencyjne. "
+"%1$sLearn how to enable reference transactions.%2$s"
 
 #. Author of the plugin
 #: index.php
@@ -1907,8 +2012,14 @@ msgstr "Włącz wiadomości e-mail administratora"
 
 #: includes/admin/views/view-page-settings-general.php:63
 #: translations/paid-member-subscriptions.catalog.php:1973
-msgid "If the current user's session has been taken over by a newer session, we will log him out and he will have to login again. This will make it inconvenient for members to share their login credentials."
-msgstr "Jeśli bieżąca sesja użytkownika zostanie przejęta przez nowszą sesję, zostanie on wylogowany i będzie musiał zalogować się ponownie. Ma to na celu utrudnienie przy współdzieleniu kont. "
+msgid ""
+"If the current user's session has been taken over by a newer session, we "
+"will log him out and he will have to login again. This will make it "
+"inconvenient for members to share their login credentials."
+msgstr ""
+"Jeśli bieżąca sesja użytkownika zostanie przejęta przez nowszą sesję, "
+"zostanie on wylogowany i będzie musiał zalogować się ponownie. Ma to na celu "
+"utrudnienie przy współdzieleniu kont. "
 
 #: includes/features/discount-codes/views/view-meta-box-discount-codes.php:107
 #: translations/paid-member-subscriptions.catalog.php:2643
@@ -1918,7 +2029,9 @@ msgstr "Limit rabatów na użytkownika"
 #: includes/features/discount-codes/includes/class-metabox-discount-codes-details.php:185
 #: translations/paid-member-subscriptions.catalog.php:2604
 msgid "Maximum discount uses per user needs to be a positive integer."
-msgstr "Maksymalne wykorzystanie rabatu na użytkownika musi być dodatnią liczbą całkowitą."
+msgstr ""
+"Maksymalne wykorzystanie rabatu na użytkownika musi być dodatnią liczbą "
+"całkowitą."
 
 #: includes/admin/views/view-page-settings-general.php:54
 #: translations/paid-member-subscriptions.catalog.php:1971
@@ -1927,13 +2040,16 @@ msgstr "Zapobiegaj udostępnianiu konta"
 
 #: includes/admin/views/view-page-settings-general.php:61
 #: translations/paid-member-subscriptions.catalog.php:1972
-msgid "Prevent users from being logged in with the same account from multiple places at the same time. "
+msgid ""
+"Prevent users from being logged in with the same account from multiple "
+"places at the same time. "
 msgstr "Zapobiega logowaniu wielu użytkowników na jednym koncie."
 
 #: includes/features/discount-codes/includes/functions-discount.php:499
 #: translations/paid-member-subscriptions.catalog.php:2634
 msgid "The discount code maximum uses for this user have been reached."
-msgstr "Osiągnięto maksymalne wykorzystanie kodu rabatowego dla tego użytkownika."
+msgstr ""
+"Osiągnięto maksymalne wykorzystanie kodu rabatowego dla tego użytkownika."
 
 #: includes/gateways/stripe/functions-filters.php:231
 #: translations/paid-member-subscriptions.catalog.php:1532
@@ -1946,8 +2062,15 @@ msgstr "Uzyskaj pomoc techniczną"
 
 #: includes/admin/views/view-page-addons.php:334
 #: translations/paid-member-subscriptions.catalog.php:1755
-msgid "Capture more user information on the registration form with the help of Profile Builder's custom user profile fields and/or add an Email Confirmation process to verify your customers accounts."
-msgstr "Uzyskaj więcej informacji o użytkowniku w formularzu rejestracyjnym za pomocą własnych pól w profilu użytkownika dzięki dodatkowi Profile Builder lub dodaj proces potwierdzenia adresu e-mail, aby zweryfikować konta swoich klientów."
+msgid ""
+"Capture more user information on the registration form with the help of "
+"Profile Builder's custom user profile fields and/or add an Email "
+"Confirmation process to verify your customers accounts."
+msgstr ""
+"Uzyskaj więcej informacji o użytkowniku w formularzu rejestracyjnym za "
+"pomocą własnych pól w profilu użytkownika dzięki dodatkowi Profile Builder "
+"lub dodaj proces potwierdzenia adresu e-mail, aby zweryfikować konta swoich "
+"klientów."
 
 #: includes/admin/views/view-page-payments-add-new-edit.php:51
 #: translations/paid-member-subscriptions.catalog.php:1913
@@ -2059,8 +2182,12 @@ msgstr "Eksport członków"
 
 #: includes/admin/class-admin-payments.php:449
 #: translations/paid-member-subscriptions.catalog.php:947
-msgid "This user already has a subscription (%s) from the same group with the one you selected. Select it or remove it to be able to complete this payment."
-msgstr "Ten użytkownik ma już subskrypcję (%s) z tej samej grupy, którą wybrałeś. Wybierz ją lub usuń, aby móc wykonać tę płatność."
+msgid ""
+"This user already has a subscription (%s) from the same group with the one "
+"you selected. Select it or remove it to be able to complete this payment."
+msgstr ""
+"Ten użytkownik ma już subskrypcję (%s) z tej samej grupy, którą wybrałeś. "
+"Wybierz ją lub usuń, aby móc wykonać tę płatność."
 
 #: includes/admin/export/class-batch-export.php:138
 #: includes/admin/export/class-export.php:172
@@ -2091,8 +2218,14 @@ msgstr "Zaloguj się"
 
 #. translators: 1: Browser cookie documentation URL, 2: Support forums URL
 #: includes/class-form-handler.php:1370
-msgid "<strong>ERROR</strong>: Cookies are blocked due to unexpected output. For help, please see <a href=\"%1$s\">this documentation</a> or try the <a href=\"%2$s\">support forums</a>."
-msgstr "<strong>BŁĄD</strong>: Pliki ciasteczek zostały zablokowane. Więcej na ten temat można przeczytać w <a href=\"%1$s\">dokumentacji</a> lub spróbować na <a href=\"%2$s\">forum</a>."
+msgid ""
+"<strong>ERROR</strong>: Cookies are blocked due to unexpected output. For "
+"help, please see <a href=\"%1$s\">this documentation</a> or try the <a "
+"href=\"%2$s\">support forums</a>."
+msgstr ""
+"<strong>BŁĄD</strong>: Pliki ciasteczek zostały zablokowane. Więcej na ten "
+"temat można przeczytać w <a href=\"%1$s\">dokumentacji</a> lub spróbować na "
+"<a href=\"%2$s\">forum</a>."
 
 #: includes/admin/views/view-page-settings-general.php:40
 #: translations/paid-member-subscriptions.catalog.php:1969
@@ -2101,8 +2234,12 @@ msgstr "Zaloguj się automatycznie"
 
 #: includes/admin/views/view-page-settings-content_restriction.php:48
 #: translations/paid-member-subscriptions.catalog.php:1930
-msgid "If you select \"Template\" the template for the restricted post/page will change to the selected template in the Restriction Template section below."
-msgstr "Jeśli wybierzesz „Szablon”, szablon zastrzeżonego wpisu/strony zmieni się na wybrany szablon."
+msgid ""
+"If you select \"Template\" the template for the restricted post/page will "
+"change to the selected template in the Restriction Template section below."
+msgstr ""
+"Jeśli wybierzesz „Szablon”, szablon zastrzeżonego wpisu/strony zmieni się na "
+"wybrany szablon."
 
 #: includes/admin/views/view-page-settings-content_restriction.php:100
 #: translations/paid-member-subscriptions.catalog.php:1939
@@ -2111,13 +2248,21 @@ msgstr "Zablokowany dostęp do treści - szablon"
 
 #: includes/admin/views/view-page-settings-general.php:47
 #: translations/paid-member-subscriptions.catalog.php:1970
-msgid "Select \"Yes\" to automatically log in new members after successful registration."
-msgstr "Wybierz \"Tak\" aby nowi użytkownicy zaraz po udanej rejestracji zostawali zalogowani na swoich kontach."
+msgid ""
+"Select \"Yes\" to automatically log in new members after successful "
+"registration."
+msgstr ""
+"Wybierz \"Tak\" aby nowi użytkownicy zaraz po udanej rejestracji zostawali "
+"zalogowani na swoich kontach."
 
 #: includes/admin/views/view-page-settings-content_restriction.php:127
 #: translations/paid-member-subscriptions.catalog.php:1941
-msgid "Select which template should load instead of the default one when a post is restricted and the restriction type is set to \"Template\"."
-msgstr "Wybierz szablon, który ma zostać załadowany zamiast domyślnego, gdy wpis jest ograniczony, a typ ograniczenia jest ustawiony na „Szablon”."
+msgid ""
+"Select which template should load instead of the default one when a post is "
+"restricted and the restriction type is set to \"Template\"."
+msgstr ""
+"Wybierz szablon, który ma zostać załadowany zamiast domyślnego, gdy wpis "
+"jest ograniczony, a typ ograniczenia jest ustawiony na „Szablon”."
 
 #: extend/elementor/class-elementor-elements-restriction.php:179
 #: includes/admin/meta-boxes/views/view-meta-box-single-content-restriction.php:21
@@ -2137,8 +2282,14 @@ msgid "Enable Pay What You Want Pricing?"
 msgstr "Włącz samodzielne wycenianie"
 
 #: translations/paid-member-subscriptions.catalog.php:1295
-msgid "Enabling this will allow users to set their own price when purchasing this subscription. This will override the subscription price set above, which will be used as the recommended price."
-msgstr "Włączenie tej opcji umożliwi użytkownikom ustawienie własnej ceny przy zakupie tej subskrypcji. Zastąpi to powyższą cenę subskrypcji, która zostanie użyta jako zalecana cena."
+msgid ""
+"Enabling this will allow users to set their own price when purchasing this "
+"subscription. This will override the subscription price set above, which "
+"will be used as the recommended price."
+msgstr ""
+"Włączenie tej opcji umożliwi użytkownikom ustawienie własnej ceny przy "
+"zakupie tej subskrypcji. Zastąpi to powyższą cenę subskrypcji, która "
+"zostanie użyta jako zalecana cena."
 
 #: includes/admin/views/view-page-addons.php:69
 #: includes/admin/views/view-page-basic-info.php:273
@@ -2170,18 +2321,30 @@ msgid "Please enter a price less than or equal to %s."
 msgstr "Wprowadź cenę mniejszą lub równą %s."
 
 #: translations/paid-member-subscriptions.catalog.php:1301
-msgid "Text that will be displayed on the front-end, after the subscription plan name and before the price input."
-msgstr "Tekst, który będzie wyświetlany po nazwie planu subskrypcji i przed wprowadzeniem ceny."
+msgid ""
+"Text that will be displayed on the front-end, after the subscription plan "
+"name and before the price input."
+msgstr ""
+"Tekst, który będzie wyświetlany po nazwie planu subskrypcji i przed "
+"wprowadzeniem ceny."
 
 #: includes/admin/views/view-page-basic-info.php:280
 #: translations/paid-member-subscriptions.catalog.php:1797
-msgid "The Fixed Period Membership Add-On allows your Subscriptions to end at a specific date."
-msgstr "Dodatek członkostwa o ustalonym okresie umożliwia zakończenie subskrypcji w określonym dniu."
+msgid ""
+"The Fixed Period Membership Add-On allows your Subscriptions to end at a "
+"specific date."
+msgstr ""
+"Dodatek członkostwa o ustalonym okresie umożliwia zakończenie subskrypcji w "
+"określonym dniu."
 
 #: includes/admin/views/view-page-basic-info.php:346
 #: translations/paid-member-subscriptions.catalog.php:1802
-msgid "This add-on allows you and your members to download PDF invoices for each payment that has been completed."
-msgstr "Ten dodatek umożliwia Tobie i Twoim członkom pobieranie faktur PDF za każdą zrealizowaną płatność."
+msgid ""
+"This add-on allows you and your members to download PDF invoices for each "
+"payment that has been completed."
+msgstr ""
+"Ten dodatek umożliwia Tobie i Twoim członkom pobieranie faktur PDF za każdą "
+"zrealizowaną płatność."
 
 #: includes/admin/views/view-page-addons.php:62
 #: includes/admin/views/view-page-basic-info.php:263
@@ -2286,7 +2449,8 @@ msgstr "%s Przypomnienie E-mail zostało przeniesione do kosza."
 
 #: translations/paid-member-subscriptions.catalog.php:1220
 msgid "%s Email Reminder not updated, somebody is editing it."
-msgstr "%s Przypomnienie E-mail nie zostało zaktualizowane, ktoś je właśnie edytuje."
+msgstr ""
+"%s Przypomnienie E-mail nie zostało zaktualizowane, ktoś je właśnie edytuje."
 
 #: translations/paid-member-subscriptions.catalog.php:1222
 msgid "%s Email Reminder permanently deleted."
@@ -2306,7 +2470,9 @@ msgstr "%s Przypomnienia E-mailowe zostały przeniesione do kosza."
 
 #: translations/paid-member-subscriptions.catalog.php:1221
 msgid "%s Email Reminders not updated, somebody is editing them."
-msgstr "%s Przypomnienia E-mailowe nie zostały zaktualizowane, ktoś je właśnie edytuje."
+msgstr ""
+"%s Przypomnienia E-mailowe nie zostały zaktualizowane, ktoś je właśnie "
+"edytuje."
 
 #: translations/paid-member-subscriptions.catalog.php:1223
 msgid "%s Email Reminders permanently deleted."
@@ -2330,7 +2496,8 @@ msgstr "%s Plany subskrypcyjne zostały przeniesione do kosza."
 
 #: translations/paid-member-subscriptions.catalog.php:1069
 msgid "%s Subscription Plans not updated, somebody is editing them."
-msgstr "%s Plany subskrypcyjne nie zostały zaktualizowane, ktoś je właśnie edytuje."
+msgstr ""
+"%s Plany subskrypcyjne nie zostały zaktualizowane, ktoś je właśnie edytuje."
 
 #: translations/paid-member-subscriptions.catalog.php:1071
 msgid "%s Subscription Plans permanently deleted."
@@ -2428,8 +2595,11 @@ msgstr "Zastosuj"
 
 #: includes/features/discount-codes/views/view-meta-box-discount-codes.php:163
 #: translations/paid-member-subscriptions.catalog.php:2648
-msgid "Apply discount to all future recurring payments (not just the first one)."
-msgstr "Zastosuj zniżkę do wszystkich przyszłych płatności cyklicznych (nie tylko pierwszej)."
+msgid ""
+"Apply discount to all future recurring payments (not just the first one)."
+msgstr ""
+"Zastosuj zniżkę do wszystkich przyszłych płatności cyklicznych (nie tylko "
+"pierwszej)."
 
 #: includes/features/discount-codes/index.php:194
 #: translations/paid-member-subscriptions.catalog.php:2120
@@ -2437,8 +2607,12 @@ msgid "Applying discount code. Please wait..."
 msgstr "Sprawdzanie kodu rabatowego. Proszę czekać..."
 
 #: translations/paid-member-subscriptions.catalog.php:2379
-msgid "Automatically reset invoice numbers on new year's day. Resets invoice number to 1."
-msgstr "Automatycznie resetuj numery faktur w dniu nowego roku. Resetuje numer faktury na 1."
+msgid ""
+"Automatically reset invoice numbers on new year's day. Resets invoice number "
+"to 1."
+msgstr ""
+"Automatycznie resetuj numery faktur w dniu nowego roku. Resetuje numer "
+"faktury na 1."
 
 #: includes/class-billing-details.php:145
 #: includes/class-billing-details.php:277
@@ -2566,8 +2740,12 @@ msgid "Delete Discount"
 msgstr "Usuń rabat"
 
 #: translations/paid-member-subscriptions.catalog.php:2361
-msgid "Depending on your country fiscal regulations you can change it to things like: Tax Invoice etc."
-msgstr "W zależności od przepisów podatkowych danego kraju możesz zmienić go na takie rzeczy jak: faktura podatkowa itp."
+msgid ""
+"Depending on your country fiscal regulations you can change it to things "
+"like: Tax Invoice etc."
+msgstr ""
+"W zależności od przepisów podatkowych danego kraju możesz zmienić go na "
+"takie rzeczy jak: faktura podatkowa itp."
 
 #: includes/features/discount-codes/includes/class-metabox-discount-codes-details.php:291
 #: translations/paid-member-subscriptions.catalog.php:2608
@@ -2657,8 +2835,12 @@ msgid "Enter Email Reminder name here"
 msgstr "Wpisz tutaj nazwę przypomnienia e-mail"
 
 #: translations/paid-member-subscriptions.catalog.php:2280
-msgid "Enter a list of administrator emails, separated by comma, that you want to receive this email reminder."
-msgstr "Wprowadź listę wiadomości e-mail administratora, oddzielonych przecinkami, które chcesz otrzymywać przypomnienie e-mail."
+msgid ""
+"Enter a list of administrator emails, separated by comma, that you want to "
+"receive this email reminder."
+msgstr ""
+"Wprowadź listę wiadomości e-mail administratora, oddzielonych przecinkami, "
+"które chcesz otrzymywać przypomnienie e-mail."
 
 #: includes/features/discount-codes/index.php:183
 #: translations/paid-member-subscriptions.catalog.php:2118
@@ -2676,14 +2858,22 @@ msgid "Enter the discount amount."
 msgstr "Wprowadź kwotę rabatu."
 
 #: translations/paid-member-subscriptions.catalog.php:2377
-msgid "Enter the next invoice number. Default value is 1 and increments every time an invoice is issued. Existing invoices will not be changed."
+msgid ""
+"Enter the next invoice number. Default value is 1 and increments every time "
+"an invoice is issued. Existing invoices will not be changed."
 msgstr ""
 "136/5000\n"
-"Wprowadź następny numer faktury. Wartość domyślna to 1 i zwiększa się za każdym razem, gdy wystawiana jest faktura. Istniejące faktury nie zostaną zmienione."
+"Wprowadź następny numer faktury. Wartość domyślna to 1 i zwiększa się za "
+"każdym razem, gdy wystawiana jest faktura. Istniejące faktury nie zostaną "
+"zmienione."
 
 #: translations/paid-member-subscriptions.catalog.php:2285
-msgid "Enter the trigger event for the email reminder. For example: 10 Days before Subscription Expires."
-msgstr "Wprowadź zdarzenie wyzwalające przypomnienie e-mail. Na przykład: 10 dni przed wygaśnięciem subskrypcji."
+msgid ""
+"Enter the trigger event for the email reminder. For example: 10 Days before "
+"Subscription Expires."
+msgstr ""
+"Wprowadź zdarzenie wyzwalające przypomnienie e-mail. Na przykład: 10 dni "
+"przed wygaśnięciem subskrypcji."
 
 #: includes/gateways/stripe/functions-filters.php:360
 #: translations/paid-member-subscriptions.catalog.php:1534
@@ -2716,8 +2906,12 @@ msgstr "Ukryj temat i odpowiedzi"
 
 #: includes/class-billing-details.php:135
 #: translations/paid-member-subscriptions.catalog.php:32
-msgid "If entered, this will appear on the invoice, replacing the First and Last Name."
-msgstr "Jeśli zostanie wprowadzony, pojawi się na fakturze zastępując imię i nazwisko."
+msgid ""
+"If entered, this will appear on the invoice, replacing the First and Last "
+"Name."
+msgstr ""
+"Jeśli zostanie wprowadzony, pojawi się na fakturze zastępując imię i "
+"nazwisko."
 
 #: translations/paid-member-subscriptions.catalog.php:1406
 msgid "Invoice"
@@ -2762,8 +2956,12 @@ msgstr "Maksymalne wykorzystanie"
 
 #: includes/features/discount-codes/views/view-meta-box-discount-codes.php:100
 #: translations/paid-member-subscriptions.catalog.php:2642
-msgid "Maximum number of times this discount can be used (by any user). Enter 0 for unlimited."
-msgstr "Maksymalna liczba przypadków, w których ten rabat może zostać użyty (przez dowolnego użytkownika). Wpisz 0, aby uzyskać nieograniczoną liczbę."
+msgid ""
+"Maximum number of times this discount can be used (by any user). Enter 0 for "
+"unlimited."
+msgstr ""
+"Maksymalna liczba przypadków, w których ten rabat może zostać użyty (przez "
+"dowolnego użytkownika). Wpisz 0, aby uzyskać nieograniczoną liczbę."
 
 #: translations/paid-member-subscriptions.catalog.php:2376
 msgid "Next Invoice Number"
@@ -2940,17 +3138,28 @@ msgstr "Wybierz status przypomnienia e-mail."
 
 #: includes/features/discount-codes/views/view-meta-box-discount-codes.php:133
 #: translations/paid-member-subscriptions.catalog.php:2646
-msgid "Select the expiration date for the discount (yyyy-mm-dd). Leave blank for no expiration."
-msgstr "Wybierz datę ważności rabatu (rrrr-mm-dd). Pozostaw puste, aby nie wygasło."
+msgid ""
+"Select the expiration date for the discount (yyyy-mm-dd). Leave blank for no "
+"expiration."
+msgstr ""
+"Wybierz datę ważności rabatu (rrrr-mm-dd). Pozostaw puste, aby nie wygasło."
 
 #: includes/features/discount-codes/views/view-meta-box-discount-codes.php:122
 #: translations/paid-member-subscriptions.catalog.php:2645
-msgid "Select the start date for the discount (yyyy-mm-dd). Leave blank for no start date."
-msgstr "Wybierz datę początkową rabatu(rrrr-mm-dd). Pozostaw puste, aby nie ustawiać daty początkowej."
+msgid ""
+"Select the start date for the discount (yyyy-mm-dd). Leave blank for no "
+"start date."
+msgstr ""
+"Wybierz datę początkową rabatu(rrrr-mm-dd). Pozostaw puste, aby nie ustawiać "
+"daty początkowej."
 
 #: translations/paid-member-subscriptions.catalog.php:2301
-msgid "Select the subscription plan for which this content dripping set should apply."
-msgstr "Wybierz plan subskrypcji, do którego powinien mieć zastosowanie ten zestaw treści."
+msgid ""
+"Select the subscription plan for which this content dripping set should "
+"apply."
+msgstr ""
+"Wybierz plan subskrypcji, do którego powinien mieć zastosowanie ten zestaw "
+"treści."
 
 #: includes/features/discount-codes/views/view-meta-box-discount-codes.php:81
 #: translations/paid-member-subscriptions.catalog.php:2640
@@ -3016,7 +3225,9 @@ msgstr "Dziękujemy za Twój biznes!"
 
 #: includes/features/discount-codes/includes/class-metabox-discount-codes-details.php:210
 #: translations/paid-member-subscriptions.catalog.php:2607
-msgid "The discount code has already expired. Please enter a different expiration date."
+msgid ""
+"The discount code has already expired. Please enter a different expiration "
+"date."
 msgstr "Kod rabatowy już wygasł. Wprowadź inną datę wygaśnięcia."
 
 #: includes/features/discount-codes/includes/functions-discount.php:489
@@ -3040,8 +3251,12 @@ msgid "The discount code you entered is not active yet."
 msgstr "Wprowadzony kod rabatowy nie jest jeszcze aktywny."
 
 #: translations/paid-member-subscriptions.catalog.php:2786
-msgid "The option above will work only if the restriction type is Message. Redirects will take effect without regard of this option."
-msgstr "Powyższa opcja działa tylko wtedy, gdy typem ograniczenia jest Wiadomość. Przekierowania zaczną obowiązywać bez względu na tę opcję."
+msgid ""
+"The option above will work only if the restriction type is Message. "
+"Redirects will take effect without regard of this option."
+msgstr ""
+"Powyższa opcja działa tylko wtedy, gdy typem ograniczenia jest Wiadomość. "
+"Przekierowania zaczną obowiązywać bez względu na tę opcję."
 
 #: translations/paid-member-subscriptions.catalog.php:2384
 msgid "The provided PayPal Billing Agreement ID is not valid."
@@ -3272,7 +3487,9 @@ msgstr "Pole wymagane."
 #: includes/gateways/functions-payment-gateways.php:388
 #: translations/paid-member-subscriptions.catalog.php:1191
 msgid "No payment methods are available to complete the checkout process."
-msgstr "Żadne metody płatności nie są dostępne, aby zakończyć proces realizacji transakcji."
+msgstr ""
+"Żadne metody płatności nie są dostępne, aby zakończyć proces realizacji "
+"transakcji."
 
 #: extend/tutor-lms/class-pms-tutor-lms.php:1156 includes/class-review.php:98
 #: includes/functions-core.php:1402 includes/functions-core.php:1431
@@ -3291,15 +3508,22 @@ msgstr "Coś poszło nie tak. Proszę spróbować ponownie."
 #. translators: 1: PHP function name, 2: version number
 #: includes/functions-utils.php:291 includes/functions-utils.php:297
 #: translations/paid-member-subscriptions.catalog.php:657
-msgid "%1$s is <strong>deprecated</strong> since version %2$s with no alternative available."
-msgstr "Korzystanie z %1$s uznawane jest za <strong>przestarzałe</strong> od wersji %2$s! Nie istnieje żadna alternatywa."
+msgid ""
+"%1$s is <strong>deprecated</strong> since version %2$s with no alternative "
+"available."
+msgstr ""
+"Korzystanie z %1$s uznawane jest za <strong>przestarzałe</strong> od wersji "
+"%2$s! Nie istnieje żadna alternatywa."
 
 #. translators: 1: PHP function name, 2: version number, 3: alternative
 #. function name
 #: includes/functions-utils.php:288 includes/functions-utils.php:295
 #: translations/paid-member-subscriptions.catalog.php:658
-msgid "%1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead."
-msgstr "Korzystanie z %1$s uznawane jest za <strong>przestarzałe</strong> od wersji %2$s! Zamiast tego użyj %3$s."
+msgid ""
+"%1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead."
+msgstr ""
+"Korzystanie z %1$s uznawane jest za <strong>przestarzałe</strong> od wersji "
+"%2$s! Zamiast tego użyj %3$s."
 
 #: extend/bbpress/functions.php:32
 #: translations/paid-member-subscriptions.catalog.php:691
@@ -3308,8 +3532,12 @@ msgstr "Twórz fora tylko dla członków za pomocą kilku kliknięć."
 
 #: extend/bbpress/functions.php:34
 #: translations/paid-member-subscriptions.catalog.php:692
-msgid "Allow only members to have access to forums and topics with Paid Member Subscriptions's bbPress Add-On."
-msgstr "Zezwalaj tylko członkom na dostęp do forów i tematów dzięki dodatkowi Paid Member Subscriptions's bbPress."
+msgid ""
+"Allow only members to have access to forums and topics with Paid Member "
+"Subscriptions's bbPress Add-On."
+msgstr ""
+"Zezwalaj tylko członkom na dostęp do forów i tematów dzięki dodatkowi Paid "
+"Member Subscriptions's bbPress."
 
 #: includes/admin/class-admin-settings.php:253
 #: includes/admin/views/view-page-settings-content_restriction.php:139
@@ -3344,8 +3572,12 @@ msgstr "Kompatybilny z Paid Member Subscriptions."
 #: includes/admin/views/view-page-addons.php:368
 #: includes/admin/views/view-page-addons.php:437
 #: translations/paid-member-subscriptions.catalog.php:1754
-msgid "Could not install plugin. Retry or <a href=\"%s\" target=\"_blank\">install manually</a>."
-msgstr "Nie można zainstalować wtyczki. Spróbuj ponownie lub <a href=\"%s\" target=\"_blank\">zainstaluj ręcznie</a>."
+msgid ""
+"Could not install plugin. Retry or <a href=\"%s\" target=\"_blank\">install "
+"manually</a>."
+msgstr ""
+"Nie można zainstalować wtyczki. Spróbuj ponownie lub <a href=\"%s\" "
+"target=\"_blank\">zainstaluj ręcznie</a>."
 
 #: includes/admin/views/view-page-addons.php:263
 #: includes/admin/views/view-page-addons.php:335
@@ -3370,8 +3602,14 @@ msgstr "Wtyczka jest <strong> nieaktywna </strong>"
 
 #: includes/admin/views/view-page-addons.php:262
 #: translations/paid-member-subscriptions.catalog.php:1748
-msgid "Translate your Paid Member Subscriptions checkout with a WordPress translation plugin that anyone can use. It offers a simpler way to translate WordPress sites, with full support for WooCommerce and site builders."
-msgstr "Przetłumacz Paid Member Subscriptions  za pomocą wtyczki do tłumaczenia WordPress, z której każdy może korzystać. Oferuje prostszy sposób tłumaczenia witryn WordPress, z pełną obsługą WooCommerce i twórców witryn."
+msgid ""
+"Translate your Paid Member Subscriptions checkout with a WordPress "
+"translation plugin that anyone can use. It offers a simpler way to translate "
+"WordPress sites, with full support for WooCommerce and site builders."
+msgstr ""
+"Przetłumacz Paid Member Subscriptions  za pomocą wtyczki do tłumaczenia "
+"WordPress, z której każdy może korzystać. Oferuje prostszy sposób "
+"tłumaczenia witryn WordPress, z pełną obsługą WooCommerce i twórców witryn."
 
 #: includes/class-emails.php:495
 #: translations/paid-member-subscriptions.catalog.php:70
@@ -3411,17 +3649,26 @@ msgstr "Wyślij e-maile adminowi"
 
 #: includes/class-emails.php:540
 #: translations/paid-member-subscriptions.catalog.php:83
-msgid "The \"{{subscription_name}}\" plan has been canceled for user {{display_name}}."
-msgstr "Plan „{{subscription_name}}” został anulowany przez użytkownika {{display_name}}."
+msgid ""
+"The \"{{subscription_name}}\" plan has been canceled for user {{display_name}"
+"}."
+msgstr ""
+"Plan „{{subscription_name}}” został anulowany przez użytkownika "
+"{{display_name}}."
 
 #: includes/class-emails.php:539
 #: translations/paid-member-subscriptions.catalog.php:82
-msgid "The \"{{subscription_name}}\" plan has been successfully activated for user {{display_name}}."
-msgstr "Plan „{{subscription_name}}” został pomyślnie aktywowany przez użytkownika {{display_name}}."
+msgid ""
+"The \"{{subscription_name}}\" plan has been successfully activated for user "
+"{{display_name}}."
+msgstr ""
+"Plan „{{subscription_name}}” został pomyślnie aktywowany przez użytkownika "
+"{{display_name}}."
 
 #: includes/class-emails.php:541
 #: translations/paid-member-subscriptions.catalog.php:84
-msgid "The \"{{subscription_name}}\" plan has expired for user {{display_name}}."
+msgid ""
+"The \"{{subscription_name}}\" plan has expired for user {{display_name}}."
 msgstr "Plan „{{subscription_name}}” wygasł użytkownikowi {{display_name}}."
 
 #: includes/class-emails.php:538
@@ -3438,7 +3685,8 @@ msgstr "Zawsze odnawiaj automatycznie"
 #: includes/admin/meta-boxes/views/view-meta-box-subscription-details.php:68
 #: translations/paid-member-subscriptions.catalog.php:2491
 msgid "Amount you want to charge people upfront when subscribing to this plan."
-msgstr "Kwota, którą chcesz pobierać od ludzi z góry przy subskrypcji tego planu."
+msgstr ""
+"Kwota, którą chcesz pobierać od ludzi z góry przy subskrypcji tego planu."
 
 #: includes/admin/class-admin-member-subscription-list-table.php:72
 #: includes/admin/class-admin-members-list-table.php:552
@@ -3603,13 +3851,21 @@ msgstr "Dodaj subskrypcję"
 
 #: includes/functions-content-filtering.php:707
 #: translations/paid-member-subscriptions.catalog.php:188
-msgid "Are you sure you want to abandon your %s subscription? This subscription will be removed completely from your account."
-msgstr "Czy na pewno chcesz zrezygnować z subskrypcji %s? Ta subskrypcja zostanie całkowicie usunięta z Twojego konta."
+msgid ""
+"Are you sure you want to abandon your %s subscription? This subscription "
+"will be removed completely from your account."
+msgstr ""
+"Czy na pewno chcesz zrezygnować z subskrypcji %s? Ta subskrypcja zostanie "
+"całkowicie usunięta z Twojego konta."
 
 #: includes/functions-content-filtering.php:655
 #: translations/paid-member-subscriptions.catalog.php:186
-msgid "Are you sure you want to cancel your %s subscription? No further payments will be made for this subscription and it will expire."
-msgstr "Czy na pewno chcesz anulować subskrypcję %s? Żadne dalsze płatności nie będą dokonywane za tę subskrypcję i wygasną."
+msgid ""
+"Are you sure you want to cancel your %s subscription? No further payments "
+"will be made for this subscription and it will expire."
+msgstr ""
+"Czy na pewno chcesz anulować subskrypcję %s? Żadne dalsze płatności nie będą "
+"dokonywane za tę subskrypcję i wygasną."
 
 #: includes/admin/class-admin-members.php:103
 #: translations/paid-member-subscriptions.catalog.php:840
@@ -3643,8 +3899,12 @@ msgstr "Powtarzające się za każdym razem"
 
 #: includes/admin/meta-boxes/views/view-meta-box-subscription-details.php:212
 #: translations/paid-member-subscriptions.catalog.php:2503
-msgid "Select renewal type. You can either allow the customer to opt in, force automatic renewal or force no renewal."
-msgstr "Wybierz typ odnowienia. Możesz zezwolić klientowi na włączenie, wymusić automatyczne odnowienie lub jego brak."
+msgid ""
+"Select renewal type. You can either allow the customer to opt in, force "
+"automatic renewal or force no renewal."
+msgstr ""
+"Wybierz typ odnowienia. Możesz zezwolić klientowi na włączenie, wymusić "
+"automatyczne odnowienie lub jego brak."
 
 #: includes/admin/class-admin-members.php:519
 #: includes/admin/class-admin-members.php:528
@@ -3660,8 +3920,12 @@ msgstr "Ups... Coś poszło nie tak! Nie można przetworzyć żądania."
 
 #: includes/class-form-handler.php:466
 #: translations/paid-member-subscriptions.catalog.php:105
-msgid "Something went wrong. The selected payment gateway does not support free trials."
-msgstr "Ups... Coś poszło nie tak! Wybrana bramka płatności nie obsługuje bezpłatnych okresów próbnych."
+msgid ""
+"Something went wrong. The selected payment gateway does not support free "
+"trials."
+msgstr ""
+"Ups... Coś poszło nie tak! Wybrana bramka płatności nie obsługuje "
+"bezpłatnych okresów próbnych."
 
 #: includes/class-form-handler.php:937
 #: translations/paid-member-subscriptions.catalog.php:112
@@ -3701,18 +3965,26 @@ msgstr "Data wygaśnięcia musi być większa niż data zakończenia próby."
 
 #: includes/admin/meta-boxes/views/view-meta-box-subscription-details.php:102
 #: translations/paid-member-subscriptions.catalog.php:2492
-msgid "The free trial represents the amount of time before charging the first recurring payment. The sign-up fee applies regardless of the free trial."
-msgstr "Bezpłatna wersja próbna reprezentuje ilość czasu przed pobraniem pierwszej płatności cyklicznej. Opłata rejestracyjna obowiązuje niezależnie od bezpłatnego okresu próbnego."
+msgid ""
+"The free trial represents the amount of time before charging the first "
+"recurring payment. The sign-up fee applies regardless of the free trial."
+msgstr ""
+"Bezpłatna wersja próbna reprezentuje ilość czasu przed pobraniem pierwszej "
+"płatności cyklicznej. Opłata rejestracyjna obowiązuje niezależnie od "
+"bezpłatnego okresu próbnego."
 
 #: includes/admin/views/view-page-members-add-new-edit-subscription.php:363
 #: translations/paid-member-subscriptions.catalog.php:1893
 msgid "The subscription payment schedule is handled by the payment gateway."
-msgstr "Harmonogram płatności subskrypcji jest obsługiwany przez bramkę płatności."
+msgstr ""
+"Harmonogram płatności subskrypcji jest obsługiwany przez bramkę płatności."
 
 #: includes/class-form-handler.php:428 includes/class-form-handler.php:444
 #: translations/paid-member-subscriptions.catalog.php:104
 msgid "There is no payment gateway available to complete the checkout process."
-msgstr "Nie ma dostępnej bramki płatności do zakończenia procesu realizacji transakcji."
+msgstr ""
+"Nie ma dostępnej bramki płatności do zakończenia procesu realizacji "
+"transakcji."
 
 #: includes/admin/class-admin-subscription-plans.php:869
 #: translations/paid-member-subscriptions.catalog.php:1055
@@ -3829,8 +4101,14 @@ msgstr "Najlepsza cena"
 
 #: includes/admin/views/view-page-basic-info.php:169
 #: translations/paid-member-subscriptions.catalog.php:1788
-msgid "Control who can see or purchase a WooCommerce product based on logged in status and subscription plan. Easily create products available to members only."
-msgstr "Kontroluj, kto może zobaczyć lub kupić produkt WooCommerce na podstawie zalogowanego statusu i planu subskrypcji. Łatwo twórz produkty dostępne tylko dla członków."
+msgid ""
+"Control who can see or purchase a WooCommerce product based on logged in "
+"status and subscription plan. Easily create products available to members "
+"only."
+msgstr ""
+"Kontroluj, kto może zobaczyć lub kupić produkt WooCommerce na podstawie "
+"zalogowanego statusu i planu subskrypcji. Łatwo twórz produkty dostępne "
+"tylko dla członków."
 
 #: extend/woocommerce/includes/admin/meta-boxes/class-meta-box-subscription-plan-product-discounts.php:67
 #: translations/paid-member-subscriptions.catalog.php:2757
@@ -3839,8 +4117,11 @@ msgstr "Rabat dla"
 
 #: extend/woocommerce/views/view-settings-tab-woocommerce-integration.php:45
 #: translations/paid-member-subscriptions.catalog.php:1668
-msgid "Do not apply any member discounts to products that are currently on sale."
-msgstr "Nie stosuj żadnych zniżek członkowskich na produkty, które są obecnie w sprzedaży."
+msgid ""
+"Do not apply any member discounts to products that are currently on sale."
+msgstr ""
+"Nie stosuj żadnych zniżek członkowskich na produkty, które są obecnie w "
+"sprzedaży."
 
 #: extend/woocommerce/includes/admin/meta-boxes/class-meta-box-product-membership-discounts.php:64
 #: translations/paid-member-subscriptions.catalog.php:2751
@@ -3937,12 +4218,18 @@ msgstr "Wyklucz produkty ze sprzedaży"
 #: includes/admin/views/view-page-basic-info.php:158
 #: translations/paid-member-subscriptions.catalog.php:1786
 msgid "Integrates beautifully with WooCommerce, for extended functionality."
-msgstr "Pięknie integruje się z WooCommerce, zapewniając rozszerzoną funkcjonalność."
+msgstr ""
+"Pięknie integruje się z WooCommerce, zapewniając rozszerzoną funkcjonalność."
 
 #: extend/woocommerce/views/view-settings-tab-woocommerce-integration.php:82
 #: translations/paid-member-subscriptions.catalog.php:1676
-msgid "Message displayed to non-members if the product has a membership discount. Displays below add to cart buttons. Leave blank to disable."
-msgstr "Wiadomość wyświetlana osobom niebędącym subskrybentami, jeśli produkt ma zniżkę członkowską. Wyświetla poniżej przyciski Dodaj do koszyka. Pozostaw puste, aby wyłączyć."
+msgid ""
+"Message displayed to non-members if the product has a membership discount. "
+"Displays below add to cart buttons. Leave blank to disable."
+msgstr ""
+"Wiadomość wyświetlana osobom niebędącym subskrybentami, jeśli produkt ma "
+"zniżkę członkowską. Wyświetla poniżej przyciski Dodaj do koszyka. Pozostaw "
+"puste, aby wyłączyć."
 
 #: extend/woocommerce/includes/admin/meta-boxes/class-meta-box-subscription-plan-product-discounts.php:70
 #: includes/admin/class-admin-members-list-table.php:124
@@ -3952,8 +4239,13 @@ msgstr "Imię"
 
 #: includes/admin/views/view-page-basic-info.php:176
 #: translations/paid-member-subscriptions.catalog.php:1790
-msgid "Offer product discounts to members based on their active subscription. Set discounts globally per subscription plan, or individually per product."
-msgstr "Oferuj członkom zniżki na produkty na podstawie ich aktywnej subskrypcji. Ustaw rabaty globalnie dla każdego planu subskrypcji lub indywidualnie dla każdego produktu."
+msgid ""
+"Offer product discounts to members based on their active subscription. Set "
+"discounts globally per subscription plan, or individually per product."
+msgstr ""
+"Oferuj członkom zniżki na produkty na podstawie ich aktywnej subskrypcji. "
+"Ustaw rabaty globalnie dla każdego planu subskrypcji lub indywidualnie dla "
+"każdego produktu."
 
 #: extend/woocommerce/includes/admin/meta-boxes/class-meta-box-product-membership-discounts.php:41
 #: extend/woocommerce/includes/admin/meta-boxes/class-meta-box-product-membership-discounts.php:112
@@ -3979,18 +4271,31 @@ msgstr "Nie ma jeszcze zniżek. Kliknij poniżej, aby dodać rabat."
 
 #: extend/woocommerce/includes/admin/meta-boxes/class-meta-box-product-membership-discounts.php:67
 #: translations/paid-member-subscriptions.catalog.php:2752
-msgid "This will calculate the best price for this product, based on all existing member discounts (set both per subscription plan and per product) "
-msgstr "Spowoduje to obliczenie najlepszej ceny dla tego produktu, w oparciu o wszystkie istniejące rabaty dla członków (ustawione zarówno na plan subskrypcji, jak i na produkt)"
+msgid ""
+"This will calculate the best price for this product, based on all existing "
+"member discounts (set both per subscription plan and per product) "
+msgstr ""
+"Spowoduje to obliczenie najlepszej ceny dla tego produktu, w oparciu o "
+"wszystkie istniejące rabaty dla członków (ustawione zarówno na plan "
+"subskrypcji, jak i na produkt)"
 
 #: extend/woocommerce/includes/admin/meta-boxes/class-meta-box-product-membership-discounts.php:69
 #: translations/paid-member-subscriptions.catalog.php:2754
-msgid "This will exclude this product from any membership discounts that may apply now or in the future"
-msgstr "Pozwoli to wykluczyć ten produkt z wszelkich zniżek członkowskich, które mogą obowiązywać teraz lub w przyszłości"
+msgid ""
+"This will exclude this product from any membership discounts that may apply "
+"now or in the future"
+msgstr ""
+"Pozwoli to wykluczyć ten produkt z wszelkich zniżek członkowskich, które "
+"mogą obowiązywać teraz lub w przyszłości"
 
 #: extend/woocommerce/includes/admin/meta-boxes/class-meta-box-product-membership-discounts.php:68
 #: translations/paid-member-subscriptions.catalog.php:2753
-msgid "This will ignore the global discounts set per subscription plan that apply to this product"
-msgstr "Ignoruje globalne rabaty ustalone dla planu subskrypcji, które dotyczą tego produktu"
+msgid ""
+"This will ignore the global discounts set per subscription plan that apply "
+"to this product"
+msgstr ""
+"Ignoruje globalne rabaty ustalone dla planu subskrypcji, które dotyczą tego "
+"produktu"
 
 #: extend/woocommerce/views/view-content-restriction-product-purchase-options.php:9
 #: translations/paid-member-subscriptions.catalog.php:1662
@@ -4004,7 +4309,8 @@ msgstr "Integracja z WooCommerce"
 
 #: extend/woocommerce/functions-content-restriction.php:93
 #: translations/paid-member-subscriptions.catalog.php:744
-msgid "You need the proper subscription plan to be able to purchase this product."
+msgid ""
+"You need the proper subscription plan to be able to purchase this product."
 msgstr "Potrzebny jest odpowiedni plan subskrypcji, aby móc kupić ten produkt."
 
 #: extend/woocommerce/includes/admin/meta-boxes/class-meta-box-product-membership-discounts.php:113
@@ -4022,8 +4328,14 @@ msgstr "Stała kwota"
 
 #: includes/functions-core.php:1219
 #: translations/paid-member-subscriptions.catalog.php:597
-msgid "Your website doesn't seem to have SSL enabled. Some functionality will not work without a valid SSL certificate. Please enable SSL and ensure your server has a valid SSL certificate."
-msgstr "Twoja witryna nie ma włączonego SSL. Niektóre funkcje nie będą działać bez ważnego certyfikatu SSL. Włącz SSL i upewnij się, że Twój serwer ma prawidłowy certyfikat SSL."
+msgid ""
+"Your website doesn't seem to have SSL enabled. Some functionality will not "
+"work without a valid SSL certificate. Please enable SSL and ensure your "
+"server has a valid SSL certificate."
+msgstr ""
+"Twoja witryna nie ma włączonego SSL. Niektóre funkcje nie będą działać bez "
+"ważnego certyfikatu SSL. Włącz SSL i upewnij się, że Twój serwer ma "
+"prawidłowy certyfikat SSL."
 
 #: includes/functions-core.php:1163 includes/functions-core.php:1202
 #: includes/functions-core.php:1230 includes/functions-core.php:1264
@@ -4060,23 +4372,37 @@ msgstr "Ustawienia domyślne"
 
 #: includes/admin/meta-boxes/views/view-meta-box-single-content-restriction.php:145
 #: translations/paid-member-subscriptions.catalog.php:2479
-msgid "Add a URL where you wish to redirect users that do not have access to this %s and try to access it directly."
-msgstr "Dodaj adres URL, pod który chcesz przekierować użytkowników, którzy nie mają dostępu do tego %s i próbują uzyskać do niego bezpośredni dostęp."
+msgid ""
+"Add a URL where you wish to redirect users that do not have access to this "
+"%s and try to access it directly."
+msgstr ""
+"Dodaj adres URL, pod który chcesz przekierować użytkowników, którzy nie mają "
+"dostępu do tego %s i próbują uzyskać do niego bezpośredni dostęp."
 
 #: includes/admin/meta-boxes/views/view-meta-box-single-content-restriction.php:133
 #: translations/paid-member-subscriptions.catalog.php:2477
 msgid "Check if you wish to add a custom redirect URL for this %s."
-msgstr "Zaznacz, jeśli chcesz dodać przekierowanie na niestandardowy adres URL dla tego %s."
+msgstr ""
+"Zaznacz, jeśli chcesz dodać przekierowanie na niestandardowy adres URL dla "
+"tego %s."
 
 #: includes/admin/meta-boxes/views/view-meta-box-single-content-restriction.php:103
 #: translations/paid-member-subscriptions.catalog.php:2474
-msgid "Checking any subscription plan will show this %s only to users that are subscribed to those particular plans."
-msgstr "Sprawdzanie dowolnego planu subskrypcji %s będzie widoczne tylko dla użytkowników, którzy subskrybują te konkretne plany."
+msgid ""
+"Checking any subscription plan will show this %s only to users that are "
+"subscribed to those particular plans."
+msgstr ""
+"Sprawdzanie dowolnego planu subskrypcji %s będzie widoczne tylko dla "
+"użytkowników, którzy subskrybują te konkretne plany."
 
 #: includes/admin/meta-boxes/views/view-meta-box-single-content-restriction.php:93
 #: translations/paid-member-subscriptions.catalog.php:2472
-msgid "Checking only \"Logged In Users\" will show this %s to all logged in users, regardless of subscription plan."
-msgstr "Sprawdzanie tylko „zalogowanych użytkowników” spowoduje wyświetlenie tego %s wszystkim zalogowanym użytkownikom, niezależnie od planu subskrypcji."
+msgid ""
+"Checking only \"Logged In Users\" will show this %s to all logged in users, "
+"regardless of subscription plan."
+msgstr ""
+"Sprawdzanie tylko „zalogowanych użytkowników” spowoduje wyświetlenie tego %s "
+"wszystkim zalogowanym użytkownikom, niezależnie od planu subskrypcji."
 
 #: includes/admin/meta-boxes/views/view-meta-box-single-content-restriction.php:126
 #: translations/paid-member-subscriptions.catalog.php:2476
@@ -4085,13 +4411,25 @@ msgstr "Włącz niestandardowy adres URL przekierowania"
 
 #: includes/admin/views/view-page-settings-content_restriction.php:46
 #: translations/paid-member-subscriptions.catalog.php:1928
-msgid "If you select \"Messages\" the post's content will be protected by being replaced with a custom message."
-msgstr "Jeśli wybierzesz „Wiadomość”, treść posta będzie chroniona przez zastąpienie treści wiadomością niestandardową."
+msgid ""
+"If you select \"Messages\" the post's content will be protected by being "
+"replaced with a custom message."
+msgstr ""
+"Jeśli wybierzesz „Wiadomość”, treść posta będzie chroniona przez zastąpienie "
+"treści wiadomością niestandardową."
 
 #: includes/admin/views/view-page-settings-content_restriction.php:47
 #: translations/paid-member-subscriptions.catalog.php:1929
-msgid "If you select \"Redirect\" the post's content will be protected by redirecting the user to the URL you specify. The redirect happens only when accessing a single post. On archive pages the restriction message will be displayed, instead of the content."
-msgstr "Jeśli wybierzesz „Przekieruj”, treść posta będzie chroniona przez przekierowanie użytkownika na podany adres URL. Przekierowanie ma miejsce tylko podczas uzyskiwania dostępu do pojedynczego wpisu/strony. Na stronach archiwalnych zostanie wyświetlony komunikat o ograniczeniach zamiast treści."
+msgid ""
+"If you select \"Redirect\" the post's content will be protected by "
+"redirecting the user to the URL you specify. The redirect happens only when "
+"accessing a single post. On archive pages the restriction message will be "
+"displayed, instead of the content."
+msgstr ""
+"Jeśli wybierzesz „Przekieruj”, treść posta będzie chroniona przez "
+"przekierowanie użytkownika na podany adres URL. Przekierowanie ma miejsce "
+"tylko podczas uzyskiwania dostępu do pojedynczego wpisu/strony. Na stronach "
+"archiwalnych zostanie wyświetlony komunikat o ograniczeniach zamiast treści."
 
 #: includes/class-shortcodes.php:611
 #: translations/paid-member-subscriptions.catalog.php:163
@@ -4133,8 +4471,11 @@ msgstr "Komunikaty o zablokowanym dostępnie do treści"
 
 #: extend/profile-builder/front-end/subscription-plans-field.php:71
 #: translations/paid-member-subscriptions.catalog.php:1633
-msgid "You will be able to complete the payment after you have confirmed your e-mail address."
-msgstr "Będziesz mógł dokończyć płatność po potwierdzeniu swojego adresu e-mail."
+msgid ""
+"You will be able to complete the payment after you have confirmed your e-"
+"mail address."
+msgstr ""
+"Będziesz mógł dokończyć płatność po potwierdzeniu swojego adresu e-mail."
 
 #: extend/profile-builder/functions-filters.php:195
 #: extend/profile-builder/functions-filters.php:209
@@ -4186,13 +4527,19 @@ msgstr "Podgląd postów w zablokowanym dostępie do treści "
 
 #: includes/admin/views/view-page-settings-content_restriction.php:188
 #: translations/paid-member-subscriptions.catalog.php:1951
-msgid "Show a portion of the restricted post to logged-out users or users that are not subscribed to a plan."
-msgstr "Pokaż część zablokowanej treści niezalogowanym użytkownikom lub użytkownikom, którzy nie są subskrybentami."
+msgid ""
+"Show a portion of the restricted post to logged-out users or users that are "
+"not subscribed to a plan."
+msgstr ""
+"Pokaż część zablokowanej treści niezalogowanym użytkownikom lub użytkownikom,"
+" którzy nie są subskrybentami."
 
 #: includes/admin/views/view-page-settings-content_restriction.php:184
 #: translations/paid-member-subscriptions.catalog.php:1950
 msgid "Show the content before the \"more\" tag"
-msgstr "Pokaż zawartość wpisu lub strony przed tagiem „więcej/more”. Treść znajdująca się za tym tagiem będzie dostępna jedynie dla subskrybentów."
+msgstr ""
+"Pokaż zawartość wpisu lub strony przed tagiem „więcej/more”. Treść "
+"znajdująca się za tym tagiem będzie dostępna jedynie dla subskrybentów."
 
 #: includes/admin/views/view-page-settings-content_restriction.php:178
 #: translations/paid-member-subscriptions.catalog.php:1949
@@ -4208,18 +4555,28 @@ msgstr "Brak"
 
 #: includes/gateways/manual/class-payment-gateway-manual.php:194
 #: translations/paid-member-subscriptions.catalog.php:2124
-msgid "Thank you for renewing. The changes will take effect after the payment is received."
-msgstr "Dziękujemy za odnowienie. Zmiany wejdą w życie po otrzymaniu płatności."
+msgid ""
+"Thank you for renewing. The changes will take effect after the payment is "
+"received."
+msgstr ""
+"Dziękujemy za odnowienie. Zmiany wejdą w życie po otrzymaniu płatności."
 
 #: includes/gateways/manual/class-payment-gateway-manual.php:198
 #: translations/paid-member-subscriptions.catalog.php:2125
-msgid "Thank you for subscribing. The subscription will be activated after the payment is received."
-msgstr "Dziękujemy za subskrypcję. Subskrypcja zostanie aktywowana po otrzymaniu płatności."
+msgid ""
+"Thank you for subscribing. The subscription will be activated after the "
+"payment is received."
+msgstr ""
+"Dziękujemy za subskrypcję. Subskrypcja zostanie aktywowana po otrzymaniu "
+"płatności."
 
 #: includes/gateways/manual/class-payment-gateway-manual.php:182
 #: translations/paid-member-subscriptions.catalog.php:2121
-msgid "Thank you for upgrading. The changes will take effect after the payment is received."
-msgstr "Dziękujemy za uaktualnienie. Zmiany wejdą w życie po otrzymaniu płatności."
+msgid ""
+"Thank you for upgrading. The changes will take effect after the payment is "
+"received."
+msgstr ""
+"Dziękujemy za uaktualnienie. Zmiany wejdą w życie po otrzymaniu płatności."
 
 #: includes/gateways/manual/class-payment-gateway-manual.php:202
 #: translations/paid-member-subscriptions.catalog.php:2126
@@ -4282,8 +4639,14 @@ msgstr "Przeciąganie treści"
 #: includes/admin/views/view-page-addons.php:113
 #: includes/admin/views/view-page-basic-info.php:322
 #: translations/paid-member-subscriptions.catalog.php:1735
-msgid "Create schedules for your content, making posts or categories available for your members only after a certain time has passed since they signed up for a subscription plan."
-msgstr "Twórz harmonogramy treści, udostępniając posty lub kategorie swoim członkom dopiero po upływie określonego czasu od momentu zapisania się na plan subskrypcji."
+msgid ""
+"Create schedules for your content, making posts or categories available for "
+"your members only after a certain time has passed since they signed up for a "
+"subscription plan."
+msgstr ""
+"Twórz harmonogramy treści, udostępniając posty lub kategorie swoim członkom "
+"dopiero po upływie określonego czasu od momentu zapisania się na plan "
+"subskrypcji."
 
 #: includes/admin/views/view-page-uninstall.php:34
 #: translations/paid-member-subscriptions.catalog.php:2110
@@ -4307,13 +4670,22 @@ msgstr "Uzyskaj dodatki Pro"
 
 #: includes/admin/views/view-page-uninstall.php:30
 #: translations/paid-member-subscriptions.catalog.php:2109
-msgid "Removes all custom user roles created by Paid Member Subscriptions. These user roles will be removed for all users that have them."
-msgstr "Usuwa wszystkie niestandardowe role użytkownika utworzone przez Paid Member Subscriptions. Te role użytkownika zostaną usunięte dla wszystkich użytkowników, którzy je mają."
+msgid ""
+"Removes all custom user roles created by Paid Member Subscriptions. These "
+"user roles will be removed for all users that have them."
+msgstr ""
+"Usuwa wszystkie niestandardowe role użytkownika utworzone przez Paid Member "
+"Subscriptions. Te role użytkownika zostaną usunięte dla wszystkich "
+"użytkowników, którzy je mają."
 
 #: includes/admin/views/view-page-uninstall.php:35
 #: translations/paid-member-subscriptions.catalog.php:2111
-msgid "Removes all information stored in our custom database tables and deletes these tables from your database."
-msgstr "Usuwa wszystkie informacje przechowywane w naszych niestandardowych tabelach bazy danych i usuwa te tabele z bazy danych."
+msgid ""
+"Removes all information stored in our custom database tables and deletes "
+"these tables from your database."
+msgstr ""
+"Usuwa wszystkie informacje przechowywane w naszych niestandardowych tabelach "
+"bazy danych i usuwa te tabele z bazy danych."
 
 #: includes/admin/views/view-page-uninstall.php:54
 #: translations/paid-member-subscriptions.catalog.php:2115
@@ -4323,8 +4695,14 @@ msgstr "Potwierdź odinstalowanie"
 #: includes/admin/views/view-page-addons.php:49
 #: includes/admin/views/view-page-basic-info.php:248
 #: translations/paid-member-subscriptions.catalog.php:1719
-msgid "Create multiple automated email reminders that are sent to members before or after certain events take place (subscription expires, subscription activated etc.)"
-msgstr "Twórz wiele automatycznych przypomnień e-mailowych, które są wysyłane do członków przed lub po pewnych wydarzeniach (wygasa subskrypcja, aktywowana subskrypcja itp.)"
+msgid ""
+"Create multiple automated email reminders that are sent to members before or "
+"after certain events take place (subscription expires, subscription "
+"activated etc.)"
+msgstr ""
+"Twórz wiele automatycznych przypomnień e-mailowych, które są wysyłane do "
+"członków przed lub po pewnych wydarzeniach (wygasa subskrypcja, aktywowana "
+"subskrypcja itp.)"
 
 #: includes/admin/views/view-page-addons.php:48
 #: includes/admin/views/view-page-basic-info.php:241
@@ -4346,18 +4724,30 @@ msgstr "Pro Add-ons"
 
 #: includes/admin/views/view-page-basic-info.php:308
 #: translations/paid-member-subscriptions.catalog.php:1800
-msgid "These addons extend your WordPress Membership Plugin and are available with the <a href=\"%s\">PRO version</a> only."
-msgstr "Te dodatki rozszerzają Twoją wtyczkę do członkostwa WordPress i są dostępne tylko w wersji<a href=\"%s\">PRO</a>."
+msgid ""
+"These addons extend your WordPress Membership Plugin and are available with "
+"the <a href=\"%s\">PRO version</a> only."
+msgstr ""
+"Te dodatki rozszerzają Twoją wtyczkę do członkostwa WordPress i są dostępne "
+"tylko w wersji<a href=\"%s\">PRO</a>."
 
 #: includes/admin/views/view-page-uninstall.php:55
 #: translations/paid-member-subscriptions.catalog.php:2116
-msgid "To confirm the Uninstall process please type the word <strong>REMOVE</strong> in the field below and then click the Uninstall button."
-msgstr "Aby potwierdzić proces odinstalowywania, wpisz słowo <strong> USUŃ </strong> w polu poniżej, a następnie kliknij przycisk Odinstaluj."
+msgid ""
+"To confirm the Uninstall process please type the word <strong>REMOVE</strong>"
+" in the field below and then click the Uninstall button."
+msgstr ""
+"Aby potwierdzić proces odinstalowywania, wpisz słowo <strong> USUŃ </strong> "
+"w polu poniżej, a następnie kliknij przycisk Odinstaluj."
 
 #: includes/admin/views/view-page-uninstall.php:14
 #: translations/paid-member-subscriptions.catalog.php:2102
-msgid "We're sad to see you leave, but we understand that sometimes things don't work out as planned."
-msgstr "Smutno nam, że odchodzisz ale rozumiemy, że czasami rzeczy nie działają zgodnie z naszymi oczekiwaniami."
+msgid ""
+"We're sad to see you leave, but we understand that sometimes things don't "
+"work out as planned."
+msgstr ""
+"Smutno nam, że odchodzisz ale rozumiemy, że czasami rzeczy nie działają "
+"zgodnie z naszymi oczekiwaniami."
 
 #: includes/admin/meta-boxes/views/view-meta-box-admin-dashboard-payments.php:85
 #: includes/admin/views/view-page-dashboard.php:139
@@ -4402,8 +4792,12 @@ msgstr "Bieżący miesiąc"
 
 #: includes/admin/views/view-page-basic-info.php:469
 #: translations/paid-member-subscriptions.catalog.php:1817
-msgid "Paid Member Subscriptions comes with an <a href=\"%s\">extensive documentation</a> to assist you."
-msgstr "Wtyczka Paid Member Subscriptions jest dostępna z <a href=\"%s\">obszerną dokumentacją</a>, aby ułatwić Ci użytkowanie wtyczki."
+msgid ""
+"Paid Member Subscriptions comes with an <a href=\"%s\">extensive "
+"documentation</a> to assist you."
+msgstr ""
+"Wtyczka Paid Member Subscriptions jest dostępna z <a href=\"%s\">obszerną "
+"dokumentacją</a>, aby ułatwić Ci użytkowanie wtyczki."
 
 #: includes/admin/meta-boxes/views/view-meta-box-admin-dashboard-payments.php:71
 #: includes/admin/views/view-page-dashboard.php:117
@@ -4447,8 +4841,11 @@ msgstr "Po"
 
 #: includes/admin/views/view-page-settings-payments.php:69
 #: translations/paid-member-subscriptions.catalog.php:2080
-msgid "Select whether the currency symbol should appear before the price or after the price."
-msgstr "Wybierz, czy symbol waluty powinien pojawić się przed ceną czy po cenie."
+msgid ""
+"Select whether the currency symbol should appear before the price or after "
+"the price."
+msgstr ""
+"Wybierz, czy symbol waluty powinien pojawić się przed ceną czy po cenie."
 
 #: includes/admin/views/view-page-settings-payments.php:60
 #: translations/paid-member-subscriptions.catalog.php:2075
@@ -4462,8 +4859,12 @@ msgstr "Zapisz płatność"
 
 #: includes/admin/views/view-page-payments-add-new-edit.php:219
 #: translations/paid-member-subscriptions.catalog.php:1915
-msgid "The Transaction ID will be provided by the payment gateway when the payment is registered within their system."
-msgstr "Identyfikator transakcji zostanie dostarczony przez bramkę płatności, gdy płatność zostanie zarejestrowana w ich systemie."
+msgid ""
+"The Transaction ID will be provided by the payment gateway when the payment "
+"is registered within their system."
+msgstr ""
+"Identyfikator transakcji zostanie dostarczony przez bramkę płatności, gdy "
+"płatność zostanie zarejestrowana w ich systemie."
 
 #: includes/admin/views/view-page-payments-add-new-edit.php:51
 #: translations/paid-member-subscriptions.catalog.php:1912
@@ -4524,8 +4925,12 @@ msgstr "Płatność została pomyślnie usunięta."
 
 #. Description of the plugin
 #: index.php
-msgid "Accept payments, create subscription plans and restrict content on your membership website."
-msgstr "Akceptuj płatności, twórz plany subskrypcji i blokuj treści na swojej stronie."
+msgid ""
+"Accept payments, create subscription plans and restrict content on your "
+"membership website."
+msgstr ""
+"Akceptuj płatności, twórz plany subskrypcji i blokuj treści na swojej "
+"stronie."
 
 #. Plugin URI of the plugin
 #. Author URI of the plugin
@@ -5985,8 +6390,11 @@ msgstr "Euro"
 
 #: includes/functions-core.php:183 includes/functions-core.php:186
 #: translations/paid-member-subscriptions.catalog.php:198
-msgid "Thank you for your payment. The subscription may take a while to get activated."
-msgstr "Dziękujemy za dokonanie płatności. Aktywacja subskrypcji może chwilę potrwać."
+msgid ""
+"Thank you for your payment. The subscription may take a while to get "
+"activated."
+msgstr ""
+"Dziękujemy za dokonanie płatności. Aktywacja subskrypcji może chwilę potrwać."
 
 #: includes/functions-content-filtering.php:609
 #: translations/paid-member-subscriptions.catalog.php:185
@@ -6027,12 +6435,17 @@ msgstr "Odnowiono %s subskrypcję. Subskrypcja będzie aktywna do %s"
 #: includes/functions-core.php:180
 #: translations/paid-member-subscriptions.catalog.php:199
 msgid "Thank you for your payment. The renew may take a while to be processed."
-msgstr "Dziękujemy za dokonanie płatności. Odnowienie może chwilę potrwać , zanim zostanie przetworzone."
+msgstr ""
+"Dziękujemy za dokonanie płatności. Odnowienie może chwilę potrwać , zanim "
+"zostanie przetworzone."
 
 #: includes/functions-core.php:171
 #: translations/paid-member-subscriptions.catalog.php:202
-msgid "Thank you for your payment. The upgrade may take a while to be processed."
-msgstr "Dziękujemy za dokonanie płatności. Przetworzenie aktualizacji może trochę potrwać."
+msgid ""
+"Thank you for your payment. The upgrade may take a while to be processed."
+msgstr ""
+"Dziękujemy za dokonanie płatności. Przetworzenie aktualizacji może trochę "
+"potrwać."
 
 #: includes/functions-content-filtering.php:429
 #: includes/functions-content-filtering.php:610
@@ -6069,8 +6482,10 @@ msgstr "Jesteś już zalogowany."
 
 #: includes/functions-content-restriction.php:83
 #: translations/paid-member-subscriptions.catalog.php:196
-msgid "You do not have access to this content. You need the proper subscription."
-msgstr "Nie masz dostępu do tej zawartości. Potrzebujesz odpowiedniej subskrypcji."
+msgid ""
+"You do not have access to this content. You need the proper subscription."
+msgstr ""
+"Nie masz dostępu do tej zawartości. Potrzebujesz odpowiedniej subskrypcji."
 
 #: includes/functions-content-restriction.php:81
 #: translations/paid-member-subscriptions.catalog.php:197
@@ -6161,7 +6576,9 @@ msgstr "Ups... Coś poszło nie tak! Nie możemy zaktualizować Twojego profilu.
 #: includes/class-form-handler.php:1444
 #: translations/paid-member-subscriptions.catalog.php:120
 msgid "The entered email wasn't found in our database. Please try again."
-msgstr "Wprowadzony e-mail nie został znaleziony w naszej bazie danych. Proszę spróbuj ponownie."
+msgstr ""
+"Wprowadzony e-mail nie został znaleziony w naszej bazie danych. Proszę "
+"spróbuj ponownie."
 
 #: includes/class-form-handler.php:1487
 #: translations/paid-member-subscriptions.catalog.php:124
@@ -6280,12 +6697,17 @@ msgstr "Wiadomość E-mail wysyłana do użytkownika po aktywowaniu subskrypcji.
 
 #: includes/class-emails.php:523
 #: translations/paid-member-subscriptions.catalog.php:74
-msgid "Congratulations {{display_name}}! The \"{{subscription_name}}\" plan has been successfully activated."
-msgstr "Gratulacje {{display_name}}! Plan „{{subscription_name}}” został pomyślnie aktywowany."
+msgid ""
+"Congratulations {{display_name}}! The \"{{subscription_name}}\" plan has "
+"been successfully activated."
+msgstr ""
+"Gratulacje {{display_name}}! Plan „{{subscription_name}}” został pomyślnie "
+"aktywowany."
 
 #: includes/class-emails.php:522
 #: translations/paid-member-subscriptions.catalog.php:73
-msgid "Congratulations {{display_name}}! You have successfully created an account!"
+msgid ""
+"Congratulations {{display_name}}! You have successfully created an account!"
 msgstr "Gratulacje {{display_name}}! Twoje konto zostało pomyślnie utworzone."
 
 #: includes/class-emails.php:451
@@ -6295,7 +6717,8 @@ msgstr "Wiadomość E-mail do użytkownika po wygaśnięciu subskrypcji"
 
 #: includes/class-emails.php:524
 #: translations/paid-member-subscriptions.catalog.php:75
-msgid "Hello {{display_name}}, The \"{{subscription_name}}\" plan has been canceled."
+msgid ""
+"Hello {{display_name}}, The \"{{subscription_name}}\" plan has been canceled."
 msgstr "Witaj {{display_name}}, plan „{{subscription_name}}” został anulowany."
 
 #: includes/class-emails.php:448
@@ -6424,7 +6847,9 @@ msgstr "Ogólne opcje e-mail"
 #: includes/admin/views/view-page-settings-content_restriction.php:90
 #: translations/paid-member-subscriptions.catalog.php:1938
 msgid "Messages for logged-in non-member users"
-msgstr "Wiadomości dla zalogowanych użytkowników nie posiadających wykupionej subskrypcji "
+msgstr ""
+"Wiadomości dla zalogowanych użytkowników nie posiadających wykupionej "
+"subskrypcji "
 
 #: includes/admin/meta-boxes/views/view-meta-box-single-content-restriction.php:187
 #: includes/admin/views/view-page-settings-content_restriction.php:85
@@ -6469,13 +6894,19 @@ msgstr "Szukaj członków"
 
 #: includes/admin/views/view-page-settings-general.php:248
 #: translations/paid-member-subscriptions.catalog.php:1989
-msgid "Select the page where you wish to redirect your newly registered members."
-msgstr "Wybierz stronę, na którą chcesz przekierować nowo zarejestrowanych członków."
+msgid ""
+"Select the page where you wish to redirect your newly registered members."
+msgstr ""
+"Wybierz stronę, na którą chcesz przekierować nowo zarejestrowanych członków."
 
 #: includes/admin/views/view-page-settings-payments.php:56
 #: translations/paid-member-subscriptions.catalog.php:2074
-msgid "Select your currency. Please note that some payment gateways can have currency restrictions."
-msgstr "Wybierz walutę. Należy pamiętać, że niektóre bramki płatności mogą mieć ograniczenia walutowe."
+msgid ""
+"Select your currency. Please note that some payment gateways can have "
+"currency restrictions."
+msgstr ""
+"Wybierz walutę. Należy pamiętać, że niektóre bramki płatności mogą mieć "
+"ograniczenia walutowe."
 
 #: includes/admin/views/view-page-settings-general.php:90
 #: translations/paid-member-subscriptions.catalog.php:1978
@@ -6495,13 +6926,21 @@ msgstr "Edycja użytkownika"
 #: includes/admin/views/view-page-addons.php:77
 #: includes/admin/views/view-page-basic-info.php:259
 #: translations/paid-member-subscriptions.catalog.php:1726
-msgid "Dynamically display menu items based on logged-in status as well as selected subscription plans."
-msgstr "Dynamicznie wyświetlaj elementy menu na podstawie statusu zalogowania oraz wybranych planów subskrypcji."
+msgid ""
+"Dynamically display menu items based on logged-in status as well as selected "
+"subscription plans."
+msgstr ""
+"Dynamicznie wyświetlaj elementy menu na podstawie statusu zalogowania oraz "
+"wybranych planów subskrypcji."
 
 #: includes/admin/views/view-page-basic-info.php:142
 #: translations/paid-member-subscriptions.catalog.php:1784
-msgid "Friction-less discount code creation for running promotions, making price reductions or simply rewarding your users."
-msgstr "Bezproblemowe tworzenie kodu rabatowego do prowadzenia promocji, obniżki cen lub po prostu nagradzanie użytkowników."
+msgid ""
+"Friction-less discount code creation for running promotions, making price "
+"reductions or simply rewarding your users."
+msgstr ""
+"Bezproblemowe tworzenie kodu rabatowego do prowadzenia promocji, obniżki cen "
+"lub po prostu nagradzanie użytkowników."
 
 #: includes/admin/views/view-page-members-add-new-bulk.php:19
 #: translations/paid-member-subscriptions.catalog.php:1865
@@ -6522,14 +6961,23 @@ msgstr "Filtrowanie menu nawigacyjnego"
 #: includes/admin/views/view-page-members-add-new-edit-subscription.php:104
 #: includes/admin/views/view-page-payments-add-new-edit.php:87
 #: translations/paid-member-subscriptions.catalog.php:1877
-msgid "Select the username you wish to associate a subscription plan with. You can create a new user <a href=\"%s\">here</a>."
-msgstr "Wybierz użytkownika, z którą chcesz powiązać plan subskrypcji. Możesz utworzyć nowego użytkownika <a href=\"%s\"> tutaj </a>."
+msgid ""
+"Select the username you wish to associate a subscription plan with. You can "
+"create a new user <a href=\"%s\">here</a>."
+msgstr ""
+"Wybierz użytkownika, z którą chcesz powiązać plan subskrypcji. Możesz "
+"utworzyć nowego użytkownika <a href=\"%s\"> tutaj </a>."
 
 #: includes/admin/views/view-page-addons.php:134
 #: includes/admin/views/view-page-basic-info.php:334
 #: translations/paid-member-subscriptions.catalog.php:1740
-msgid "Setup multiple subscription level blocks and allow members to sign up for more than one subscription plan (one per block)."
-msgstr "Stwórz wielopoziomowe \"drzewko\" subskrypcji i pozwól członkom zarejestrować się w więcej niż jednym planie subskrypcji.(Ale po jednym na plan)."
+msgid ""
+"Setup multiple subscription level blocks and allow members to sign up for "
+"more than one subscription plan (one per block)."
+msgstr ""
+"Stwórz wielopoziomowe \"drzewko\" subskrypcji i pozwól członkom "
+"zarejestrować się w więcej niż jednym planie subskrypcji.(Ale po jednym na "
+"plan)."
 
 #: includes/admin/views/view-page-members-list-table.php:18
 #: includes/admin/views/view-page-payments-list-table.php:16
@@ -6556,8 +7004,12 @@ msgstr "Kody zniżkowe"
 #: includes/admin/views/view-page-addons.php:42
 #: includes/admin/views/view-page-basic-info.php:237
 #: translations/paid-member-subscriptions.catalog.php:1718
-msgid "Easy way to add global content restriction rules to subscription plans, based on post type, taxonomy and terms."
-msgstr "Łatwy sposób dodawania globalnych reguł ograniczeń treści do planów subskrypcji, w oparciu o typ postu, taksonomię i warunki."
+msgid ""
+"Easy way to add global content restriction rules to subscription plans, "
+"based on post type, taxonomy and terms."
+msgstr ""
+"Łatwy sposób dodawania globalnych reguł ograniczeń treści do planów "
+"subskrypcji, w oparciu o typ postu, taksonomię i warunki."
 
 #: includes/admin/views/view-page-basic-info.php:88
 #: translations/paid-member-subscriptions.catalog.php:1777
@@ -6566,8 +7018,14 @@ msgstr "Moduły członkowskie"
 
 #: includes/admin/views/view-page-basic-info.php:97
 #: translations/paid-member-subscriptions.catalog.php:1778
-msgid "Create hierarchical subscription plans allowing your members to upgrade from an existing subscription. Shortcode based, offering many options to customize your subscriptions listing."
-msgstr "Twórz hierarchiczne plany subskrypcji, pozwalające członkom na aktualizację istniejącej subskrypcji. Oparte na kodach, oferujące wiele opcji dostosowywania listy subskrypcji."
+msgid ""
+"Create hierarchical subscription plans allowing your members to upgrade from "
+"an existing subscription. Shortcode based, offering many options to "
+"customize your subscriptions listing."
+msgstr ""
+"Twórz hierarchiczne plany subskrypcji, pozwalające członkom na aktualizację "
+"istniejącej subskrypcji. Oparte na kodach, oferujące wiele opcji "
+"dostosowywania listy subskrypcji."
 
 #: includes/admin/views/view-page-basic-info.php:205
 #: translations/paid-member-subscriptions.catalog.php:1793
@@ -6576,8 +7034,12 @@ msgstr "Polecane dodatki"
 
 #: includes/admin/views/view-page-basic-info.php:206
 #: translations/paid-member-subscriptions.catalog.php:1794
-msgid "Get more functionality by using dedicated Add-ons and tailor Paid Member Subscriptions to your project needs."
-msgstr "Uzyskaj więcej funkcjonalności, korzystając z dedykowanych dodatków i dostosowując Paid Member Subscriptions do potrzeb projektu."
+msgid ""
+"Get more functionality by using dedicated Add-ons and tailor Paid Member "
+"Subscriptions to your project needs."
+msgstr ""
+"Uzyskaj więcej funkcjonalności, korzystając z dedykowanych dodatków i "
+"dostosowując Paid Member Subscriptions do potrzeb projektu."
 
 #: includes/admin/views/setup-wizard/view-tab-addons.php:29
 #: includes/admin/views/view-page-addons.php:41
@@ -6623,8 +7085,12 @@ msgstr "Ogranicz treści"
 
 #: includes/admin/views/view-page-basic-info.php:16
 #: translations/paid-member-subscriptions.catalog.php:1765
-msgid "Accept payments, create subscription plans and restrict content on your website."
-msgstr "Akceptuj płatności, twórz plany subskrypcji i blokuj treści na swojej stronie."
+msgid ""
+"Accept payments, create subscription plans and restrict content on your "
+"website."
+msgstr ""
+"Akceptuj płatności, twórz plany subskrypcji i blokuj treści na swojej "
+"stronie."
 
 #: includes/admin/views/view-page-basic-info.php:26
 #: translations/paid-member-subscriptions.catalog.php:1768
@@ -6703,13 +7169,20 @@ msgstr "Wtyczka jest <strong>nieaktywna</strong>"
 
 #: includes/admin/meta-boxes/views/view-meta-box-subscription-details.php:19
 #: translations/paid-member-subscriptions.catalog.php:2485
-msgid "A description for this subscription plan. This will be displayed on the register form."
-msgstr "Opis planu subskrypcji. Zostanie on wyświetlony w formularzu rejestracji."
+msgid ""
+"A description for this subscription plan. This will be displayed on the "
+"register form."
+msgstr ""
+"Opis planu subskrypcji. Zostanie on wyświetlony w formularzu rejestracji."
 
 #: includes/admin/meta-boxes/views/view-meta-box-subscription-details.php:51
 #: translations/paid-member-subscriptions.catalog.php:2488
-msgid "Amount you want to charge people who join this plan. Leave 0 if you want this plan to be free."
-msgstr "Kwota, którą chcesz obciążyć osoby chcące aktywować daną subskrypcję. Pozostaw 0, jeśli chcesz, aby ta subskrypcja była bezpłatna."
+msgid ""
+"Amount you want to charge people who join this plan. Leave 0 if you want "
+"this plan to be free."
+msgstr ""
+"Kwota, którą chcesz obciążyć osoby chcące aktywować daną subskrypcję. "
+"Pozostaw 0, jeśli chcesz, aby ta subskrypcja była bezpłatna."
 
 #: includes/admin/meta-boxes/views/view-meta-box-subscription-details.php:28
 #: translations/paid-member-subscriptions.catalog.php:2486
@@ -6828,8 +7301,12 @@ msgstr "Plany subskrypcji"
 
 #: includes/features/discount-codes/views/view-meta-box-discount-codes.php:85
 #: translations/paid-member-subscriptions.catalog.php:2293
-msgid "You do not have any active Subscription Plans yet. Please create them <a href=\"%s\">here</a>."
-msgstr "Nie masz jeszcze żadnych aktywnych planów subskrypcji. Utwórz je <a href=\"%s\">tutaj</a>."
+msgid ""
+"You do not have any active Subscription Plans yet. Please create them <a "
+"href=\"%s\">here</a>."
+msgstr ""
+"Nie masz jeszcze żadnych aktywnych planów subskrypcji. Utwórz je <a "
+"href=\"%s\">tutaj</a>."
 
 #: includes/admin/class-admin-subscription-plans.php:1205
 #: translations/paid-member-subscriptions.catalog.php:1066
@@ -6843,7 +7320,8 @@ msgstr[2] ""
 #: translations/paid-member-subscriptions.catalog.php:1068
 msgid "%s Subscription Plan not updated, somebody is editing it."
 msgid_plural "%s Subscription Plans not updated, somebody is editing them."
-msgstr[0] "%s Plan subskrypcyjny nie został zaktualizowany, ktoś go właśnie edytuje."
+msgstr[0] ""
+"%s Plan subskrypcyjny nie został zaktualizowany, ktoś go właśnie edytuje."
 msgstr[1] ""
 msgstr[2] ""
 
@@ -8033,8 +8511,10 @@ msgid "Artvin"
 msgstr "Artvin"
 
 #: i18n/states/TH.php:82
-msgid "Uttaradit (&#3629;&#3640;&#3605;&#3619;&#3604;&#3636;&#3605;&#3606;&#3660;)"
-msgstr "Uttaradit (&#3629;&#3640;&#3605;&#3619;&#3604;&#3636;&#3605;&#3606;&#3660;)"
+msgid ""
+"Uttaradit (&#3629;&#3640;&#3605;&#3619;&#3604;&#3636;&#3605;&#3606;&#3660;)"
+msgstr ""
+"Uttaradit (&#3629;&#3640;&#3605;&#3619;&#3604;&#3636;&#3605;&#3606;&#3660;)"
 
 #: i18n/states/TH.php:83
 msgid "Yala (&#3618;&#3632;&#3621;&#3634;)"
@@ -8065,16 +8545,22 @@ msgid "Trat (&#3605;&#3619;&#3634;&#3604;)"
 msgstr "Trat (&#3605;&#3619;&#3634;&#3604;)"
 
 #: i18n/states/TH.php:79
-msgid "Ubon Ratchathani (&#3629;&#3640;&#3610;&#3621;&#3619;&#3634;&#3594;&#3608;&#3634;&#3609;&#3637;)"
-msgstr "Ubon Ratchathani (&#3629;&#3640;&#3610;&#3621;&#3619;&#3634;&#3594;&#3608;&#3634;&#3609;&#3637;)"
+msgid ""
+"Ubon Ratchathani (&#3629;&#3640;&#3610;&#3621;&#3619;&#3634;&#3594;&#3608;"
+"&#3634;&#3609;&#3637;)"
+msgstr ""
+"Ubon Ratchathani (&#3629;&#3640;&#3610;&#3621;&#3619;&#3634;&#3594;&#3608;"
+"&#3634;&#3609;&#3637;)"
 
 #: i18n/states/TH.php:80
 msgid "Udon Thani (&#3629;&#3640;&#3604;&#3619;&#3608;&#3634;&#3609;&#3637;)"
 msgstr "Udon Thani (&#3629;&#3640;&#3604;&#3619;&#3608;&#3634;&#3609;&#3637;)"
 
 #: i18n/states/TH.php:81
-msgid "Uthai Thani (&#3629;&#3640;&#3607;&#3633;&#3618;&#3608;&#3634;&#3609;&#3637;)"
-msgstr "Uthai Thani (&#3629;&#3640;&#3607;&#3633;&#3618;&#3608;&#3634;&#3609;&#3637;)"
+msgid ""
+"Uthai Thani (&#3629;&#3640;&#3607;&#3633;&#3618;&#3608;&#3634;&#3609;&#3637;)"
+msgstr ""
+"Uthai Thani (&#3629;&#3640;&#3607;&#3633;&#3618;&#3608;&#3634;&#3609;&#3637;)"
 
 #: i18n/states/TH.php:71
 msgid "Songkhla (&#3626;&#3591;&#3586;&#3621;&#3634;)"
@@ -8085,24 +8571,40 @@ msgid "Sukhothai (&#3626;&#3640;&#3650;&#3586;&#3607;&#3633;&#3618;)"
 msgstr "Sukhothai (&#3626;&#3640;&#3650;&#3586;&#3607;&#3633;&#3618;)"
 
 #: i18n/states/TH.php:73
-msgid "Suphan Buri (&#3626;&#3640;&#3614;&#3619;&#3619;&#3603;&#3610;&#3640;&#3619;&#3637;)"
-msgstr "Suphan Buri (&#3626;&#3640;&#3614;&#3619;&#3619;&#3603;&#3610;&#3640;&#3619;&#3637;)"
+msgid ""
+"Suphan Buri (&#3626;&#3640;&#3614;&#3619;&#3619;&#3603;&#3610;&#3640;&#3619;"
+"&#3637;)"
+msgstr ""
+"Suphan Buri (&#3626;&#3640;&#3614;&#3619;&#3619;&#3603;&#3610;&#3640;&#3619;"
+"&#3637;)"
 
 #: i18n/states/TH.php:74
-msgid "Surat Thani (&#3626;&#3640;&#3619;&#3634;&#3625;&#3598;&#3619;&#3660;&#3608;&#3634;&#3609;&#3637;)"
-msgstr "Surat Thani (&#3626;&#3640;&#3619;&#3634;&#3625;&#3598;&#3619;&#3660;&#3608;&#3634;&#3609;&#3637;)"
+msgid ""
+"Surat Thani (&#3626;&#3640;&#3619;&#3634;&#3625;&#3598;&#3619;&#3660;&#3608;"
+"&#3634;&#3609;&#3637;)"
+msgstr ""
+"Surat Thani (&#3626;&#3640;&#3619;&#3634;&#3625;&#3598;&#3619;&#3660;&#3608;"
+"&#3634;&#3609;&#3637;)"
 
 #: i18n/states/TH.php:75
 msgid "Surin (&#3626;&#3640;&#3619;&#3636;&#3609;&#3607;&#3619;&#3660;)"
 msgstr "Surin (&#3626;&#3640;&#3619;&#3636;&#3609;&#3607;&#3619;&#3660;)"
 
 #: i18n/states/TH.php:65
-msgid "Samut Sakhon (&#3626;&#3617;&#3640;&#3607;&#3619;&#3626;&#3634;&#3588;&#3619;)"
-msgstr "Samut Sakhon (&#3626;&#3617;&#3640;&#3607;&#3619;&#3626;&#3634;&#3588;&#3619;)"
+msgid ""
+"Samut Sakhon (&#3626;&#3617;&#3640;&#3607;&#3619;&#3626;&#3634;&#3588;&#3619;"
+")"
+msgstr ""
+"Samut Sakhon (&#3626;&#3617;&#3640;&#3607;&#3619;&#3626;&#3634;&#3588;&#3619;"
+")"
 
 #: i18n/states/TH.php:66
-msgid "Samut Songkhram (&#3626;&#3617;&#3640;&#3607;&#3619;&#3626;&#3591;&#3588;&#3619;&#3634;&#3617;)"
-msgstr "Samut Songkhram (&#3626;&#3617;&#3640;&#3607;&#3619;&#3626;&#3591;&#3588;&#3619;&#3634;&#3617;)"
+msgid ""
+"Samut Songkhram (&#3626;&#3617;&#3640;&#3607;&#3619;&#3626;&#3591;&#3588;"
+"&#3619;&#3634;&#3617;)"
+msgstr ""
+"Samut Songkhram (&#3626;&#3617;&#3640;&#3607;&#3619;&#3626;&#3591;&#3588;"
+"&#3619;&#3634;&#3617;)"
 
 #: i18n/states/TH.php:67
 msgid "Saraburi (&#3626;&#3619;&#3632;&#3610;&#3640;&#3619;&#3637;)"
@@ -8113,8 +8615,10 @@ msgid "Satun (&#3626;&#3605;&#3641;&#3621;)"
 msgstr "Satun (&#3626;&#3605;&#3641;&#3621;)"
 
 #: i18n/states/TH.php:69
-msgid "Sing Buri (&#3626;&#3636;&#3591;&#3627;&#3660;&#3610;&#3640;&#3619;&#3637;)"
-msgstr "Sing Buri (&#3626;&#3636;&#3591;&#3627;&#3660;&#3610;&#3640;&#3619;&#3637;)"
+msgid ""
+"Sing Buri (&#3626;&#3636;&#3591;&#3627;&#3660;&#3610;&#3640;&#3619;&#3637;)"
+msgstr ""
+"Sing Buri (&#3626;&#3636;&#3591;&#3627;&#3660;&#3610;&#3640;&#3619;&#3637;)"
 
 #: i18n/states/TH.php:70
 msgid "Sisaket (&#3624;&#3619;&#3637;&#3626;&#3632;&#3648;&#3585;&#3625;)"
@@ -8141,8 +8645,12 @@ msgid "Sakon Nakhon (&#3626;&#3585;&#3621;&#3609;&#3588;&#3619;)"
 msgstr "Sakon Nakhon (&#3626;&#3585;&#3621;&#3609;&#3588;&#3619;)"
 
 #: i18n/states/TH.php:64
-msgid "Samut Prakan (&#3626;&#3617;&#3640;&#3607;&#3619;&#3611;&#3619;&#3634;&#3585;&#3634;&#3619;)"
-msgstr "Samut Prakan (&#3626;&#3617;&#3640;&#3607;&#3619;&#3611;&#3619;&#3634;&#3585;&#3634;&#3619;)"
+msgid ""
+"Samut Prakan (&#3626;&#3617;&#3640;&#3607;&#3619;&#3611;&#3619;&#3634;&#3585;"
+"&#3634;&#3619;)"
+msgstr ""
+"Samut Prakan (&#3626;&#3617;&#3640;&#3607;&#3619;&#3611;&#3619;&#3634;&#3585;"
+"&#3634;&#3619;)"
 
 #: i18n/states/TH.php:54
 msgid "Phrae (&#3649;&#3614;&#3619;&#3656;)"
@@ -8153,12 +8661,20 @@ msgid "Phuket (&#3616;&#3641;&#3648;&#3585;&#3655;&#3605;)"
 msgstr "Phuket (&#3616;&#3641;&#3648;&#3585;&#3655;&#3605;)"
 
 #: i18n/states/TH.php:56
-msgid "Prachin Buri (&#3611;&#3619;&#3634;&#3592;&#3637;&#3609;&#3610;&#3640;&#3619;&#3637;)"
-msgstr "Prachin Buri (&#3611;&#3619;&#3634;&#3592;&#3637;&#3609;&#3610;&#3640;&#3619;&#3637;)"
+msgid ""
+"Prachin Buri (&#3611;&#3619;&#3634;&#3592;&#3637;&#3609;&#3610;&#3640;&#3619;"
+"&#3637;)"
+msgstr ""
+"Prachin Buri (&#3611;&#3619;&#3634;&#3592;&#3637;&#3609;&#3610;&#3640;&#3619;"
+"&#3637;)"
 
 #: i18n/states/TH.php:57
-msgid "Prachuap Khiri Khan (&#3611;&#3619;&#3632;&#3592;&#3623;&#3610;&#3588;&#3637;&#3619;&#3637;&#3586;&#3633;&#3609;&#3608;&#3660;)"
-msgstr "Prachuap Khiri Khan (&#3611;&#3619;&#3632;&#3592;&#3623;&#3610;&#3588;&#3637;&#3619;&#3637;&#3586;&#3633;&#3609;&#3608;&#3660;)"
+msgid ""
+"Prachuap Khiri Khan (&#3611;&#3619;&#3632;&#3592;&#3623;&#3610;&#3588;&#3637;"
+"&#3619;&#3637;&#3586;&#3633;&#3609;&#3608;&#3660;)"
+msgstr ""
+"Prachuap Khiri Khan (&#3611;&#3619;&#3632;&#3592;&#3623;&#3610;&#3588;&#3637;"
+"&#3619;&#3637;&#3586;&#3633;&#3609;&#3608;&#3660;)"
 
 #: i18n/states/TH.php:58
 msgid "Ranong (&#3619;&#3632;&#3609;&#3629;&#3591;)"
@@ -8173,8 +8689,10 @@ msgid "Phayao (&#3614;&#3632;&#3648;&#3618;&#3634;)"
 msgstr "Phayao (&#3614;&#3632;&#3648;&#3618;&#3634;)"
 
 #: i18n/states/TH.php:50
-msgid "Phetchabun (&#3648;&#3614;&#3594;&#3619;&#3610;&#3641;&#3619;&#3603;&#3660;)"
-msgstr "Phetchabun (&#3648;&#3614;&#3594;&#3619;&#3610;&#3641;&#3619;&#3603;&#3660;)"
+msgid ""
+"Phetchabun (&#3648;&#3614;&#3594;&#3619;&#3610;&#3641;&#3619;&#3603;&#3660;)"
+msgstr ""
+"Phetchabun (&#3648;&#3614;&#3594;&#3619;&#3610;&#3641;&#3619;&#3603;&#3660;)"
 
 #: i18n/states/TH.php:51
 msgid "Phetchaburi (&#3648;&#3614;&#3594;&#3619;&#3610;&#3640;&#3619;&#3637;)"
@@ -8189,8 +8707,12 @@ msgid "Phitsanulok (&#3614;&#3636;&#3625;&#3603;&#3640;&#3650;&#3621;&#3585;)"
 msgstr "Phitsanulok (&#3614;&#3636;&#3625;&#3603;&#3640;&#3650;&#3621;&#3585;)"
 
 #: i18n/states/TH.php:42
-msgid "Nong Bua Lam Phu (&#3627;&#3609;&#3629;&#3591;&#3610;&#3633;&#3623;&#3621;&#3635;&#3616;&#3641;)"
-msgstr "Nong Bua Lam Phu (&#3627;&#3609;&#3629;&#3591;&#3610;&#3633;&#3623;&#3621;&#3635;&#3616;&#3641;)"
+msgid ""
+"Nong Bua Lam Phu (&#3627;&#3609;&#3629;&#3591;&#3610;&#3633;&#3623;&#3621;"
+"&#3635;&#3616;&#3641;)"
+msgstr ""
+"Nong Bua Lam Phu (&#3627;&#3609;&#3629;&#3591;&#3610;&#3633;&#3623;&#3621;"
+"&#3635;&#3616;&#3641;)"
 
 #: i18n/states/TH.php:43
 msgid "Nong Khai (&#3627;&#3609;&#3629;&#3591;&#3588;&#3634;&#3618;)"
@@ -8202,7 +8724,8 @@ msgstr "Nonthaburi (&#3609;&#3609;&#3607;&#3610;&#3640;&#3619;&#3637;)"
 
 #: i18n/states/TH.php:45
 msgid "Pathum Thani (&#3611;&#3607;&#3640;&#3617;&#3608;&#3634;&#3609;&#3637;)"
-msgstr "Pathum Thani (&#3611;&#3607;&#3640;&#3617;&#3608;&#3634;&#3609;&#3637;)"
+msgstr ""
+"Pathum Thani (&#3611;&#3607;&#3640;&#3617;&#3608;&#3634;&#3609;&#3637;)"
 
 #: i18n/states/TH.php:46
 msgid "Pattani (&#3611;&#3633;&#3605;&#3605;&#3634;&#3609;&#3637;)"
@@ -8213,16 +8736,28 @@ msgid "Phang Nga (&#3614;&#3633;&#3591;&#3591;&#3634;)"
 msgstr "Phang Nga (&#3614;&#3633;&#3591;&#3591;&#3634;)"
 
 #: i18n/states/TH.php:37
-msgid "Nakhon Ratchasima (&#3609;&#3588;&#3619;&#3619;&#3634;&#3594;&#3626;&#3637;&#3617;&#3634;)"
-msgstr "Nakhon Ratchasima (&#3609;&#3588;&#3619;&#3619;&#3634;&#3594;&#3626;&#3637;&#3617;&#3634;)"
+msgid ""
+"Nakhon Ratchasima (&#3609;&#3588;&#3619;&#3619;&#3634;&#3594;&#3626;&#3637;"
+"&#3617;&#3634;)"
+msgstr ""
+"Nakhon Ratchasima (&#3609;&#3588;&#3619;&#3619;&#3634;&#3594;&#3626;&#3637;"
+"&#3617;&#3634;)"
 
 #: i18n/states/TH.php:38
-msgid "Nakhon Sawan (&#3609;&#3588;&#3619;&#3626;&#3623;&#3619;&#3619;&#3588;&#3660;)"
-msgstr "Nakhon Sawan (&#3609;&#3588;&#3619;&#3626;&#3623;&#3619;&#3619;&#3588;&#3660;)"
+msgid ""
+"Nakhon Sawan (&#3609;&#3588;&#3619;&#3626;&#3623;&#3619;&#3619;&#3588;&#3660;"
+")"
+msgstr ""
+"Nakhon Sawan (&#3609;&#3588;&#3619;&#3626;&#3623;&#3619;&#3619;&#3588;&#3660;"
+")"
 
 #: i18n/states/TH.php:39
-msgid "Nakhon Si Thammarat (&#3609;&#3588;&#3619;&#3624;&#3619;&#3637;&#3608;&#3619;&#3619;&#3617;&#3619;&#3634;&#3594;)"
-msgstr "Nakhon Si Thammarat (&#3609;&#3588;&#3619;&#3624;&#3619;&#3637;&#3608;&#3619;&#3619;&#3617;&#3619;&#3634;&#3594;)"
+msgid ""
+"Nakhon Si Thammarat (&#3609;&#3588;&#3619;&#3624;&#3619;&#3637;&#3608;&#3619;"
+"&#3619;&#3617;&#3619;&#3634;&#3594;)"
+msgstr ""
+"Nakhon Si Thammarat (&#3609;&#3588;&#3619;&#3624;&#3619;&#3637;&#3608;&#3619;"
+"&#3619;&#3617;&#3619;&#3634;&#3594;)"
 
 #: i18n/states/TH.php:40
 msgid "Nan (&#3609;&#3656;&#3634;&#3609;)"
@@ -8233,12 +8768,20 @@ msgid "Narathiwat (&#3609;&#3619;&#3634;&#3608;&#3636;&#3623;&#3634;&#3626;)"
 msgstr "Narathiwat (&#3609;&#3619;&#3634;&#3608;&#3636;&#3623;&#3634;&#3626;)"
 
 #: i18n/states/TH.php:31
-msgid "Mae Hong Son (&#3649;&#3617;&#3656;&#3630;&#3656;&#3629;&#3591;&#3626;&#3629;&#3609;)"
-msgstr "Mae Hong Son (&#3649;&#3617;&#3656;&#3630;&#3656;&#3629;&#3591;&#3626;&#3629;&#3609;)"
+msgid ""
+"Mae Hong Son (&#3649;&#3617;&#3656;&#3630;&#3656;&#3629;&#3591;&#3626;&#3629;"
+"&#3609;)"
+msgstr ""
+"Mae Hong Son (&#3649;&#3617;&#3656;&#3630;&#3656;&#3629;&#3591;&#3626;&#3629;"
+"&#3609;)"
 
 #: i18n/states/TH.php:32
-msgid "Maha Sarakham (&#3617;&#3627;&#3634;&#3626;&#3634;&#3619;&#3588;&#3634;&#3617;)"
-msgstr "Maha Sarakham (&#3617;&#3627;&#3634;&#3626;&#3634;&#3619;&#3588;&#3634;&#3617;)"
+msgid ""
+"Maha Sarakham (&#3617;&#3627;&#3634;&#3626;&#3634;&#3619;&#3588;&#3634;"
+"&#3617;)"
+msgstr ""
+"Maha Sarakham (&#3617;&#3627;&#3634;&#3626;&#3634;&#3619;&#3588;&#3634;"
+"&#3617;)"
 
 #: i18n/states/TH.php:33
 msgid "Mukdahan (&#3617;&#3640;&#3585;&#3604;&#3634;&#3627;&#3634;&#3619;)"
@@ -8289,16 +8832,26 @@ msgid "Chumphon (&#3594;&#3640;&#3617;&#3614;&#3619;)"
 msgstr "Chumphon (&#3594;&#3640;&#3617;&#3614;&#3619;)"
 
 #: i18n/states/TH.php:22
-msgid "Kalasin (&#3585;&#3634;&#3628;&#3626;&#3636;&#3609;&#3608;&#3640;&#3660;)"
-msgstr "Kalasin (&#3585;&#3634;&#3628;&#3626;&#3636;&#3609;&#3608;&#3640;&#3660;)"
+msgid ""
+"Kalasin (&#3585;&#3634;&#3628;&#3626;&#3636;&#3609;&#3608;&#3640;&#3660;)"
+msgstr ""
+"Kalasin (&#3585;&#3634;&#3628;&#3626;&#3636;&#3609;&#3608;&#3640;&#3660;)"
 
 #: i18n/states/TH.php:23
-msgid "Kamphaeng Phet (&#3585;&#3635;&#3649;&#3614;&#3591;&#3648;&#3614;&#3594;&#3619;)"
-msgstr "Kamphaeng Phet (&#3585;&#3635;&#3649;&#3614;&#3591;&#3648;&#3614;&#3594;&#3619;)"
+msgid ""
+"Kamphaeng Phet (&#3585;&#3635;&#3649;&#3614;&#3591;&#3648;&#3614;&#3594;"
+"&#3619;)"
+msgstr ""
+"Kamphaeng Phet (&#3585;&#3635;&#3649;&#3614;&#3591;&#3648;&#3614;&#3594;"
+"&#3619;)"
 
 #: i18n/states/TH.php:24
-msgid "Kanchanaburi (&#3585;&#3634;&#3597;&#3592;&#3609;&#3610;&#3640;&#3619;&#3637;)"
-msgstr "Kanchanaburi (&#3585;&#3634;&#3597;&#3592;&#3609;&#3610;&#3640;&#3619;&#3637;)"
+msgid ""
+"Kanchanaburi (&#3585;&#3634;&#3597;&#3592;&#3609;&#3610;&#3640;&#3619;&#3637;"
+")"
+msgstr ""
+"Kanchanaburi (&#3585;&#3634;&#3597;&#3592;&#3609;&#3610;&#3640;&#3619;&#3637;"
+")"
 
 #: i18n/states/TH.php:15
 msgid "Chai Nat (&#3594;&#3633;&#3618;&#3609;&#3634;&#3607;)"
@@ -8313,32 +8866,48 @@ msgid "Chanthaburi (&#3592;&#3633;&#3609;&#3607;&#3610;&#3640;&#3619;&#3637;)"
 msgstr "Chanthaburi (&#3592;&#3633;&#3609;&#3607;&#3610;&#3640;&#3619;&#3637;)"
 
 #: i18n/states/TH.php:18
-msgid "Chiang Mai (&#3648;&#3594;&#3637;&#3618;&#3591;&#3651;&#3627;&#3617;&#3656;)"
-msgstr "Chiang Mai (&#3648;&#3594;&#3637;&#3618;&#3591;&#3651;&#3627;&#3617;&#3656;)"
+msgid ""
+"Chiang Mai (&#3648;&#3594;&#3637;&#3618;&#3591;&#3651;&#3627;&#3617;&#3656;)"
+msgstr ""
+"Chiang Mai (&#3648;&#3594;&#3637;&#3618;&#3591;&#3651;&#3627;&#3617;&#3656;)"
 
 #: i18n/states/TH.php:19
 msgid "Chiang Rai (&#3648;&#3594;&#3637;&#3618;&#3591;&#3619;&#3634;&#3618;)"
 msgstr "Chiang Rai (&#3648;&#3594;&#3637;&#3618;&#3591;&#3619;&#3634;&#3618;)"
 
 #: i18n/states/TH.php:10
-msgid "Ayutthaya (&#3614;&#3619;&#3632;&#3609;&#3588;&#3619;&#3624;&#3619;&#3637;&#3629;&#3618;&#3640;&#3608;&#3618;&#3634;)"
-msgstr "Ayutthaya (&#3614;&#3619;&#3632;&#3609;&#3588;&#3619;&#3624;&#3619;&#3637;&#3629;&#3618;&#3640;&#3608;&#3618;&#3634;)"
+msgid ""
+"Ayutthaya (&#3614;&#3619;&#3632;&#3609;&#3588;&#3619;&#3624;&#3619;&#3637;"
+"&#3629;&#3618;&#3640;&#3608;&#3618;&#3634;)"
+msgstr ""
+"Ayutthaya (&#3614;&#3619;&#3632;&#3609;&#3588;&#3619;&#3624;&#3619;&#3637;"
+"&#3629;&#3618;&#3640;&#3608;&#3618;&#3634;)"
 
 #: i18n/states/TH.php:11
-msgid "Bangkok (&#3585;&#3619;&#3640;&#3591;&#3648;&#3607;&#3614;&#3617;&#3627;&#3634;&#3609;&#3588;&#3619;)"
-msgstr "Bangkok (&#3585;&#3619;&#3640;&#3591;&#3648;&#3607;&#3614;&#3617;&#3627;&#3634;&#3609;&#3588;&#3619;)"
+msgid ""
+"Bangkok (&#3585;&#3619;&#3640;&#3591;&#3648;&#3607;&#3614;&#3617;&#3627;"
+"&#3634;&#3609;&#3588;&#3619;)"
+msgstr ""
+"Bangkok (&#3585;&#3619;&#3640;&#3591;&#3648;&#3607;&#3614;&#3617;&#3627;"
+"&#3634;&#3609;&#3588;&#3619;)"
 
 #: i18n/states/TH.php:12
 msgid "Bueng Kan (&#3610;&#3638;&#3591;&#3585;&#3634;&#3628;)"
 msgstr "Bueng Kan (&#3610;&#3638;&#3591;&#3585;&#3634;&#3628;)"
 
 #: i18n/states/TH.php:13
-msgid "Buri Ram (&#3610;&#3640;&#3619;&#3637;&#3619;&#3633;&#3617;&#3618;&#3660;)"
-msgstr "Buri Ram (&#3610;&#3640;&#3619;&#3637;&#3619;&#3633;&#3617;&#3618;&#3660;)"
+msgid ""
+"Buri Ram (&#3610;&#3640;&#3619;&#3637;&#3619;&#3633;&#3617;&#3618;&#3660;)"
+msgstr ""
+"Buri Ram (&#3610;&#3640;&#3619;&#3637;&#3619;&#3633;&#3617;&#3618;&#3660;)"
 
 #: i18n/states/TH.php:14
-msgid "Chachoengsao (&#3593;&#3632;&#3648;&#3594;&#3636;&#3591;&#3648;&#3607;&#3619;&#3634;)"
-msgstr "Chachoengsao (&#3593;&#3632;&#3648;&#3594;&#3636;&#3591;&#3648;&#3607;&#3619;&#3634;)"
+msgid ""
+"Chachoengsao (&#3593;&#3632;&#3648;&#3594;&#3636;&#3591;&#3648;&#3607;&#3619;"
+"&#3634;)"
+msgstr ""
+"Chachoengsao (&#3593;&#3632;&#3648;&#3594;&#3636;&#3591;&#3648;&#3607;&#3619;"
+"&#3634;)"
 
 #: i18n/states/PH.php:84
 msgid "Tawi-Tawi"
@@ -8365,8 +8934,12 @@ msgid "Metro Manila"
 msgstr "Metro Manila"
 
 #: i18n/states/TH.php:8
-msgid "Amnat Charoen (&#3629;&#3635;&#3609;&#3634;&#3592;&#3648;&#3592;&#3619;&#3636;&#3597;)"
-msgstr "Amnat Charoen (&#3629;&#3635;&#3609;&#3634;&#3592;&#3648;&#3592;&#3619;&#3636;&#3597;)"
+msgid ""
+"Amnat Charoen (&#3629;&#3635;&#3609;&#3634;&#3592;&#3648;&#3592;&#3619;"
+"&#3636;&#3597;)"
+msgstr ""
+"Amnat Charoen (&#3629;&#3635;&#3609;&#3634;&#3592;&#3648;&#3592;&#3619;"
+"&#3636;&#3597;)"
 
 #: i18n/states/TH.php:9
 msgid "Ang Thong (&#3629;&#3656;&#3634;&#3591;&#3607;&#3629;&#3591;)"
@@ -11511,8 +12084,12 @@ msgstr "Za chwilę zostaniesz przekierowany na stronę płatności"
 #. translators: %s: url
 #: extend/profile-builder/admin/manage-fields.php:29
 #: translations/paid-member-subscriptions.catalog.php:1628
-msgid "It looks like there are no active subscriptions. <a href=\"%s\">Create one here</a>."
-msgstr "Wygląda na to, że nie ma aktywnych subskrypcji. <a href=\"%s\"> Utwórz tutaj </a>."
+msgid ""
+"It looks like there are no active subscriptions. <a href=\"%s\">Create one "
+"here</a>."
+msgstr ""
+"Wygląda na to, że nie ma aktywnych subskrypcji. <a href=\"%s\"> Utwórz tutaj "
+"</a>."
 
 #: extend/profile-builder/admin/manage-fields.php:33
 #: translations/paid-member-subscriptions.catalog.php:1630
@@ -11521,12 +12098,17 @@ msgstr "Zapisz zamówienie planu subskrypcji z pól wyboru planów subskrypcji"
 
 #: extend/profile-builder/admin/manage-fields.php:31
 #: translations/paid-member-subscriptions.catalog.php:1627
-msgid "Select which Subscription Plans to show to the user on the register forms ( drag and drop to re-order )"
-msgstr "Wybierz plany subskrypcji, które mają być wyświetlane użytkownikowi w formularzu rejestracji.(przeciągnij / upuść, aby zmienić kolejność)"
+msgid ""
+"Select which Subscription Plans to show to the user on the register forms ( "
+"drag and drop to re-order )"
+msgstr ""
+"Wybierz plany subskrypcji, które mają być wyświetlane użytkownikowi w "
+"formularzu rejestracji.(przeciągnij / upuść, aby zmienić kolejność)"
 
 #: extend/profile-builder/admin/manage-fields.php:37
 #: translations/paid-member-subscriptions.catalog.php:1632
-msgid "Select which plan will be by default selected when the front-end form loads."
+msgid ""
+"Select which plan will be by default selected when the front-end form loads."
 msgstr "Wybierz, który plan będzie domyślnie wybrany, gdy ładuje się strona."
 
 #: extend/profile-builder/admin/manage-fields.php:37

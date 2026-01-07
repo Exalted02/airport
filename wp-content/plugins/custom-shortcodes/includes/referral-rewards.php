@@ -330,28 +330,48 @@ add_action('wp_ajax_activate_referral_reward', function() {
     if (!$plan) {
         wp_send_json_error('Nie znaleziono planu Premium.');
     }
-
-    if ($active_sub && !empty($active_sub->expiration_date)) {
+	// echo 'pre'; print_r($active_sub); echo '</pre>';exit;
+    if ($active_sub) {
 
 		// PAID plan → extend
 		if ((float) $active_sub->billing_amount > 0) {
 
-			$new_exp = date(
-				'Y-m-d H:i:s',
-				strtotime($active_sub->expiration_date . ' +1 month')
-			);
+			// RECURRING subscription
+			if (!empty($active_sub->billing_next_payment)) {
 
-			$active_sub->update([
-				'expiration_date' => $new_exp,
-			]);
+				$new_next_payment = date(
+					'Y-m-d H:i:s',
+					strtotime($active_sub->billing_next_payment . ' +1 month')
+				);
 
-			$msg = 'Twój plan Premium został przedłużony o 1 miesiąc!';
+				$active_sub->update([
+					'billing_next_payment' => $new_next_payment,
+				]);
+
+				$msg = 'Twój plan Premium został przedłużony o 1 miesiąc!';
+
+			}
+
+			// FIXED subscription
+			elseif (!empty($active_sub->expiration_date)) {
+
+				$new_exp = date(
+					'Y-m-d H:i:s',
+					strtotime($active_sub->expiration_date . ' +1 month')
+				);
+
+				$active_sub->update([
+					'expiration_date' => $new_exp,
+				]);
+
+				$msg = 'Twój plan Premium został przedłużony o 1 miesiąc!';
+			}
 
 		}
+
 		// FREE plan → delete & replace
 		else {
 
-			// Proper PMS delete
 			if (method_exists($active_sub, 'delete')) {
 				$active_sub->delete();
 			} else {
@@ -363,9 +383,10 @@ add_action('wp_ajax_activate_referral_reward', function() {
 				);
 			}
 
-			$active_sub = null; // force new subscription
+			$active_sub = null;
 		}
 	}
+
 
 	if (!$active_sub) {
         // Ensure PMS member exists
