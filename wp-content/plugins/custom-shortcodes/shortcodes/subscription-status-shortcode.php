@@ -122,17 +122,27 @@ function my_subscription_status_shortcode() {
                     <span class="elementor-icon-list-icon">
                         <svg aria-hidden="true" class="e-font-icon-svg e-fas-check" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>                        
                     </span>
+					<?php
+					if($sub->status != 'canceled'){
+					?>
                     <strong class="plan-status"><?php echo esc_html( $plan_name ); ?></strong>
+					<?php }else{ ?>
+					<strong class="plan-status">Free</strong>
+					<?php } ?>
                 </p>
-                <p>Status: <strong><?php echo esc_html( $status ); ?></strong></p>
-                <!--<p>Wygasa dnia: <strong><?php echo esc_html( $expiration ); ?></strong></p>-->
+				<?php
+				if($sub->status != 'canceled'){
+				?>
+					<p>Status: <strong><?php echo esc_html( $status ); ?></strong></p>
+				<?php } ?>
             </div>
             <div class="subscription-text">
 				<?php
 				if($plan->post_name != 'premium'){
+					if($sub->status != 'canceled'){
 				?>
 					<p>Jako członek planu darmowego otrzymasz bezpłatnie powiadomienia o promocjach w ograniczonej formie.</p>
-				<?php } ?>
+				<?php } } ?>
                 <a href="<?php echo esc_url( home_url( '/checkout' ) ); ?>" class="upgrade-button">Uaktualnij swój plan</a>
             </div>
         </div>

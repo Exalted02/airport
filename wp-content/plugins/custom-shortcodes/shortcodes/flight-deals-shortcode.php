@@ -331,12 +331,50 @@ function custom_flight_deals_shortcode() {
 							<span class="flight-deal-price"><?php echo $price; ?> zł</span>
 						</div>
 						<?php 
-						$is_show = true;
+						/*$is_show = true;
 						if ($deal->offer_type == 1){
-							if ( empty( $subscriptions ) || $subscriptions[0]->billing_amount == 0){
+							if ( empty( $subscriptions ) || ($subscriptions[0]->billing_amount == 0 || $subscriptions[0]->get_status() != 'active')){
 								$is_show = false;
 							}
+						}*/
+						// echo '<pre>'; print_r($subscriptions); echo '</pre>';
+						
+						$is_show = true;
+						if ($deal->offer_type == 1) {
+
+							if (empty($subscriptions)) {
+								$is_show = false;
+							} else {
+								$sub = $subscriptions[0];
+
+								$status          = $sub->get_status(); // active / canceled
+								$billing_amount  = (float) $sub->billing_amount;
+								$expiration_date = !empty($sub->expiration_date)
+									? strtotime($sub->expiration_date)
+									: null;
+									
+								$today = strtotime(date('Y-m-d'));
+
+								// Default: hide
+								$is_show = false;
+
+								// Case 1: Active subscription with amount
+								if ($status === 'active' && $billing_amount != 0) {
+									$is_show = true;
+								}
+
+								// Case 2: Canceled, expired (<= today), amount not zero
+								if (
+									$status === 'canceled' &&
+									$billing_amount != 0 &&
+									$expiration_date !== null &&
+									$expiration_date >= $today
+								) {
+									$is_show = true;
+								}
+							}
 						}
+
 						?>
 						<?php if ($is_show){ ?>
 							<a href="<?php echo esc_url(home_url('/deal-details/' . $deal->id)); ?>" class="flight-deal-button">Zobacz szczegóły</a>
