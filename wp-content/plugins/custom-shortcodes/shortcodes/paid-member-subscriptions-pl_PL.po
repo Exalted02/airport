@@ -45,7 +45,7 @@ msgstr ""
 #: includes/functions-subscription-plan.php:647,
 #: add-ons-pro/multiple-currencies/includes/class-multiple-currencies.php:256
 msgid " and a %1$s sign-up fee"
-msgstr "i a %1$s opłata rejestracyjna"
+msgstr ", oraz %1$s opłata rejestracyjna"
 
 #: includes/features/discount-codes/views/view-page-bulk-add-discount-codes.php:40
 msgid " and modify it by adding your own discounts."
@@ -444,8 +444,8 @@ msgstr[2] ""
 msgid "%s Month"
 msgid_plural "%s Months"
 msgstr[0] "%s Miesiąc"
-msgstr[1] ""
-msgstr[2] ""
+msgstr[1] "%s Miesiące"
+msgstr[2] "%s Miesięcy"
 
 #. translators: %s: amount of time
 #: includes/features/discount-codes/includes/functions-discount.php:216,
@@ -454,8 +454,8 @@ msgstr[2] ""
 msgid "%s month"
 msgid_plural "%s months"
 msgstr[0] "%s miesiąc"
-msgstr[1] ""
-msgstr[2] ""
+msgstr[1] "%s miesiące"
+msgstr[2] "%s miesięcy"
 
 #: add-ons-basic/bbpress/index.php:99, add-ons-basic/learndash/index.php:146
 msgid "%s needs to be installed and activated for the %s to work as expected!"
@@ -7710,8 +7710,8 @@ msgstr "Czarnogóra"
 msgid "month"
 msgid_plural "months"
 msgstr[0] "miesiąc"
-msgstr[1] ""
-msgstr[2] ""
+msgstr[1] "miesiące"
+msgstr[2] "miesięcy"
 
 #: add-ons-basic/email-reminders/includes/class-admin-email-reminders.php:161,
 #: add-ons-basic/extra-subscription-discount-options/includes/class-discount-options.php:92,

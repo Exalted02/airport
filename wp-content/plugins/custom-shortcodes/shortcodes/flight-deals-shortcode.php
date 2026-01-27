@@ -423,8 +423,8 @@ function custom_flight_deals_shortcode() {
                 'format' => 'page/%#%/',
                 'current' => $paged,
                 'total' => $total_pages,
-                'prev_text' => '« Poprzedni',
-                'next_text' => 'Następny »',
+                'prev_text' => '« Poprzednia',
+                'next_text' => 'Następna »',
             ));
             ?>
         </div>
