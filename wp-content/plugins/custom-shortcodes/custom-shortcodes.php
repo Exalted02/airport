@@ -92,14 +92,58 @@ add_action('template_redirect', function() {
             SELECT * FROM $table WHERE id = %d AND status = 1
         ", $deal_id));
 
-        if ($deal && intval($deal->offer_type) === 1) {
+		$is_show = true;
+		$user_id = get_current_user_id();
+		$subscriptions = pms_get_member_subscriptions( array( 'user_id' => $user_id ) );
+		if ($deal && intval($deal->offer_type) === 1) {
+			if (empty($subscriptions)) {
+				$is_show = false;
+			} else {
+				$sub = $subscriptions[0];
+				
+				//Get plan details
+				$plan = pms_get_subscription_plan( $sub->subscription_plan_id );
+				// echo '<pre>'; print_r($plan); echo '</pre>';exit;
+		
+				$status          = $sub->get_status(); // active / canceled
+				$billing_amount  = (float) $sub->billing_amount;
+				$expiration_date = !empty($sub->expiration_date)
+					? strtotime($sub->expiration_date)
+					: null;
+					
+				$today = strtotime(date('Y-m-d'));
+
+				// Default: hide
+				$is_show = false;
+
+				// Case 1: Active subscription with amount
+				if (($status === 'active' && $billing_amount != 0) || ($status === 'active' && $plan->price != 0)) {
+					$is_show = true;
+				}
+
+				// Case 2: Canceled, expired (<= today), amount not zero
+				if (
+					$status === 'canceled' &&
+					$billing_amount != 0 &&
+					$expiration_date !== null &&
+					$expiration_date >= $today
+				) {
+					$is_show = true;
+				}
+			}
+		}
+		if(!$is_show){
+			wp_redirect(home_url('/flight-deals'));
+			exit;
+		}
+        /*if ($deal && intval($deal->offer_type) === 1) {
 			$user_id = get_current_user_id();
 			$subscriptions = pms_get_member_subscriptions( array( 'user_id' => $user_id ) );
 			if ( empty( $subscriptions ) || $subscriptions[0]->billing_amount == 0){
 				wp_redirect(home_url('/flight-deals'));
 				exit;
 			}
-        }
+        }*/
     }
 });
 add_action( 'template_redirect', function () {

@@ -111,7 +111,7 @@ function my_subscription_status_shortcode() {
         $expiration = $sub->expiration_date ? date( 'd.m.Y', strtotime( $sub->expiration_date ) ) : 'Nigdy';
 
         $plan = get_post( $plan_id );
-		// echo '<pre>'; print_r($plan);exit;
+		// echo '<pre>'; print_r($sub);exit;
         $plan_name = $plan ? $plan->post_title : 'Nieznany plan';
 
         ?>
@@ -123,7 +123,7 @@ function my_subscription_status_shortcode() {
                         <svg aria-hidden="true" class="e-font-icon-svg e-fas-check" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>                        
                     </span>
 					<?php
-					if($sub->status != 'canceled'){
+					if( !in_array( $sub->status, ['canceled', 'expired'] ) ){
 					?>
                     <strong class="plan-status"><?php echo esc_html( $plan_name ); ?></strong>
 					<?php }else{ ?>
@@ -131,7 +131,7 @@ function my_subscription_status_shortcode() {
 					<?php } ?>
                 </p>
 				<?php
-				if($sub->status != 'canceled'){
+				if( !in_array( $sub->status, ['canceled', 'expired'] ) ){
 				?>
 					<p>Status: <strong><?php echo esc_html( $status ); ?></strong></p>
 				<?php } ?>
@@ -139,7 +139,7 @@ function my_subscription_status_shortcode() {
             <div class="subscription-text">
 				<?php
 				if($plan->post_name != 'premium'){
-					if($sub->status != 'canceled'){
+					if( !in_array( $sub->status, ['canceled', 'expired'] ) ){
 				?>
 					<p>Jako członek planu darmowego otrzymasz bezpłatnie powiadomienia o promocjach w ograniczonej formie.</p>
 				<?php } } ?>

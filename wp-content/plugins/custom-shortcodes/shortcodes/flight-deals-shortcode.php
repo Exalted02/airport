@@ -346,7 +346,11 @@ function custom_flight_deals_shortcode() {
 								$is_show = false;
 							} else {
 								$sub = $subscriptions[0];
-
+								
+								//Get plan details
+								$plan = pms_get_subscription_plan( $sub->subscription_plan_id );
+								// echo '<pre>'; print_r($plan->price); echo '</pre>';
+						
 								$status          = $sub->get_status(); // active / canceled
 								$billing_amount  = (float) $sub->billing_amount;
 								$expiration_date = !empty($sub->expiration_date)
@@ -359,7 +363,7 @@ function custom_flight_deals_shortcode() {
 								$is_show = false;
 
 								// Case 1: Active subscription with amount
-								if ($status === 'active' && $billing_amount != 0) {
+								if (($status === 'active' && $billing_amount != 0) || ($status === 'active' && $plan->price != 0)) {
 									$is_show = true;
 								}
 

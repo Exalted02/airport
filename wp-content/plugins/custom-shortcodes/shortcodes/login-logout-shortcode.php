@@ -52,12 +52,13 @@ function custom_account_links_shortcode() {
         // Show these only for guests
         echo '<li class="elementor-icon-list-item"><a href="' . esc_url( home_url('/login') ) . '">Logowanie</a></li>';
         echo '<li class="elementor-icon-list-item"><a href="' . esc_url( home_url('/register') ) . '">Rejestracja</a></li>';
+		echo '<li class="elementor-icon-list-item"><a href="' . esc_url( home_url('/login') ) . '">Program poleceń</a></li>';
     }else{
-		echo '<li class="elementor-icon-list-item"><a href="' . esc_url( home_url('/konto') ) . '">Panel konta</a></li>';		
+		echo '<li class="elementor-icon-list-item"><a href="' . esc_url( home_url('/konto') ) . '">Panel konta</a></li>';
+		echo '<li class="elementor-icon-list-item"><a href="' . esc_url( home_url('/polec-znajomym') ) . '">Program poleceń</a></li>';
 	}
 
     // Always show other links
-     echo '<li class="elementor-icon-list-item"><a href="' . esc_url( home_url('/polec-znajomym') ) . '">Program poleceń</a></li>';
     echo '<li class="elementor-icon-list-item"><a href="' . esc_url( home_url('/kontakt') ) . '">Kontakt</a></li>';
 	if ( is_user_logged_in() ) {
 		$logout_url = wp_logout_url( home_url( '/login' ) );
