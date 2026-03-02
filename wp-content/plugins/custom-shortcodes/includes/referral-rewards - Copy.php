@@ -299,11 +299,7 @@ add_shortcode('referral_rewards', function() {
 // ----------------------------------------------------------
 // 4️⃣ AJAX Handler for instant reward activation
 // ----------------------------------------------------------
-// ----------------------------------------------------------
-// AJAX Handler for instant reward activation (FINAL SAFE)
-// ----------------------------------------------------------
 add_action('wp_ajax_activate_referral_reward', function() {
-
     check_ajax_referer('activate_referral_reward');
 
     $user_id = get_current_user_id();
@@ -315,111 +311,97 @@ add_action('wp_ajax_activate_referral_reward', function() {
     if ($pending <= 0) {
         wp_send_json_error('Brak oczekujących nagród.');
     }
+	
+    $plan_id_to_use = PREMIUM_PLAN_ID;
+    $plan = pms_get_subscription_plan($plan_id_to_use);
 
-    if (!defined('PREMIUM_PLAN_ID') || !PREMIUM_PLAN_ID) {
-        wp_send_json_error('Nie znaleziono planu Premium.');
-    }
-
-    $plan = pms_get_subscription_plan(PREMIUM_PLAN_ID);
     if (!$plan) {
         wp_send_json_error('Nie znaleziono planu Premium.');
     }
 
     global $wpdb;
-
-    /*
-     * =====================================================
-     * STEP 1: Get all subscriptions
-     * =====================================================
-     */
     $subs = pms_get_member_subscriptions(['user_id' => $user_id]);
-
-    $premium_sub = null;
-
+    $active_sub = null;
     if ($subs && is_array($subs)) {
-
-        foreach ($subs as $sub) {
-
-            $sub_plan = pms_get_subscription_plan($sub->subscription_plan_id);
-
-            if (!$sub_plan) {
-                continue;
+        /*foreach ($subs as $sub) {
+			$active_price_plan = pms_get_subscription_plan($sub->subscription_plan_id);
+            if (($sub->status === 'active' && (float) $sub->billing_amount != 0) || ($sub->status === 'active' && $active_price_plan->price != 0)) {
+                $active_sub = $sub;
+                break;
             }
-
-            // ---------------------------------
-            // DELETE ALL FREE PLANS (price 0)
-            // ---------------------------------
-            if ((float) $sub_plan->price <= 0) {
-
-                if (method_exists($sub, 'delete')) {
-                    $sub->delete();
-                } else {
-                    $wpdb->delete(
-                        $wpdb->prefix . 'pms_member_subscriptions',
-                        ['id' => $sub->id],
-                        ['%d']
-                    );
-                }
-
-                continue;
-            }
-
-            // ---------------------------------
-            // Keep FIRST Premium plan found
-            // ---------------------------------
-            if (in_array($sub->subscription_plan_id, ALL_PREMIUM_PLAN_ID)) {
-
-                if (!$premium_sub) {
-                    $premium_sub = $sub;
-                } else {
-                    // Extra safety: remove duplicate premium if exists
-                    if (method_exists($sub, 'delete')) {
-                        $sub->delete();
-                    } else {
-                        $wpdb->delete(
-                            $wpdb->prefix . 'pms_member_subscriptions',
-                            ['id' => $sub->id],
-                            ['%d']
-                        );
-                    }
-                }
-            }
-        }
+        }*/
+		foreach ($subs as $sub) {
+			if ($sub->status === 'active') {
+				$active_sub = $sub;
+				break;
+			}
+		}
     }
 
-    /*
-     * =====================================================
-     * STEP 2: Extend existing Premium
-     * =====================================================
-     */
-    if ($premium_sub) {
+	// echo 'pre'; print_r($active_sub); echo '</pre>';exit;
+    if ($active_sub) {
+		
+		$active_price_plan = pms_get_subscription_plan($active_sub->subscription_plan_id);
+		
+		// PAID plan → extend
+		// if ((float) $active_sub->billing_amount > 0) {
+		//if (($active_sub->billing_amount != 0) || ($active_sub->status === 'active' && $plan->price != 0)) {	
+		if ((float)$active_sub->billing_amount > 0 || (float)$active_price_plan->price > 0) {
+			
+			// RECURRING subscription
+			if (!empty($active_sub->billing_next_payment)) {
 
-        $now = current_time('mysql');
+				$new_next_payment = date(
+					'Y-m-d H:i:s',
+					strtotime($active_sub->billing_next_payment . ' +1 month')
+				);
 
-        if (!empty($premium_sub->expiration_date) && $premium_sub->expiration_date > $now) {
-            $base_date = $premium_sub->expiration_date;
-        } else {
-            $base_date = $now;
-        }
+				$active_sub->update([
+					'billing_next_payment' => $new_next_payment,
+				]);
 
-        $new_exp = date('Y-m-d H:i:s', strtotime($base_date . ' +1 month'));
+				$msg = 'Twój plan Premium został przedłużony o 1 miesiąc!';
 
-        $premium_sub->update([
-            'status' => 'active',
-            'expiration_date' => $new_exp,
-            'billing_next_payment' => null, // prevent recurring duplication
-        ]);
+			}
 
-        $msg = 'Twój plan Premium został przedłużony o 1 miesiąc!';
-    }
+			// FIXED subscription
+			elseif (!empty($active_sub->expiration_date)) {
 
-    /*
-     * =====================================================
-     * STEP 3: Create Premium if none exists
-     * =====================================================
-     */
-    if (!$premium_sub) {
+				$new_exp = date(
+					'Y-m-d H:i:s',
+					strtotime($active_sub->expiration_date . ' +1 month')
+				);
 
+				$active_sub->update([
+					'expiration_date' => $new_exp,
+				]);
+
+				$msg = 'Twój plan Premium został przedłużony o 1 miesiąc!';
+			}
+
+		}
+
+		// FREE plan → delete & replace
+		else {
+
+			if (method_exists($active_sub, 'delete')) {
+				$active_sub->delete();
+			} else {
+				global $wpdb;
+				$wpdb->delete(
+					$wpdb->prefix . 'pms_member_subscriptions',
+					['id' => $active_sub->id],
+					['%d']
+				);
+			}
+
+			$active_sub = null;
+		}
+	}
+
+
+	if (!$active_sub) {
+        // Ensure PMS member exists
         $member = pms_get_member($user_id);
         if (!$member) {
             $member = new PMS_Member(['user_id' => $user_id]);
@@ -427,18 +409,15 @@ add_action('wp_ajax_activate_referral_reward', function() {
         }
 
         $table_name = $wpdb->prefix . 'pms_member_subscriptions';
-
         $subscription_data = [
             'user_id'              => $user_id,
             'subscription_plan_id' => $plan->id,
             'status'               => 'active',
             'start_date'           => current_time('mysql'),
             'expiration_date'      => date('Y-m-d H:i:s', strtotime('+1 month')),
-            'billing_next_payment' => null,
         ];
 
         $inserted = $wpdb->insert($table_name, $subscription_data);
-
         if (!$inserted) {
             wp_send_json_error('Błąd: nie udało się aktywować nagrody.');
         }
@@ -446,11 +425,7 @@ add_action('wp_ajax_activate_referral_reward', function() {
         $msg = 'Twoja 1-miesięczna nagroda Premium została aktywowana!';
     }
 
-    /*
-     * =====================================================
-     * STEP 4: Decrease pending reward counter
-     * =====================================================
-     */
+    // Decrease pending counter
     $new_pending = max(0, $pending - 1);
     update_user_meta($user_id, 'pending_referral_rewards', $new_pending);
 
