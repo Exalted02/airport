@@ -47,41 +47,49 @@ function custom_flight_deal_details_shortcode() {
 
     // Prevent showing premium-only deals
 	$is_show = true;
-	$subscriptions = pms_get_member_subscriptions( array( 'user_id' => $user_id ) );
+	// $subscriptions = pms_get_member_subscriptions( array( 'user_id' => $user_id ) );
+	$subscriptions = pms_get_member_subscriptions( array(
+		'user_id' => $user_id,
+		'status'  => array('active','canceled')
+	) );
 	if ($deal->offer_type == 1) {
 		if (empty($subscriptions)) {
 			$is_show = false;
 		} else {
-			$sub = $subscriptions[0];
-			
-			//Get plan details
-			$plan = pms_get_subscription_plan( $sub->subscription_plan_id );
-			// echo '<pre>'; print_r($plan); echo '</pre>';exit;
-	
-			$status          = $sub->get_status(); // active / canceled
-			$billing_amount  = (float) $sub->billing_amount;
-			$expiration_date = !empty($sub->expiration_date)
-				? strtotime($sub->expiration_date)
-				: null;
+			foreach($subscriptions as $sub){
+				// Default: hide
+				$is_show = false;
 				
-			$today = strtotime(date('Y-m-d'));
+				// $sub = $subscriptions[0];
+				
+				//Get plan details
+				$plan = pms_get_subscription_plan( $sub->subscription_plan_id );
+				// echo '<pre>'; print_r($plan); echo '</pre>';exit;
+		
+				$status          = $sub->get_status(); // active / canceled
+				$billing_amount  = (float) $sub->billing_amount;
+				$expiration_date = !empty($sub->expiration_date)
+					? strtotime($sub->expiration_date)
+					: null;
+					
+				$today = strtotime(date('Y-m-d'));
 
-			// Default: hide
-			$is_show = false;
+				// Case 1: Active subscription with amount
+				if (($status === 'active' && $billing_amount != 0) || ($status === 'active' && $plan->price != 0)) {
+					$is_show = true;
+					break;
+				}
 
-			// Case 1: Active subscription with amount
-			if (($status === 'active' && $billing_amount != 0) || ($status === 'active' && $plan->price != 0)) {
-				$is_show = true;
-			}
-
-			// Case 2: Canceled, expired (<= today), amount not zero
-			if (
-				$status === 'canceled' &&
-				$billing_amount != 0 &&
-				$expiration_date !== null &&
-				$expiration_date >= $today
-			) {
-				$is_show = true;
+				// Case 2: Canceled, expired (<= today), amount not zero
+				if (
+					$status === 'canceled' &&
+					$plan->price != 0 &&
+					$expiration_date !== null &&
+					$expiration_date >= $today
+				) {
+					$is_show = true;
+					break;
+				}
 			}
 		}
 	}

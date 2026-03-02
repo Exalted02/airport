@@ -16,6 +16,10 @@ function my_subscription_status_shortcode() {
 
     // Pobierz subskrypcje (zwraca tablicę obiektów PMS_Member_Subscription)
     $subscriptions = pms_get_member_subscriptions( array( 'user_id' => $user_id ) );
+	/*$subscriptions = pms_get_member_subscriptions( array(
+		'user_id' => $user_id,
+		'status'  => 'active'
+	) );*/
 	ob_start();
 	
     ?>
