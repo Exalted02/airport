@@ -394,42 +394,24 @@ add_action('wp_ajax_activate_referral_reward', function() {
      */
     if ($premium_sub) {
 
-		$now = current_time('mysql');
+        $now = current_time('mysql');
 
-		// AUTO RENEWING SUBSCRIPTION
-		if (!empty($premium_sub->billing_next_payment)) {
+        if (!empty($premium_sub->expiration_date) && $premium_sub->expiration_date > $now) {
+            $base_date = $premium_sub->expiration_date;
+        } else {
+            $base_date = $now;
+        }
 
-			$base_date = ($premium_sub->billing_next_payment > $now)
-				? $premium_sub->billing_next_payment
-				: $now;
+        $new_exp = date('Y-m-d H:i:s', strtotime($base_date . ' +1 month'));
 
-			$new_next_payment = date('Y-m-d H:i:s', strtotime($base_date . ' +1 month'));
+        $premium_sub->update([
+            'status' => 'active',
+            'expiration_date' => $new_exp,
+            'billing_next_payment' => null, // prevent recurring duplication
+        ]);
 
-			$premium_sub->update([
-				'status' => 'active',
-				'billing_next_payment' => $new_next_payment
-			]);
-
-		} 
-		// NON AUTO RENEW / CANCELLED PREMIUM
-		else {
-
-			if (!empty($premium_sub->expiration_date) && $premium_sub->expiration_date > $now) {
-				$base_date = $premium_sub->expiration_date;
-			} else {
-				$base_date = $now;
-			}
-
-			$new_exp = date('Y-m-d H:i:s', strtotime($base_date . ' +1 month'));
-
-			$premium_sub->update([
-				// 'status' => 'active',
-				'expiration_date' => $new_exp
-			]);
-		}
-
-		$msg = 'Twój plan Premium został przedłużony o 1 miesiąc!';
-	}
+        $msg = 'Twój plan Premium został przedłużony o 1 miesiąc!';
+    }
 
     /*
      * =====================================================
